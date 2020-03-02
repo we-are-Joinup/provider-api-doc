@@ -1,17 +1,16 @@
 ---
-title: API Reference
+title: Joinup API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='mailto:desarrollo@joinup.es'>Contact to get the credentials</a>
+  - <a href='https://github.com/we-are-Joinup/provider-api-doc'>Source code of the documentation</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - success
   - errors
 
 search: true
@@ -19,221 +18,277 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+**Congrats** you are about to work with the most mobility friendly system:
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+    - Why do dragons sleep during the day?
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+    - So they can fight knights
 
-# Authentication
+**;-)**
 
-> To authorize, use this code:
+**Welcome** to the **Joinup API**!
 
-```ruby
-require 'kittn'
+You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+We have language bindings in Shell, but you can see use any programming language. You can view code examples in the dark area to the right.
 
-```python
-import kittn
+# URLs
 
-api = kittn.authorize('meowmeowmeow')
-```
+Host: In this documentation will be next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
+
+Every URL have next path prefix:  /api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/
+
+
+Parameter | Description
+--------- | -----------
+PROVIDER-SLUG | Identificator of your system
+PLATFORM | server
+VERSION | 3.0.0
+
+
+# Authentication, Authorization & Impersonate
+
+> To authorization, use this code when we are creating an user:
+
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: JWT beep-beep-beep-beep-beep"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):
 
-let api = kittn.authorize('meowmeowmeow');
+```shell
+curl "api_endpoint_here"
+  -H "Authorization: JWT beep-beep-beep-beep-beep"
+  -H "Impersonate: foo.bar@example.com"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `beep-beep-beep-beep-beep` with your private token.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Joinup API expects for the token to be included in all API requests to the server in a header that looks like the following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: beep-beep-beep-beep-beep`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
 
-# Kittens
+# Address
 
-## Get All Kittens
+### Address attributes
 
-```ruby
-require 'kittn'
+Parameter | Description
+--------- | -----------
+id | The ID of the address
+name | Name of the address
+pickup | Coordinates about this address (longitude, latitude)
+address | Postal address
+type | Type of address: home, work or general.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get All Address
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"
+  -H "Authorization: beep-beep-beep-beep-beep"
+  -H "Impersonate: foo.bar@example.com"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "id": 28542,
+    "name": "Joinup office",
+    "pickup": [
+      -3.6945,
+      40.40659
+    ],
+    "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+    "type": "work"
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    "id": 28543,
+    "name": "My home",
+    "pickup": [
+      -3.70208,
+      40.45036
+    ],
+    "address": "Calle Jaén, 10, Madrid, España",
+    "type": "home"
+  },
+  ...
+  {
+    "id": 38345,
+    "name": "NAME",
+    "pickup": [
+      LONGITUDE,
+      LATITUDE
+    ],
+    "address": "ADDRESS",
+    "type": "home|work|general"
+  },
+
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all address of an user.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
 
-### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+## Get an Address
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
+  -H "Authorization: beep-beep-beep-beep-beep"
+  -H "Impersonate: foo.bar@example.com"
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "id": 28542,
+  "name": "Joinup office",
+  "pickup": [
+    -3.6945,
+    40.40659
+  ],
+  "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+  "type": "work"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific address.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the address to retrieve
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Create an Address
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"
+  -H "Authorization: beep-beep-beep-beep-beep"
+  -H "Impersonate: foo.bar@example.com"
+  -H "Content-Type: application/json"
+  -d '{"name": "Joinup office", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id":28542,
+  "name": "Joinup office",
+  "pickup": [
+    -3.6945,
+    40.40659
+  ],
+  "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+  "type": "work"
+}
+```
+
+
+### HTTP Request
+
+`POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
+
+
+This endpoint creates a new address.
+
+## Edit an Address
+
+
+```shell
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
+  -X PUT
+  -H "Authorization: beep-beep-beep-beep-beep"
+  -H "Impersonate: foo.bar@example.com"
+  -H "Content-Type: application/json"
+  -d '{"name": "Joinup office (in Madrid)", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id":28542,
+  "name": "Joinup office (in Madrid)",
+  "pickup": [
+    -3.6945,
+    40.40659
+  ],
+  "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+  "type": "work"
+}
+```
+
+
+### HTTP Request
+
+`PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the address to retrieve
+
+
+This endpoint edit a current address of an user.
+
+
+## Delete an address
+
+
+```shell
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
   -X DELETE
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: beep-beep-beep-beep-beep"
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+> The above command does not return anything (status code 204 No Content).
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
+This endpoint deletes a specific address.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the address to delete
 
+
+## 40X Errors
+
+Error Code | Meaning
+---------- | -------
+400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
+404 | Not found -- Address does not found or this address belongs to another user
