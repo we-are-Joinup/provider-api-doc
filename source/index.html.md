@@ -45,6 +45,9 @@ PROVIDER-SLUG | Identificator of your system
 PLATFORM | server
 VERSION | 3.0.0
 
+# Configuration provider
+
+TODO
 
 # Authentication, Authorization & Impersonate
 
@@ -73,6 +76,26 @@ Joinup API expects for the token to be included in all API requests to the serve
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
+
+# Signup
+
+TODO
+
+# Profile
+
+TODO
+
+# Zone
+
+TODO
+
+# Service
+
+TODO
+
+# Places
+
+TODO
 
 # Address
 
