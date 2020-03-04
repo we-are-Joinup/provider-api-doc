@@ -225,7 +225,56 @@
             <a href="#urls" class="toc-h1 toc-link" data-title="URLs">URLs</a>
           </li>
           <li>
+            <a href="#configuration-provider" class="toc-h1 toc-link" data-title="Configuration provider">Configuration provider</a>
+          </li>
+          <li>
             <a href="#authentication-authorization-amp-impersonate" class="toc-h1 toc-link" data-title="Authentication, Authorization &amp; Impersonate">Authentication, Authorization &amp; Impersonate</a>
+          </li>
+          <li>
+            <a href="#signup" class="toc-h1 toc-link" data-title="Signup">Signup</a>
+          </li>
+          <li>
+            <a href="#validate-optional" class="toc-h1 toc-link" data-title="Validate (optional)">Validate (optional)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#validate-email" class="toc-h2 toc-link" data-title="Validate email">Validate email</a>
+                  </li>
+                  <li>
+                    <a href="#validate-phone" class="toc-h2 toc-link" data-title="Validate phone">Validate phone</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
+          </li>
+          <li>
+            <a href="#zone" class="toc-h1 toc-link" data-title="Zone">Zone</a>
+          </li>
+          <li>
+            <a href="#service" class="toc-h1 toc-link" data-title="Service">Service</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#services" class="toc-h2 toc-link" data-title="Services">Services</a>
+                  </li>
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#edit" class="toc-h2 toc-link" data-title="Edit">Edit</a>
+                  </li>
+                  <li>
+                    <a href="#current" class="toc-h2 toc-link" data-title="Current">Current</a>
+                  </li>
+                  <li>
+                    <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
+                  </li>
+                  <li>
+                    <a href="#vote-optional" class="toc-h2 toc-link" data-title="Vote (optional)">Vote (optional)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#places" class="toc-h1 toc-link" data-title="Places">Places</a>
           </li>
           <li>
             <a href="#address" class="toc-h1 toc-link" data-title="Address">Address</a>
@@ -286,7 +335,7 @@
 <h1 id='urls'>URLs</h1>
 <p>Host: In this documentation will be next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.</p>
 
-<p>Every URL have next path prefix:  /api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/</p>
+<p>Every URL have next path prefix:  /api/corporative-PROVIDER-PREFIX/apps/passenger/PLATFORM/VERSION/</p>
 
 <table><thead>
 <tr>
@@ -295,8 +344,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>PROVIDER-SLUG</td>
-<td>Identificator of your system</td>
+<td>PROVIDER-PREFIX</td>
+<td>Identificator of your system in our URL path</td>
 </tr>
 <tr>
 <td>PLATFORM</td>
@@ -307,6 +356,79 @@
 <td>3.0.0</td>
 </tr>
 </tbody></table>
+<h1 id='configuration-provider'>Configuration provider</h1>
+<p>We try to adapt to your system and for this reason we have several parameters that we can configure for you in our system.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Recomendation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>It is only a name.</td>
+<td>Name of your system</td>
+</tr>
+<tr>
+<td>Prefix</td>
+<td>URL prefix</td>
+<td>Slugify of name of your system</td>
+</tr>
+<tr>
+<td>Send mail</td>
+<td>If you want that our system send emails.e.g.: After signup</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Send sms</td>
+<td>If you want that our system send SMSs.e.g.: After signup</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Auto validate phone</td>
+<td>If you want that our system validate the phone of your users or if you want we trust in the validation in your system.</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Auto validate mail</td>
+<td>If you want that our system validate the e-mail of your users or if you want we trust in the validation in your system.</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Allow to vote</td>
+<td>If you want that your users can vote yours services in our system</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Default company</td>
+<td>Any passenger registered will be added to this company by default</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Allow companies</td>
+<td>Your system can registered an user of these companies (it can be useful for billing)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Area</td>
+<td>Your users may only request services in the area zones</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Association</td>
+<td>Any service requested by your users will be assigned to the indicated association</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Always services for association</td>
+<td>True: every service will be for the previous association. False: Only when pickup zone or destination zone will be a integration zone of this association</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p>Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.</p>
 <h1 id='authentication-authorization-amp-impersonate'>Authentication, Authorization &amp; Impersonate</h1>
 <blockquote>
 <p>To authorization, use this code when we are creating an user:</p>
@@ -332,7 +454,35 @@
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
-<h1 id='address'>Address</h1><h3 id='address-attributes'>Address attributes</h3>
+<h1 id='signup'>Signup</h1>
+<p>TODO</p>
+<h1 id='validate-optional'>Validate (optional)</h1>
+<p>Depends on configuration provider</p>
+<h2 id='validate-email'>Validate email</h2>
+<p>TODO</p>
+<h2 id='validate-phone'>Validate phone</h2>
+<p>TODO</p>
+<h1 id='profile'>Profile</h1>
+<p>TODO</p>
+<h1 id='zone'>Zone</h1>
+<p>TODO</p>
+<h1 id='service'>Service</h1><h2 id='services'>Services</h2>
+<p>TODO</p>
+<h2 id='request'>Request</h2>
+<p>TODO</p>
+<h2 id='edit'>Edit</h2>
+<p>TODO</p>
+<h2 id='current'>Current</h2>
+<p>TODO</p>
+<h2 id='cancel'>Cancel</h2>
+<p>TODO</p>
+<h2 id='vote-optional'>Vote (optional)</h2>
+<p>Depends on configuration provider</p>
+
+<p>TODO</p>
+<h1 id='places'>Places</h1>
+<p>TODO</p>
+<h1 id='address'>Address</h1><h2 id='address-attributes'>Address attributes</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
