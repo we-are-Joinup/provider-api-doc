@@ -246,6 +246,17 @@
           </li>
           <li>
             <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#profile-attributes" class="toc-h2 toc-link" data-title="Profile attributes">Profile attributes</a>
+                  </li>
+                  <li>
+                    <a href="#get-profile" class="toc-h2 toc-link" data-title="Get Profile">Get Profile</a>
+                  </li>
+                  <li>
+                    <a href="#edit-profile" class="toc-h2 toc-link" data-title="Edit profile">Edit profile</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#zone" class="toc-h1 toc-link" data-title="Zone">Zone</a>
@@ -275,6 +286,14 @@
           </li>
           <li>
             <a href="#places" class="toc-h1 toc-link" data-title="Places">Places</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#places-attributes" class="toc-h2 toc-link" data-title="Places attributes">Places attributes</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-places" class="toc-h2 toc-link" data-title="Get All Places">Get All Places</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#address" class="toc-h1 toc-link" data-title="Address">Address</a>
@@ -462,7 +481,25 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>TODO</p>
 <h2 id='validate-phone'>Validate phone</h2>
 <p>TODO</p>
-<h1 id='profile'>Profile</h1>
+<h1 id='profile'>Profile</h1><h2 id='profile-attributes'>Profile attributes</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>XX</td>
+<td>XXXX</td>
+</tr>
+<tr>
+<td>XX2</td>
+<td>XXXXX2</td>
+</tr>
+</tbody></table>
+<h2 id='get-profile'>Get Profile</h2>
+<p>TODO</p>
+<h2 id='edit-profile'>Edit profile</h2>
 <p>TODO</p>
 <h1 id='zone'>Zone</h1>
 <p>TODO</p>
@@ -480,8 +517,104 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>Depends on configuration provider</p>
 
 <p>TODO</p>
-<h1 id='places'>Places</h1>
-<p>TODO</p>
+<h1 id='places'>Places</h1><h2 id='places-attributes'>Places attributes</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the place</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the place</td>
+</tr>
+<tr>
+<td>location</td>
+<td>Coordinates about this place (longitude, latitude)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Postal address of the place</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-places'>Get All Places</h2>
+<p>This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position</p>
+<h3 id='query-parameters'>Query Parameters</h3><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
+curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>railstation or airport. With this parameter filter by train station or airport</td>
+<td>False</td>
+<td>Return airports &amp; train stations</td>
+</tr>
+<tr>
+<td>position</td>
+<td>With this parameter we get the places ordering by closer to this position (longitude, latitude)</td>
+<td>False</td>
+<td>Return places with random ordering</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto T1 - Salidas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mf">-3.5795833262939294</span><span class="p">,</span><span class="w">
+            </span><span class="mf">40.477378030587696</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid Barajas T2 salidas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mf">-3.5805006417767104</span><span class="p">,</span><span class="w">
+            </span><span class="mf">40.47390771493706</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of airport of train station"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postal address of airport of train station"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="err">longitude</span><span class="p">,</span><span class="w">
+            </span><span class="err">latitude</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/</code></p>
 <h1 id='address'>Address</h1><h2 id='address-attributes'>Address attributes</h2>
 <table><thead>
 <tr>
@@ -553,7 +686,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all address of an user.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 <h2 id='get-an-address'>Get an Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
   -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
@@ -574,7 +707,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific address.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -607,7 +740,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
@@ -631,7 +764,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -656,7 +789,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </blockquote>
 
 <p>This endpoint deletes a specific address.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
