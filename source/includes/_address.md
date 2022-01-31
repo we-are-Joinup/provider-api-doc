@@ -1,6 +1,6 @@
 # Address
 
-## Address attributes
+## Address attributes response
 
 Attribute | Description
 --------- | -----------

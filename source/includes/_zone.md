@@ -1,6 +1,6 @@
 # Zone
 
-## Zone attributes
+## Zone attributes response
 
 Attribute | Description
 --------- | -----------

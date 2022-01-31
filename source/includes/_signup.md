@@ -1,5 +1,14 @@
 # Signup
 
+### Signup attributes data
+
+Attribute | Description
+--------- | -----------
+email | XXXX
+first_name | XXXXX2
+last_name | XXXXX2
+phone | XXXXX2
+
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"
   -H "Authorization: beep-beep-beep-beep-beep"

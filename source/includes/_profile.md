@@ -1,7 +1,7 @@
 # Profile
 
-## Profile attributes 
-### Profile attributes (user)
+## Profile attributes response
+### Profile attributes response (user)
 
 Attribute | Description
 --------- | -----------
@@ -10,7 +10,7 @@ first_name | XXXXX2
 last_name | XXXXX2
 
 
-### Profile attributes (passenger)
+### Profile attributes response (passenger)
 
 Attribute | Description
 --------- | -----------
@@ -36,7 +36,7 @@ allow_taxi_request_company | XXXXX2
 default_way_to_pay | XXXXX2
 
 
-### Profile attributes (employee)
+### Profile attributes response (employee)
 
 Attribute | Description
 --------- | -----------
@@ -48,7 +48,7 @@ allow_milage | XXXXX2
 allow_joinup_parking | XXXXX2
 
 
-### Profile attributes (company)
+### Profile attributes response (company)
 
 Attribute | Description
 --------- | -----------

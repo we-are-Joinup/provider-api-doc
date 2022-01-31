@@ -1,6 +1,6 @@
 # Places
 
-## Places attributes
+## Places attributes response
 
 Parameter | Description
 --------- | -----------
