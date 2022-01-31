@@ -541,10 +541,76 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>400 | Bad Request -- Needs a required field</p>
 <h1 id='validate-optional'>Validate (optional)</h1>
 <p>Depends on configuration provider</p>
-<h2 id='validate-email'>Validate email</h2>
-<p>TODO</p>
-<h2 id='validate-phone'>Validate phone</h2>
-<p>TODO</p>
+<h2 id='validate-email'>Validate email</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  -X PUT
+  -d <span class="s1">'{
+      "email_code": "1234"
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="s2">"email_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/</code></p>
+<h3 id='success-code'>Success code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>200 | OK</p>
+<h3 id='40x-errors'>40X Errors</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>400 | Bad Request -- The email code is invalid</p>
+<h2 id='validate-phone'>Validate phone</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  -X PUT
+  -d <span class="s1">'{
+      "phone_code": "5678"
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="s2">"phone_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/</code></p>
+<h3 id='success-code-2'>Success code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>200 | OK</p>
+<h3 id='40x-errors-2'>40X Errors</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>400 | Bad Request -- The phone code is invalid</p>
 <h1 id='profile'>Profile</h1><h2 id='profile-attributes'>Profile attributes</h2><h3 id='profile-attributes-user'>Profile attributes (user)</h3>
 <table><thead>
 <tr>
