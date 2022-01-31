@@ -4,15 +4,15 @@
 
 
 ```shell
-curl "api_endpoint_here"
+curl "api_endpoint_here" \
   -H "Authorization: JWT beep-beep-beep-beep-beep"
 ```
 
 > Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):
 
 ```shell
-curl "api_endpoint_here"
-  -H "Authorization: JWT beep-beep-beep-beep-beep"
+curl "api_endpoint_here" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 

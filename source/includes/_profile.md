@@ -80,9 +80,9 @@ parking_img | XXXXX2
 ## Get Profile
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Content-Type: application/json"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER"
 ```
 
@@ -165,11 +165,11 @@ Status Code | Meaning
 ## Edit profile
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Content-Type: application/json"
-  -H "Impersonate: EMAIL_PASSENGER"
-  -X PUT
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Content-Type: application/json" \
+  -H "Impersonate: EMAIL_PASSENGER" \
+  -X PUT \
   -d '{
       "user": {
         "first_name":"Test",

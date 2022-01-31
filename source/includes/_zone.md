@@ -34,8 +34,8 @@ personal_taxi_types | XXX
 
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"
-  -H "Authorization: beep-beep-beep-beep-beep"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json"
 
 ```

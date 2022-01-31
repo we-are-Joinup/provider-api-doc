@@ -81,11 +81,11 @@ rate_data        | XXX
 ## Create Service
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Content-Type: application/json"
-  -H "Impersonate: EMAIL_PASSENGER"
-  -X POST
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Content-Type: application/json" \
+  -H "Impersonate: EMAIL_PASSENGER" \
+  -X POST \
   -d '{
     "reservation": false,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
@@ -187,11 +187,11 @@ Error Code | Meaning
 ## Edit
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Content-Type: application/json"
-  -H "Impersonate: EMAIL_PASSENGER"
-  -X PUT
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Content-Type: application/json" \
+  -H "Impersonate: EMAIL_PASSENGER" \
+  -X PUT \
   -d '{
     "reservation": true,
     "pickup_address": "Paseo del Prado, 26 Madrid España",

@@ -13,8 +13,8 @@ type | Type of address: home, work or general.
 ## Get All Address
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"
-  -H "Authorization: beep-beep-beep-beep-beep"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 
@@ -69,8 +69,8 @@ This endpoint retrieves all address of an user.
 
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
-  -H "Authorization: beep-beep-beep-beep-beep"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 
@@ -110,11 +110,18 @@ ID | The ID of the address to retrieve
 
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Impersonate: foo.bar@example.com"
-  -H "Content-Type: application/json"
-  -d '{"name": "Joinup office", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Impersonate: foo.bar@example.com" \ 
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Joinup office",
+    "pickup": [
+      -3.6945, 40.40659
+    ],
+    "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+    "type": "work"
+  }'
 ```
 
 
@@ -145,12 +152,19 @@ This endpoint creates a new address.
 
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
-  -X PUT
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Impersonate: foo.bar@example.com"
-  -H "Content-Type: application/json"
-  -d '{"name": "Joinup office (in Madrid)", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
+  -X PUT \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Impersonate: foo.bar@example.com" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Joinup office (in Madrid)",
+    "pickup": [
+      -3.6945, 40.40659
+    ], 
+    "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+    "type": "work"
+  }'
 ```
 
 
@@ -188,8 +202,8 @@ This endpoint edit a current address of an user.
 
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"
-  -X DELETE
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"\
+  -X DELETE \
   -H "Authorization: beep-beep-beep-beep-beep"
 ```
 

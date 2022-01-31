@@ -17,8 +17,8 @@ This endpoint retrieves all places (train station and / or airports). You can fi
 
 ```shell
 # Airports closer to Atocha
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&position=-3.681477,40.398396"
-  -H "Authorization: beep-beep-beep-beep-beep"
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&position=-3.681477,40.398396" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 

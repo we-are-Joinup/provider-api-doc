@@ -10,10 +10,10 @@ last_name | XXXXX2
 phone | XXXXX2
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"
-  -H "Authorization: beep-beep-beep-beep-beep"
-  -H "Content-Type: application/json"
-  -X POST
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/" \
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Content-Type: application/json" \
+  -X POST \
   -d '{
       "email":"test@example.com", 
       "first_name":"Test",
