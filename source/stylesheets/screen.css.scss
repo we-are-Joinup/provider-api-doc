@@ -632,7 +632,7 @@ html, body {
   opacity: 0.8;
 }
 
-.introduction, .integrations, .urls, .config {
+.introduction, .integrations, .urls, .config, .success, .errors {
   background-color: $main-bg;
   padding-bottom: 14px;
   &.content {
