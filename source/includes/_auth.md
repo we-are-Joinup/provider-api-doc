@@ -8,12 +8,84 @@ curl "api_endpoint_here" \
   -H "Authorization: JWT beep-beep-beep-beep-beep"
 ```
 
+```python
+import requests
+
+headers = {
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
+}
+
+response = requests.get('http://api_endpoint_here', headers=headers)
+```
+
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("api_endpoint_here");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 > Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):
 
 ```shell
 curl "api_endpoint_here" \
   -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
+```
+```python
+import requests
+
+headers = {
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
+    'Impersonate': 'foo.bar@example.com',
+}
+
+response = requests.get('http://api_endpoint_here', headers=headers)
+```
+
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("api_endpoint_here");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
 ```
 
 > Make sure to replace `beep-beep-beep-beep-beep` with your private token.

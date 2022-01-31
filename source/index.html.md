@@ -3,6 +3,8 @@ title: Joinup API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
+  - python
+  - java
 
 toc_footers:
   - <a href='mailto:desarrollo@joinup.es'>Contact to get the credentials</a>
