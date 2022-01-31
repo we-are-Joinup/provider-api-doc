@@ -316,7 +316,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#integrations" class="toc-h1 toc-link" data-title="Integrations">Integrations</a>
+            <a href="#integration-types" class="toc-h1 toc-link" data-title="Integration types">Integration types</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#server-to-server" class="toc-h2 toc-link" data-title="Server to server">Server to server</a>
@@ -499,20 +499,23 @@
 <p>You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.</p>
 
 <p>We have language bindings in Shell, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
-<h1 id='integrations'>Integrations</h1>
+<h1 id='integration-types'>Integration types</h1>
 <p>You can integrated with us of several ways. In this documentation, we will focus on Server to server integration, but you must know that we have another ways to connect with us. In client to server integration the endpoints are the same, almost everything is the same, but for example the AAI (Authentication and authorization infrastructure) is different or we don&#39;t need an own push system.</p>
 <h2 id='server-to-server'>Server to server</h2>
 <p>You can choose between two ways:</p>
 
-<p>- Connecting with us using a generic user. 
-    - Every request uses the end-user to authorize (see more info in <i>Authentication, Authorization &amp; Impersonate<i> section)</p>
+<p>- Connecting with us using a generic user. </p>
+
+<p>- Every request uses the end-user to authorize (see more info in <i>Authentication, Authorization &amp; Impersonate</i> section)</p>
 <h2 id='client-to-server'>Client to server</h2>
-<p>You can choose between two ways:
-    - Own development.
-    - We can do a clone web and app for you. We can do it very quicly</p>
+<p>You can choose between two ways:</p>
+
+<p>- Own development.</p>
+
+<p>- We can do a clone web and app for you. We can do it very quicly</p>
 <h1 id='urls'>URLs</h1>
 <aside class="notice">
-    In this documentation will be next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
+    In this documentation will use next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
 </aside>
 
 <p>Every URL have next path prefix:  /api/corporative-PROVIDER-PREFIX/apps/passenger/PLATFORM/VERSION/</p>
