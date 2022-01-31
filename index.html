@@ -232,6 +232,17 @@
           </li>
           <li>
             <a href="#signup" class="toc-h1 toc-link" data-title="Signup">Signup</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
+                  </li>
+                  <li>
+                    <a href="#40x-errors" class="toc-h2 toc-link" data-title="40X Errors">40X Errors</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#validate-optional" class="toc-h1 toc-link" data-title="Validate (optional)">Validate (optional)</a>
@@ -254,12 +265,32 @@
                     <a href="#get-profile" class="toc-h2 toc-link" data-title="Get Profile">Get Profile</a>
                   </li>
                   <li>
+                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
+                  </li>
+                  <li>
                     <a href="#edit-profile" class="toc-h2 toc-link" data-title="Edit profile">Edit profile</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#zone" class="toc-h1 toc-link" data-title="Zone">Zone</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#zone-attributes" class="toc-h2 toc-link" data-title="Zone attributes">Zone attributes</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
+                  </li>
+                  <li>
+                    <a href="#40x-errors" class="toc-h2 toc-link" data-title="40X Errors">40X Errors</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#service" class="toc-h1 toc-link" data-title="Service">Service</a>
@@ -473,36 +504,593 @@
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
-<h1 id='signup'>Signup</h1>
-<p>TODO</p>
+<h1 id='signup'>Signup</h1><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -X POST
+  -d <span class="s1">'{
+      "email":"test@example.com", 
+      "first_name":"Test",
+      "last_name": "Foo",
+      "phone": "+34123456780"
+  }'</span>
+
+</code></pre><h2 id='http-request'>HTTP Request</h2>
+<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
+
+<p>This endpoint creates a new passenger, a new user.</p>
+<h2 id='success-code'>Success code</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>201 | Created</p>
+<h2 id='40x-errors'>40X Errors</h2>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>400 | Bad Request -- Needs a required field</p>
 <h1 id='validate-optional'>Validate (optional)</h1>
 <p>Depends on configuration provider</p>
 <h2 id='validate-email'>Validate email</h2>
 <p>TODO</p>
 <h2 id='validate-phone'>Validate phone</h2>
 <p>TODO</p>
-<h1 id='profile'>Profile</h1><h2 id='profile-attributes'>Profile attributes</h2>
+<h1 id='profile'>Profile</h1><h2 id='profile-attributes'>Profile attributes</h2><h3 id='profile-attributes-user'>Profile attributes (user)</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Attribute</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>XX</td>
+<td>username</td>
 <td>XXXX</td>
 </tr>
 <tr>
-<td>XX2</td>
+<td>first_name</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>last_name</td>
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h2 id='get-profile'>Get Profile</h2>
-<p>TODO</p>
-<h2 id='edit-profile'>Edit profile</h2>
-<p>TODO</p>
-<h1 id='zone'>Zone</h1>
-<p>TODO</p>
+<h3 id='profile-attributes-passenger'>Profile attributes (passenger)</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone</td>
+<td>XXXX</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>is_phone_validated</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>is_email_validated</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>vote</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>dialcode</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>co2_not_emitted</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>saved_money</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>can_impersonate</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>has_personal_credit_card_valid</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>has_employee_credit_card_valid</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>required_personal_credit_card</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_cancellation_required_personal_stripe_enabled</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_cancellation_enabled</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_fixed_rate</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>can_test_request</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_taxi_request_personal</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_taxi_request_company</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>default_way_to_pay</td>
+<td>XXXXX2</td>
+</tr>
+</tbody></table>
+<h3 id='profile-attributes-employee'>Profile attributes (employee)</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cost_center</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>has_deferred_employees</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_fields</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>default_travel_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_milage</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_joinup_parking</td>
+<td>XXXXX2</td>
+</tr>
+</tbody></table>
+<h3 id='profile-attributes-company'>Profile attributes (company)</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>credit_payment</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>has_service_reasons</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>default_travel_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_center</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_center_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>vote_required</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_center_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>pin_required</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>default_travel_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>auto_geolocalize</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>cost_center_type</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>card_charge</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_1_visibility</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_2_visibility</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_3_visibility</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_1_label</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_2_label</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>extra_text_3_label</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>allow_fixed_rate</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>milage_km_cost_str</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>percent_to_settle_str</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>parking_img</td>
+<td>XXXXX2</td>
+</tr>
+</tbody></table>
+<h2 id='get-profile'>Get Profile</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 123 456 789"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_phone_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_email_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dialcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"co2_not_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"saved_money"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"can_impersonate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_personal_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_employee_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"required_personal_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cost_cancellation_required_personal_stripe_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cost_cancellation_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"can_test_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
+
+<p>This endpoint get the passenger profile.</p>
+<h2 id='success-code'>Success code</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>200 | OK</p>
+<h2 id='edit-profile'>Edit profile</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  -X PUT
+  -d <span class="s1">'{
+      "user": {
+        "first_name":"Test",
+        "last_name": "Foo"
+      },
+      "phone": "+34123456780",
+      "gender": "male"
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34123456780"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
+
+<p>This endpoint update several attributes of the passenger profile.</p>
+<h1 id='zone'>Zone</h1><h2 id='zone-attributes'>Zone attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the zone</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the zone</td>
+</tr>
+<tr>
+<td>delegate_always</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>immediates</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>reservations</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>destination_required</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_six_seats</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_eco</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_electric_car</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_high_end</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_screen</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_adapted</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_integrated_taxi</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_integrated_vtc</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>min_time_request_reservation_integrated_moto</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>allow_comments</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>only_credit_service</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>test_zone</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>need_place_info</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>taxis</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>enabled_rate_type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>only_credit_service_fixed_rate</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>has_cost_cancellation_inmmediates_enabled</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>has_cost_cancellation_reservations_enabled</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>company_taxi_types</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>personal_taxi_types</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span>
+  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATOCHA"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delegate_always"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"immediates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"destination_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_six_seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_eco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_electric_car"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_high_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_screen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_adapted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_integrated_taxi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_integrated_vtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_time_request_reservation_integrated_moto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allow_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"only_credit_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"test_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"need_place_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"railstation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"taxis"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"enabled_rate_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"only_credit_service_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_cost_cancellation_inmmediates_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_cost_cancellation_reservations_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"conventional"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"personal_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"conventional"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='query-parameters'>Query Parameters</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>position</td>
+<td>XXX</td>
+<td>True</td>
+</tr>
+</tbody></table>
+<h2 id='http-request'>HTTP Request</h2>
+<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693</code></p>
+
+<p>This endpoint returns the configuration of a zone.</p>
+<h2 id='success-code'>Success code</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>200 | OK</p>
+<h2 id='40x-errors'>40X Errors</h2>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>400 | Bad Request -- Out of zone XXX</p>
 <h1 id='service'>Service</h1><h2 id='services'>Services</h2>
 <p>TODO</p>
 <h2 id='request'>Request</h2>
@@ -618,7 +1206,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <h1 id='address'>Address</h1><h2 id='address-attributes'>Address attributes</h2>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Attribute</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -686,7 +1274,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all address of an user.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 <h2 id='get-an-address'>Get an Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
   -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
@@ -707,7 +1295,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific address.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -740,7 +1328,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
@@ -764,7 +1352,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -789,7 +1377,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </blockquote>
 
 <p>This endpoint deletes a specific address.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -856,7 +1444,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- Your API key is wrong or it was not provided.</td>
 </tr>
 <tr>
 <td>403</td>
