@@ -5,9 +5,13 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Joinup API"
+        >
     <title>Joinup API Reference</title>
 
-    <style>
+    <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
@@ -42,7 +46,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -126,7 +130,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -141,16 +145,13 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
 }
 .highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
   color: #ffffff;
 }
 .highlight .ni {
@@ -165,7 +166,7 @@
 .highlight .vi {
   color: #ffffff;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
 }
 .highlight .w {
@@ -176,6 +177,9 @@
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
 }
 .highlight .ow {
   color: #f92672;
@@ -196,20 +200,110 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-a1ce949a.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-c5541673.js"></script>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-829d989f.png" class="logo" alt="Logo" />
+      <img src="images/logo-829d989f.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -417,7 +511,9 @@
     - Own development.
     - We can do a clone web and app for you. We can do it very quicly</p>
 <h1 id='urls'>URLs</h1>
-<p>Host: In this documentation will be next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.</p>
+<aside class="notice">
+    In this documentation will be next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
+</aside>
 
 <p>Every URL have next path prefix:  /api/corporative-PROVIDER-PREFIX/apps/passenger/PLATFORM/VERSION/</p>
 
@@ -517,16 +613,16 @@
 <blockquote>
 <p>To authorization, use this code when we are creating an user:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
+</code></pre></div>
 <blockquote>
 <p>Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>beep-beep-beep-beep-beep</code> with your private token.</p>
 </blockquote>
@@ -562,18 +658,18 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -X POST
-  -d <span class="s1">'{
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-d</span> <span class="s1">'{
       "email":"test@example.com", 
       "first_name":"Test",
       "last_name": "Foo",
       "phone": "+34123456780"
   }'</span>
 
-</code></pre><h2 id='http-request'>HTTP Request</h2>
+</code></pre></div><h2 id='http-request'>HTTP Request</h2>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
 <p>This endpoint creates a new passenger, a new user.</p>
@@ -599,20 +695,20 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>400 | Bad Request -- Needs a required field</p>
 <h1 id='validate-optional'>Validate (optional)</h1>
 <p>Depends on configuration provider</p>
-<h2 id='validate-email'>Validate email</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  -X PUT
-  -d <span class="s1">'{
+<h2 id='validate-email'>Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  <span class="nt">-X</span> PUT
+  <span class="nt">-d</span> <span class="s1">'{
       "email_code": "1234"
   }'</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="s2">"email_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"email_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/</code></p>
 <h3 id='success-code'>Success code</h3>
 <table><thead>
@@ -634,20 +730,20 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='validate-phone'>Validate phone</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  -X PUT
-  -d <span class="s1">'{
+<h2 id='validate-phone'>Validate phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  <span class="nt">-X</span> PUT
+  <span class="nt">-d</span> <span class="s1">'{
       "phone_code": "5678"
   }'</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="s2">"phone_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"phone_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/</code></p>
 <h3 id='success-code-2'>Success code</h3>
 <table><thead>
@@ -909,72 +1005,72 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h2 id='get-profile'>Get Profile</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-</code></pre>
+<h2 id='get-profile'>Get Profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 123 456 789"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_phone_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_email_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"dialcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"co2_not_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"saved_money"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"can_impersonate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"has_personal_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"has_employee_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"required_personal_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cost_cancellation_required_personal_stripe_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cost_cancellation_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"can_test_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-  </span><span class="s2">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 123 456 789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_phone_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_email_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dialcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"co2_not_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"saved_money"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"can_impersonate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_personal_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_employee_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"required_personal_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cost_cancellation_required_personal_stripe_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cost_cancellation_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"can_test_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
   </span><span class="p">},</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
 <p>This endpoint get the passenger profile.</p>
@@ -988,12 +1084,12 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>200 | OK</p>
-<h2 id='edit-profile'>Edit profile</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  -X PUT
-  -d <span class="s1">'{
+<h2 id='edit-profile'>Edit profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  <span class="nt">-X</span> PUT
+  <span class="nt">-d</span> <span class="s1">'{
       "user": {
         "first_name":"Test",
         "last_name": "Foo"
@@ -1001,20 +1097,20 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
       "phone": "+34123456780",
       "gender": "male"
   }'</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34123456780"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34123456780"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
 
 <p>This endpoint update several attributes of the passenger profile.</p>
@@ -1134,50 +1230,50 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATOCHA"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"delegate_always"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"immediates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"destination_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_six_seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_eco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_electric_car"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_high_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_screen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_adapted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_integrated_taxi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_integrated_vtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"min_time_request_reservation_integrated_moto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"allow_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"only_credit_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"test_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"need_place_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"railstation"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"taxis"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"enabled_rate_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"only_credit_service_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"has_cost_cancellation_inmmediates_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"has_cost_cancellation_reservations_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"company_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATOCHA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delegate_always"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"immediates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"destination_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_six_seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_eco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_electric_car"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_high_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_screen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_adapted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_taxi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_vtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_moto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"only_credit_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"test_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"need_place_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"railstation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"taxis"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"enabled_rate_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"only_credit_service_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_cost_cancellation_inmmediates_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_cost_cancellation_reservations_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"company_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"conventional"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"personal_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"personal_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"conventional"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='query-parameters'>Query Parameters</h2>
+</span></code></pre></div><h2 id='query-parameters'>Query Parameters</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1487,12 +1583,12 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h2 id='create-service'>Create Service</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  -X POST
-  -d <span class="s1">'{
+<h2 id='create-service'>Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-d</span> <span class="s1">'{
     "reservation": false,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
     "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
@@ -1523,53 +1619,53 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
     "original_service_id": null,
     "observations": ""
     }'</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440214</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439930</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440214</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439930</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="mf">-3.693407</span><span class="p">,</span><span class="w">
         </span><span class="mf">40.4121412</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-31T11:24:11.169761Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo del Prado, 26 Madrid España"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pickup_place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"destination_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="nl">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-31T11:24:11.169761Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo del Prado, 26 Madrid España"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pickup_place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"destination_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="mf">-3.7121572</span><span class="p">,</span><span class="w">
         </span><span class="mf">40.4343557</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nl">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/</code></p>
 <h3 id='success-code'>Success code</h3>
 <table><thead>
@@ -1591,12 +1687,12 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='edit'>Edit</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -H <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  -X PUT
-  -d <span class="s1">'{
+<h2 id='edit'>Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+  <span class="nt">-X</span> PUT
+  <span class="nt">-d</span> <span class="s1">'{
     "reservation": true,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
     "pickup_date": "2022-02-02T10:15:00.000Z",
@@ -1628,53 +1724,53 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
     "original_service_id": null,
     "observations": ""
     }'</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440218</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439934</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440218</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439934</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mf">-3.693407</span><span class="p">,</span><span class="w">
       </span><span class="mf">40.4121412</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T10:15:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo del Prado, 26 Madrid España"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup_place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"destination_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T10:15:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo del Prado, 26 Madrid España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"destination_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mf">-3.7121572</span><span class="p">,</span><span class="w">
       </span><span class="mf">40.4343557</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>PUT &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -1724,11 +1820,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 <h2 id='get-all-places'>Get All Places</h2>
 <p>This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position</p>
-<h3 id='query-parameters'>Query Parameters</h3><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
+<h3 id='query-parameters'>Query Parameters</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
 curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-</code></pre>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1754,26 +1850,26 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto T1 - Salidas"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto T1 - Salidas"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="mf">-3.5795833262939294</span><span class="p">,</span><span class="w">
             </span><span class="mf">40.477378030587696</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid Barajas T2 salidas"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid T2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aeropuerto Madrid Barajas T2 salidas"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="mf">-3.5805006417767104</span><span class="p">,</span><span class="w">
             </span><span class="mf">40.47390771493706</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -1781,12 +1877,12 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of airport of train station"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postal address of airport of train station"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of airport of train station"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postal address of airport of train station"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="err">longitude</span><span class="p">,</span><span class="w">
             </span><span class="err">latitude</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -1794,7 +1890,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="p">},</span><span class="w">
 
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/</code></p>
 <h1 id='address'>Address</h1><h2 id='address-attributes-response'>Address attributes response</h2>
 <table><thead>
@@ -1824,69 +1920,69 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Type of address: home, work or general.</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-address'>Get All Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-</code></pre>
+<h2 id='get-all-address'>Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28542</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28542</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mf">-3.6945</span><span class="p">,</span><span class="w">
       </span><span class="mf">40.40659</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28543</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My home"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28543</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My home"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mf">-3.70208</span><span class="p">,</span><span class="w">
       </span><span class="mf">40.45036</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Jaén, 10, Madrid, España"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Jaén, 10, Madrid, España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38345</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NAME"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38345</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="err">LONGITUDE</span><span class="p">,</span><span class="w">
       </span><span class="err">LATITUDE</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADDRESS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home|work|general"</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADDRESS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home|work|general"</span><span class="w">
   </span><span class="p">},</span><span class="w">
 
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>This endpoint retrieves all address of an user.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
-<h2 id='get-an-address'>Get an Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-</code></pre>
+<h2 id='get-an-address'>Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28542</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28542</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mf">-3.6945</span><span class="p">,</span><span class="w">
     </span><span class="mf">40.40659</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>This endpoint retrieves a specific address.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
@@ -1902,50 +1998,50 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='create-an-address'>Create an Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -d <span class="s1">'{"name": "Joinup office", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
-</code></pre>
+<h2 id='create-an-address'>Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-d</span> <span class="s1">'{"name": "Joinup office", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">28542</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">28542</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mf">-3.6945</span><span class="p">,</span><span class="w">
     </span><span class="mf">40.40659</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
-<h2 id='edit-an-address'>Edit an Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  -X PUT
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  -H <span class="s2">"Impersonate: foo.bar@example.com"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -d <span class="s1">'{"name": "Joinup office (in Madrid)", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
-</code></pre>
+<h2 id='edit-an-address'>Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
+  <span class="nt">-X</span> PUT
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-d</span> <span class="s1">'{"name": "Joinup office (in Madrid)", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">28542</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office (in Madrid)"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">28542</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joinup office (in Madrid)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="mf">-3.6945</span><span class="p">,</span><span class="w">
     </span><span class="mf">40.40659</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -1961,10 +2057,10 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tbody></table>
 
 <p>This endpoint edit a current address of an user.</p>
-<h2 id='delete-an-address'>Delete an address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-</code></pre>
+<h2 id='delete-an-address'>Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
+  <span class="nt">-X</span> DELETE
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+</code></pre></div>
 <blockquote>
 <p>The above command does not return anything (status code 204 No Content).</p>
 </blockquote>
