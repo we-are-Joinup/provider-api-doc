@@ -631,3 +631,13 @@ html, body {
 .copy-clipboard:hover {
   opacity: 0.8;
 }
+
+.introduction, .integrations, .urls, .config {
+  background-color: $main-bg;
+  padding-bottom: 14px;
+  &.content {
+    &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+      margin-right: 0;
+    }
+  }
+}
