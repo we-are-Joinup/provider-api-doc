@@ -12,4 +12,4 @@
 
 You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.
 
-We have language bindings in Shell, but you can see use any programming language. You can view code examples in the dark area to the right.
+We have language bindings in Shell, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.
