@@ -2,7 +2,7 @@
 
 ## Address attributes
 
-Parameter | Description
+Attribute | Description
 --------- | -----------
 id | The ID of the address
 name | Name of the address
