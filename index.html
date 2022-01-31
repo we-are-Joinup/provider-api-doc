@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="images/favicon-7af61118.png">
         <meta
             name="description"
             content="Documentation for the Joinup API"
@@ -286,16 +287,16 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-b0ddc9c9.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-b12a2749.js"></script>
+      <script src="javascripts/all-129ee89a.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -306,6 +307,8 @@
       <img src="images/logo-829d989f.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="java">java</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -484,8 +487,7 @@
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+      <div class='content introduction'><h1 id='introduction'>Introduction</h1>
 <p><strong>Congrats</strong> you are about to work with the most mobility friendly system:</p>
 
 <p>- Why do dragons sleep during the day?</p>
@@ -499,7 +501,7 @@
 <p>You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.</p>
 
 <p>We have language bindings in Shell, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
-<h1 id='integration-types'>Integration types</h1>
+</div><div class='content integrations'><h1 id='integration-types'>Integration types</h1>
 <p>You can integrated with us of several ways. In this documentation, we will focus on Server to server integration, but you must know that we have another ways to connect with us. In client to server integration the endpoints are the same, almost everything is the same, but for example the AAI (Authentication and authorization infrastructure) is different or we don&#39;t need an own push system.</p>
 <h2 id='server-to-server'>Server to server</h2>
 <p>You can choose between two ways:</p>
@@ -513,7 +515,7 @@
 <p>- Own development.</p>
 
 <p>- We can do a clone web and app for you. We can do it very quicly</p>
-<h1 id='urls'>URLs</h1>
+</div><div class='content urls'><h1 id='urls'>URLs</h1>
 <aside class="notice">
     In this documentation will use next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
 </aside>
@@ -539,7 +541,7 @@
 <td>3.0.0</td>
 </tr>
 </tbody></table>
-<h1 id='configuration-provider'>Configuration provider</h1>
+</div><div class='content config'><h1 id='configuration-provider'>Configuration provider</h1>
 <p>We try to adapt to your system and for this reason we have several parameters that we can configure for you in our system.</p>
 
 <table><thead>
@@ -612,19 +614,81 @@
 </tbody></table>
 
 <p>Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.</p>
-<h1 id='authentication-authorization-amp-impersonate'>Authentication, Authorization &amp; Impersonate</h1>
+</div><div class='content auth'><h1 id='authentication-authorization-amp-impersonate'>Authentication, Authorization &amp; Impersonate</h1>
 <blockquote>
 <p>To authorization, use this code when we are creating an user:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT beep-beep-beep-beep-beep'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://api_endpoint_here'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"api_endpoint_here"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"JWT beep-beep-beep-beep-beep"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://api_endpoint_here'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"api_endpoint_here"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"JWT beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>beep-beep-beep-beep-beep</code> with your private token.</p>
@@ -637,7 +701,7 @@
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
-<h1 id='signup'>Signup</h1><h3 id='signup-attributes-data'>Signup attributes data</h3>
+</div><div class='content signup'><h1 id='signup'>Signup</h1><h3 id='signup-attributes-data'>Signup attributes data</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -661,10 +725,10 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-X</span> POST
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
       "email":"test@example.com", 
       "first_name":"Test",
@@ -696,13 +760,13 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- Needs a required field</p>
-<h1 id='validate-optional'>Validate (optional)</h1>
+</div><div class='content validate'><h1 id='validate-optional'>Validate (optional)</h1>
 <p>Depends on configuration provider</p>
-<h2 id='validate-email'>Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  <span class="nt">-X</span> PUT
+<h2 id='validate-email'>Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
       "email_code": "1234"
   }'</span>
@@ -733,11 +797,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='validate-phone'>Validate phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  <span class="nt">-X</span> PUT
+<h2 id='validate-phone'>Validate phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
       "phone_code": "5678"
   }'</span>
@@ -768,7 +832,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- The phone code is invalid</p>
-<h1 id='profile'>Profile</h1><h2 id='profile-attributes-response'>Profile attributes response</h2><h3 id='profile-attributes-response-user'>Profile attributes response (user)</h3>
+</div><div class='content profile'><h1 id='profile'>Profile</h1><h2 id='profile-attributes-response'>Profile attributes response</h2><h3 id='profile-attributes-response-user'>Profile attributes response (user)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1008,9 +1072,9 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h2 id='get-profile'>Get Profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+<h2 id='get-profile'>Get Profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
 </code></pre></div>
 <blockquote>
@@ -1087,11 +1151,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>200 | OK</p>
-<h2 id='edit-profile'>Edit profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  <span class="nt">-X</span> PUT
+<h2 id='edit-profile'>Edit profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
       "user": {
         "first_name":"Test",
@@ -1117,7 +1181,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
 
 <p>This endpoint update several attributes of the passenger profile.</p>
-<h1 id='zone'>Zone</h1><h2 id='zone-attributes-response'>Zone attributes response</h2>
+</div><div class='content zone'><h1 id='zone'>Zone</h1><h2 id='zone-attributes-response'>Zone attributes response</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1233,8 +1297,8 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 
 </code></pre></div>
@@ -1314,7 +1378,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- Out of zone XXX</p>
-<h1 id='service'>Service</h1><h2 id='service-attributes-request'>Service attributes request</h2>
+</div><div class='content service'><h1 id='service'>Service</h1><h2 id='service-attributes-request'>Service attributes request</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1586,11 +1650,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h2 id='create-service'>Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  <span class="nt">-X</span> POST
+<h2 id='create-service'>Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
     "reservation": false,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
@@ -1690,11 +1754,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tbody></table>
 
 <p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='edit'>Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-  <span class="nt">-X</span> PUT
+<h2 id='edit'>Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
     "reservation": true,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
@@ -1797,7 +1861,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>Depends on configuration provider</p>
 
 <p>TODO</p>
-<h1 id='places'>Places</h1><h2 id='places-attributes-response'>Places attributes response</h2>
+</div><div class='content places'><h1 id='places'>Places</h1><h2 id='places-attributes-response'>Places attributes response</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1824,8 +1888,8 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <h2 id='get-all-places'>Get All Places</h2>
 <p>This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position</p>
 <h3 id='query-parameters'>Query Parameters</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
-curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
 <table><thead>
@@ -1895,7 +1959,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/</code></p>
-<h1 id='address'>Address</h1><h2 id='address-attributes-response'>Address attributes response</h2>
+</div><div class='content address'><h1 id='address'>Address</h1><h2 id='address-attributes-response'>Address attributes response</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1923,8 +1987,8 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Type of address: home, work or general.</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-address'>Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+<h2 id='get-all-address'>Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
 <blockquote>
@@ -1968,8 +2032,8 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <p>This endpoint retrieves all address of an user.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
-<h2 id='get-an-address'>Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+<h2 id='get-an-address'>Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
 <blockquote>
@@ -2001,11 +2065,18 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='create-an-address'>Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-d</span> <span class="s1">'{"name": "Joinup office", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
+<h2 id='create-an-address'>Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\ </span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "name": "Joinup office",
+    "pickup": [
+      -3.6945, 40.40659
+    ],
+    "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+    "type": "work"
+  }'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2024,12 +2095,19 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
-<h2 id='edit-an-address'>Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  <span class="nt">-X</span> PUT
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-d</span> <span class="s1">'{"name": "Joinup office (in Madrid)", "pickup": [-3.6945, 40.40659], "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España", "type": "work"}'</span>
+<h2 id='edit-an-address'>Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "name": "Joinup office (in Madrid)",
+    "pickup": [
+      -3.6945, 40.40659
+    ], 
+    "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
+    "type": "work"
+  }'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2060,8 +2138,8 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tbody></table>
 
 <p>This endpoint edit a current address of an user.</p>
-<h2 id='delete-an-address'>Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span>
-  <span class="nt">-X</span> DELETE
+<h2 id='delete-an-address'>Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
 </code></pre></div>
 <blockquote>
@@ -2099,7 +2177,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Not found -- Address does not found or this address belongs to another user</td>
 </tr>
 </tbody></table>
-<h1 id='success-codes'>Success codes</h1>
+</div><div class='content success'><h1 id='success-codes'>Success codes</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
@@ -2121,7 +2199,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>No Content -- A status code and a header are given in the response, but there is no entity-body in the reply.</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+</div><div class='content errors'><h1 id='errors'>Errors</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
@@ -2175,11 +2253,12 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
-
-      </div>
+</div>
       <div class="dark-box">
-          <div class="lang-selector">
+          <div class="lang-selector" style="display:none">
                 <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="java">java</a>
           </div>
       </div>
     </div>
