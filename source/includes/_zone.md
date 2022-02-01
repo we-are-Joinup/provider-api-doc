@@ -101,4 +101,4 @@ position | XXX |  True
 Status Code | Meaning
 ---------- | -------
 200 | OK
-400 | Bad Request -- Out of zone XXX
+400 | Bad Request -- Point (position) out of zone (Users cannot request a Joinup in this point)

@@ -178,7 +178,7 @@ rate_data        | XXX
 Status Code | Meaning
 ---------- | -------
 200 | OK
-400 | Bad Request -- XXX
+400 | Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field `min_time_request_reservation_*`
 
 ## 10.2 Edit
 

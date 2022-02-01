@@ -46,5 +46,5 @@ is_email_validated | XXXXX2
 Status Code | Meaning
 ---------- | -------
 201 | Created
-400 | Bad Request -- Needs a required field
+400 | Bad Request -- A field is empty or there is any validation error, e.g.: there is another user registered with this phone
 
