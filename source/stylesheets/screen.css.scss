@@ -365,7 +365,7 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 19px;
-    margin-top: 4em;
+    margin-top: 1em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
@@ -383,12 +383,12 @@ html, body {
   h3, h4, h5, h6 {
     @extend %header-font;
     font-size: 15px;
-    margin-top: 2.5em;
+    margin-top: 0.5em;
     margin-bottom: 0.8em;
   }
 
   h4, h5, h6 {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   hr {
@@ -632,12 +632,29 @@ html, body {
   opacity: 0.8;
 }
 
+/* Custom CSS */
+
 .introduction, .integrations, .urls, .config, .success, .errors {
   background-color: $main-bg;
-  padding-bottom: 14px;
   &.content {
     &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
       margin-right: 0;
     }
+  }
+}
+
+
+.content {
+  padding-bottom: 64px;
+  &>h2[id='6-1-http-request'],
+  &>h2[id='6-2-signup-attributes-data'],
+  &>h2[id='9-1-http-request'],
+  &>h2[id='11-1-http-request'],
+  &>h2[id='11-2-query-parameters'],
+  &>h2[id='11-3-places-attributes-response'] {
+    clear: unset;
+  }
+  #6-1-http-request {
+    border: 1px solid red;
   }
 }
