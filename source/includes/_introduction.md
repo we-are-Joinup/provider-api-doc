@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 **Congrats** you are about to work with the most mobility friendly system:
 
@@ -8,8 +8,8 @@
 
 **;-)**
 
-**Welcome** to the **Joinup API**!
+**Welcome** to the **API Documentation for Joinup Providers**!
 
 You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.
 
-We have language bindings in Shell, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.
+We have language bindings in Shell, Python & Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.

@@ -1,83 +1,6 @@
-# Profile
+# 8. Profile
 
-## Profile attributes response
-### Profile attributes response (user)
-
-Attribute | Description
---------- | -----------
-username | XXXX
-first_name | XXXXX2
-last_name | XXXXX2
-
-
-### Profile attributes response (passenger)
-
-Attribute | Description
---------- | -----------
-phone | XXXX
-gender | XXXXX2
-image_url | XXXXX2
-is_phone_validated | XXXXX2
-is_email_validated | XXXXX2
-vote | XXXXX2
-dialcode | XXXXX2
-co2_not_emitted | XXXXX2
-saved_money | XXXXX2
-can_impersonate | XXXXX2
-has_personal_credit_card_valid | XXXXX2
-has_employee_credit_card_valid | XXXXX2
-required_personal_credit_card | XXXXX2
-cost_cancellation_required_personal_stripe_enabled | XXXXX2
-cost_cancellation_enabled | XXXXX2
-allow_fixed_rate | XXXXX2
-can_test_request | XXXXX2
-allow_taxi_request_personal | XXXXX2
-allow_taxi_request_company | XXXXX2
-default_way_to_pay | XXXXX2
-
-
-### Profile attributes response (employee)
-
-Attribute | Description
---------- | -----------
-cost_center | XXXXX2
-has_deferred_employees | XXXXX2
-extra_fields | XXXXX2
-default_travel_type | XXXXX2
-allow_milage | XXXXX2
-allow_joinup_parking | XXXXX2
-
-
-### Profile attributes response (company)
-
-Attribute | Description
---------- | -----------
-name | XXXXX2
-credit_payment | XXXXX2
-has_service_reasons | XXXXX2
-default_travel_type | XXXXX2
-cost_center | XXXXX2
-cost_center_type | XXXXX2
-vote_required | XXXXX2
-cost_center_type | XXXXX2
-pin_required | XXXXX2
-default_travel_type | XXXXX2
-auto_geolocalize | XXXXX2
-cost_center_type | XXXXX2
-card_charge | XXXXX2
-extra_text_1_visibility | XXXXX2
-extra_text_2_visibility | XXXXX2
-extra_text_3_visibility | XXXXX2
-extra_text_1_label | XXXXX2
-extra_text_2_label | XXXXX2
-extra_text_3_label | XXXXX2
-allow_fixed_rate | XXXXX2
-milage_km_cost_str | XXXXX2
-percent_to_settle_str | XXXXX2
-parking_img | XXXXX2
-
-
-## Get Profile
+## 8.1 Get Profile
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
@@ -149,20 +72,96 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```
 
 
-### HTTP Request
+### 8.1.1 HTTP Request
 
 `Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint get the passenger profile.
+This endpoint get the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint
 
-## Success code
+### 8.1.2 Profile attributes response (user)
+
+Attribute | Description
+--------- | -----------
+username | XXXX
+first_name | XXXXX2
+last_name | XXXXX2
+
+
+### 8.1.3 Profile attributes response (passenger)
+
+Attribute | Description
+--------- | -----------
+phone | XXXX
+gender | XXXXX2
+image_url | XXXXX2
+is_phone_validated | XXXXX2
+is_email_validated | XXXXX2
+vote | XXXXX2
+dialcode | XXXXX2
+co2_not_emitted | XXXXX2
+saved_money | XXXXX2
+can_impersonate | XXXXX2
+has_personal_credit_card_valid | XXXXX2
+has_employee_credit_card_valid | XXXXX2
+required_personal_credit_card | XXXXX2
+cost_cancellation_required_personal_stripe_enabled | XXXXX2
+cost_cancellation_enabled | XXXXX2
+allow_fixed_rate | XXXXX2
+can_test_request | XXXXX2
+allow_taxi_request_personal | XXXXX2
+allow_taxi_request_company | XXXXX2
+default_way_to_pay | XXXXX2
+
+
+### 8.1.4 Profile attributes response (employee)
+
+Attribute | Description
+--------- | -----------
+cost_center | XXXXX2
+has_deferred_employees | XXXXX2
+extra_fields | XXXXX2
+default_travel_type | XXXXX2
+allow_milage | XXXXX2
+allow_joinup_parking | XXXXX2
+
+
+### 8.1.5 Profile attributes response (company)
+
+Attribute | Description
+--------- | -----------
+name | XXXXX2
+credit_payment | XXXXX2
+has_service_reasons | XXXXX2
+default_travel_type | XXXXX2
+cost_center | XXXXX2
+cost_center_type | XXXXX2
+vote_required | XXXXX2
+cost_center_type | XXXXX2
+pin_required | XXXXX2
+default_travel_type | XXXXX2
+auto_geolocalize | XXXXX2
+cost_center_type | XXXXX2
+card_charge | XXXXX2
+extra_text_1_visibility | XXXXX2
+extra_text_2_visibility | XXXXX2
+extra_text_3_visibility | XXXXX2
+extra_text_1_label | XXXXX2
+extra_text_2_label | XXXXX2
+extra_text_3_label | XXXXX2
+allow_fixed_rate | XXXXX2
+milage_km_cost_str | XXXXX2
+percent_to_settle_str | XXXXX2
+parking_img | XXXXX2
+
+
+### 8.1.6 Success code
 
 Status Code | Meaning
 ---------- | -------
-
 200 | OK
 
-## Edit profile
+
+## 8.2 Edit profile
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
@@ -194,8 +193,14 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 }
  ``` 
 
-### HTTP Request
+### 8.2.1 HTTP Request
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/`
 
-This endpoint update several attributes of the passenger profile.
+This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint
+
+### 8.2.2 Success code
+
+Status Code | Meaning
+---------- | -------
+200 | OK

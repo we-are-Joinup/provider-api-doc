@@ -1,19 +1,4 @@
-# Places
-
-## Places attributes response
-
-Parameter | Description
---------- | -----------
-id | The ID of the place
-name | Name of the place
-location | Coordinates about this place (longitude, latitude)
-address | Postal address of the place
-
-## Get All Places
-
-This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position
-
-### Query Parameters
+# 11. Places
 
 ```shell
 # Airports closer to Atocha
@@ -21,13 +6,6 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
-
-Parameter | Description | Required | Default
---------- | ----------- | ----------- | -----------
-type | railstation or airport. With this parameter filter by train station or airport | False | Return airports & train stations
-position | With this parameter we get the places ordering by closer to this position (longitude, latitude) |  False | Return places with random ordering
-
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -72,6 +50,28 @@ position | With this parameter we get the places ordering by closer to this posi
 
 ]
 ```
-### HTTP Request
+
+
+## 11.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/`
+
+This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position
+
+## 11.2 Query Parameters
+
+
+Parameter | Description | Required | Default
+--------- | ----------- | ----------- | -----------
+type | railstation or airport. With this parameter filter by train station or airport | False | Return airports & train stations
+position | With this parameter we get the places ordering by closer to this position (longitude, latitude) |  False | Return places with random ordering
+
+
+## 11.3 Places attributes response
+
+Parameter | Description
+--------- | -----------
+id | The ID of the place
+name | Name of the place
+location | Coordinates about this place (longitude, latitude)
+address | Postal address of the place

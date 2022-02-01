@@ -1,6 +1,6 @@
-# Address
+# 12. Address
 
-## Address attributes response
+## 12.1 Address attributes response
 
 Attribute | Description
 --------- | -----------
@@ -10,7 +10,7 @@ pickup | Coordinates about this address (longitude, latitude)
 address | Postal address
 type | Type of address: home, work or general.
 
-## Get All Address
+## 12.2 Get All Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
@@ -58,15 +58,13 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ]
 ```
 
-This endpoint retrieves all address of an user.
-
-### HTTP Request
+### 12.2.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
 
+This endpoint retrieves all address of an user.
 
-## Get an Address
-
+## 12.3 Get an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
@@ -91,14 +89,14 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 }
 ```
 
+
+### 12.3.1 HTTP Request
+
 This endpoint retrieves a specific address.
-
-
-### HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### URL Parameters
+### 12.2.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -106,8 +104,7 @@ ID | The ID of the address to retrieve
 
 
 
-## Create an Address
-
+## 12.4 Create an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
@@ -141,15 +138,14 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```
 
 
-### HTTP Request
+### 12.4.1 HTTP Request
 
 `POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
 
 
 This endpoint creates a new address.
 
-## Edit an Address
-
+## 12.5 Edit an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
@@ -184,11 +180,12 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```
 
 
-### HTTP Request
+### 12.5.1 HTTP Request
+
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### URL Parameters
+### 12.5.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -198,8 +195,7 @@ ID | The ID of the address to retrieve
 This endpoint edit a current address of an user.
 
 
-## Delete an address
-
+## 12.6 Delete an address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"\
@@ -211,20 +207,21 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 > The above command does not return anything (status code 204 No Content).
 
 
-This endpoint deletes a specific address.
+### 12.6.1 HTTP Request
 
-### HTTP Request
+
+This endpoint deletes a specific address.
 
 `DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### URL Parameters
+### 12.6.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of the address to delete
 
 
-## 40X Errors
+## 12.7 40X Errors
 
 Error Code | Meaning
 ---------- | -------

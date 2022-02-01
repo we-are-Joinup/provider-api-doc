@@ -1,8 +1,8 @@
-# Validate (optional)
+# 7. Validates 
 
-Depends on configuration provider
+These endpoints depend on configuration provider. These don't make sense if you want to use only <a href="#2-1-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a>
 
-## Validate email
+## 7.1 Validate email
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/" \
@@ -20,27 +20,23 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```json
     {"email_code": "1234"}
 ```
-### HTTP Request
+
+
+### 7.1.1 HTTP Request
+
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/`
 
 
-### Success code
+### 7.1.2 Status code
 
 Status Code | Meaning
 ---------- | -------
-
 200 | OK
-
-### 40X Errors
-
-Error Code | Meaning
----------- | -------
-
 400 | Bad Request -- The email code is invalid
 
 
-## Validate phone
+## 7.2 Validate phone
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/" \
@@ -59,21 +55,14 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     {"phone_code": "5678"}
 ```
 
-### HTTP Request
+### 7.2.1 HTTP Request
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/`
 
 
-### Success code
+### 7.2.2 Success code
 
 Status Code | Meaning
 ---------- | -------
-
 200 | OK
-
-### 40X Errors
-
-Error Code | Meaning
----------- | -------
-
 400 | Bad Request -- The phone code is invalid

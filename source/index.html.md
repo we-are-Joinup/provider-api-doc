@@ -33,5 +33,5 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Joinup API
+    content: API Documentation for Joinup Providers
 ---

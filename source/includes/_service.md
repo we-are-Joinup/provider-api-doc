@@ -1,8 +1,6 @@
-# Service
+# 10. Service
 
-## Create Service
-
-### Service attributes request
+## 10.1 Create Service
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/" \
@@ -90,6 +88,13 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 }
 ```
 
+### 10.1.1 HTTP Request
+
+`POST "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/`
+
+### 10.1.2 Service attributes request
+
+
 Attribute | Description
 --------- | -----------
 reservation | XXX
@@ -124,7 +129,7 @@ way_to_pay | XXX
 rate_type | XXX
 
 
-### Service attributes response (traveller)
+### 10.1.3 Service attributes response (traveller)
 
 Attribute | Description
 --------- | -----------
@@ -146,7 +151,7 @@ amount_cancellation        | XXX
 amount_currency        | XXX
 passenger_extra_message        | XXX
 
-### Service attributes response (service)
+### 10.1.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
@@ -167,26 +172,15 @@ rate_type        | XXX
 rate_data        | XXX
 
 
-### HTTP Request
 
-`POST "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/`
-
-
-### Success code
+### 10.1.5 Status code
 
 Status Code | Meaning
 ---------- | -------
-
 200 | OK
+400 | Bad Request -- XXX
 
-### 40X Errors
-
-Error Code | Meaning
----------- | -------
-
-400 | Bad Request -- The email code is invalid
-
-## Edit
+## 10.2 Edit
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/" \
@@ -276,32 +270,33 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```
 
 
-### HTTP Request
+### 10.2.1 HTTP Request
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/<ID>`
 
-### URL Parameters
+
+### 10.2.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
 
-## Current
+## 10.3 Current
 
-### HTTP Request
+### 10.3.1 HTTP Request
 
 `GET "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/`
 or
 `GET "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/<ID>`
 
-### URL Parameters
+### 10.3.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
-## Services
+## 10.4 Services
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/" \
@@ -377,11 +372,11 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 }
 ```
 
-### HTTP Request
+### 10.4.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/`
 
-### URL Parameters
+### 10.4.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -391,7 +386,7 @@ service__pickup_date__gte | XXX
 ordering | Values: service__state, service__pickup_date, -service__state, -service__pickup_date
 
 
-### Service attributes response (traveller)
+### 10.4.3 Service attributes response (traveller)
 
 Attribute | Description
 --------- | -----------
@@ -418,7 +413,7 @@ finished_from_cancelled_passenger | XXX
 company_extra_fields | XXX
 taxi_type | XXX
 
-### Service attributes response (service)
+### 10.4.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
@@ -445,7 +440,7 @@ relaunched | XXX
 
 
 
-## Cancel
+## 10.5 Cancel
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/" \
@@ -466,24 +461,25 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 
 ```
 
-### HTTP Request
+
+### 10.5.1 HTTP Request
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/`
 
-### URL Parameters
+### 10.5.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
-### Attributes response
+### 10.5.3 Attributes response
 
 Attribute | Description
 --------- | -----------
 cost_cancellation | XXX
 amount_cancellation | XXX
 
-## Vote (optional)
+## 10.6 Vote (optional)
 
 Depends on configuration provider
 

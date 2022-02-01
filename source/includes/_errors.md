@@ -1,4 +1,4 @@
-# Errors
+# 14. Errors
 
 The Joinup API uses the following error codes:
 
