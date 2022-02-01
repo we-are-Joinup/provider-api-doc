@@ -1,84 +1,8 @@
 # Service
 
-## Service attributes request
-
-Attribute | Description
---------- | -----------
-reservation | XXX
-pickup_date | XXX
-pickup_address | XXX
-destination_address | XXX
-pickup | XXX
-destination | XXX
-flight_number | XXX
-flight_origin | XXX
-train_number | XXX
-train_origin | XXX
-private | XXX
-pickup_place_id | XXX
-destination_place_id | XXX
-requester_employee_pk | XXX
-coupon | XXX
-platform_model | XXX
-service_reason | XXX
-credit_card | XXX
-comment | XXX
-cost_center | XXX
-extra_text_1 | XXX
-extra_text_2 | XXX
-extra_text_3 | XXX
-event | XXX
-test_service | XXX
-company_extra_fields | XXX
-original_service_id | XXX
-observations | XXX
-way_to_pay | XXX
-rate_type | XXX
-
-
-## Service attributes response (traveller)
-
-Attribute | Description
---------- | -----------
-pk        | XXX
-amount_str| XXX
-cost_center        | XXX
-service_reason        | XXX
-is_company_travel        | XXX
-deferred        | XXX
-deferred_pk        | XXX
-comment        | XXX
-extra_text_1        | XXX
-extra_text_2        | XXX
-extra_text_3        | XXX
-way_to_pay        | XXX
-coupon        | XXX
-amount_with_coupon        | XXX
-amount_cancellation        | XXX
-amount_currency        | XXX
-passenger_extra_message        | XXX
-
-## Service attributes response (service)
-
-Attribute | Description
---------- | -----------
-pk        | XXX
-taxi| XXX
-state        | XXX
-pickup_location        | XXX
-pickup_date        | XXX
-pickup_address        | XXX
-pickup_place_type        | XXX
-updated_position        | XXX
-destination_location        | XXX
-destination_address        | XXX
-taxi_pickup_date        | XXX
-finish_date        | XXX
-vehicle_type        | XXX
-rate_type        | XXX
-rate_data        | XXX
-
 ## Create Service
+
+### Service attributes request
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/" \
@@ -165,6 +89,84 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "passenger_extra_message": ""
 }
 ```
+
+Attribute | Description
+--------- | -----------
+reservation | XXX
+pickup_date | XXX
+pickup_address | XXX
+destination_address | XXX
+pickup | XXX
+destination | XXX
+flight_number | XXX
+flight_origin | XXX
+train_number | XXX
+train_origin | XXX
+private | XXX
+pickup_place_id | XXX
+destination_place_id | XXX
+requester_employee_pk | XXX
+coupon | XXX
+platform_model | XXX
+service_reason | XXX
+credit_card | XXX
+comment | XXX
+cost_center | XXX
+extra_text_1 | XXX
+extra_text_2 | XXX
+extra_text_3 | XXX
+event | XXX
+test_service | XXX
+company_extra_fields | XXX
+original_service_id | XXX
+observations | XXX
+way_to_pay | XXX
+rate_type | XXX
+
+
+### Service attributes response (traveller)
+
+Attribute | Description
+--------- | -----------
+pk        | XXX
+amount_str| XXX
+cost_center        | XXX
+service_reason        | XXX
+is_company_travel        | XXX
+deferred        | XXX
+deferred_pk        | XXX
+comment        | XXX
+extra_text_1        | XXX
+extra_text_2        | XXX
+extra_text_3        | XXX
+way_to_pay        | XXX
+coupon        | XXX
+amount_with_coupon        | XXX
+amount_cancellation        | XXX
+amount_currency        | XXX
+passenger_extra_message        | XXX
+
+### Service attributes response (service)
+
+Attribute | Description
+--------- | -----------
+pk        | XXX
+taxi| XXX
+state        | XXX
+pickup_location        | XXX
+pickup_date        | XXX
+pickup_address        | XXX
+pickup_place_type        | XXX
+updated_position        | XXX
+destination_location        | XXX
+destination_address        | XXX
+taxi_pickup_date        | XXX
+finish_date        | XXX
+vehicle_type        | XXX
+rate_type        | XXX
+rate_data        | XXX
+
+
 ### HTTP Request
 
 `POST "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/`
@@ -287,15 +289,199 @@ ID | The ID of traveller
 
 ## Current
 
-TODO
+### HTTP Request
+
+`GET "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/`
+or
+`GET "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of traveller
 
 ## Services
 
-TODO
+```shell
+curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/" \
+   -H "Authorization: beep-beep-beep-beep-beep" \
+   -H "Content-Type: application/json" \
+   -H "Impersonate: test@example.com" \
+   -X PUT 
+```  
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "count": 4,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "pk": 440218,
+      "amount_str": null,
+      "cost_center": "",
+      "service_reason": "",
+      "is_company_travel": true,
+      "deferred": null,
+      "deferred_pk": null,
+      "comment": "",
+      "extra_text_1": "",
+      "extra_text_2": "",
+      "extra_text_3": "",
+      "way_to_pay": "",
+      "coupon": null,
+      "amount_with_coupon": null,
+      "amount_cancellation": null,
+      "amount_currency": "EUR",
+      "service__zone__time_zone": "Europe/Madrid",
+      "credit_card": false,
+      "relaunched": null,
+      "finished_from_cancelled_passenger": false,
+      "company_extra_fields": null,
+      "taxi_type": "conventional",
+      "service": {
+        "pk": 439934,
+        "taxi": null,
+        "state": 7,
+        "pickup_location": [
+          -3.693407,
+          40.4121412
+        ],
+        "pickup_date": "2022-02-02T10:15:00Z",
+        "pickup_address": "Paseo del Prado, 26 Madrid España",
+        "pickup_place_type": "",
+        "updated_position": "",
+        "destination_location": [
+          -3.7121572,
+          40.4343557
+        ],
+        "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
+        "taxi_pickup_date": null,
+        "finish_date": null,
+        "vehicle_type": "taxi",
+        "rate_type": "",
+        "rate_data": null,
+        "flight_number": "",
+        "flight_origin": "",
+        "train_number": "",
+        "train_origin": "",
+        "relaunched": null
+      },
+    },
+    ...
+  ]
+}
+```
+
+### HTTP Request
+
+`GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+service__state | XXX
+service__pickup_date__lte | XXX
+service__pickup_date__gte | XXX
+ordering | Values: service__state, service__pickup_date, -service__state, -service__pickup_date
+
+
+### Service attributes response (traveller)
+
+Attribute | Description
+--------- | -----------
+pk        | XXX
+amount_str| XXX
+cost_center        | XXX
+service_reason        | XXX
+is_company_travel        | XXX
+deferred        | XXX
+deferred_pk        | XXX
+comment        | XXX
+extra_text_1        | XXX
+extra_text_2        | XXX
+extra_text_3        | XXX
+way_to_pay        | XXX
+coupon        | XXX
+amount_with_coupon        | XXX
+amount_cancellation        | XXX
+amount_currency        | XXX
+service__zone__time_zone | XXX
+credit_card | XXX
+relaunched | XXX
+finished_from_cancelled_passenger | XXX
+company_extra_fields | XXX
+taxi_type | XXX
+
+### Service attributes response (service)
+
+Attribute | Description
+--------- | -----------
+pk        | XXX
+taxi| XXX
+state        | XXX
+pickup_location        | XXX
+pickup_date        | XXX
+pickup_address        | XXX
+pickup_place_type        | XXX
+updated_position        | XXX
+destination_location        | XXX
+destination_address        | XXX
+taxi_pickup_date        | XXX
+finish_date        | XXX
+vehicle_type        | XXX
+rate_type        | XXX
+rate_data        | XXX
+flight_number | XXX
+flight_origin | XXX
+train_number | XXX
+train_origin | XXX
+relaunched | XXX
+
+
 
 ## Cancel
 
-TODO
+```shell
+curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/" \
+   -H "Authorization: beep-beep-beep-beep-beep" \
+   -H "Content-Type: application/json" \
+   -H "Impersonate: test@example.com" \
+   -X PUT 
+```  
+
+> The above command returns JSON structured like this:
+
+```json
+
+{
+  "cost_cancellation": false,
+  "amount_cancellation": null
+}
+
+```
+
+### HTTP Request
+
+`PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of traveller
+
+### Attributes response
+
+Attribute | Description
+--------- | -----------
+cost_cancellation | XXX
+amount_cancellation | XXX
 
 ## Vote (optional)
 
