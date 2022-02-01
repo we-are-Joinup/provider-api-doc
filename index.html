@@ -791,7 +791,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tr>
 <tr>
 <td>400</td>
-<td>Bad Request -- Needs a required field</td>
+<td>Bad Request -- A field is empty or there is any validation error, e.g.: there is another user registered with this phone</td>
 </tr>
 </tbody></table>
 </div><div class='content validate'><h1 id='7-validates'>7. Validates</h1>
@@ -1205,7 +1205,15 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34123456780"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='8-2-1-http-request'>8.2.1 HTTP Request</h3>
+</span></code></pre></div>
+<aside class="notice">
+Email can not be updated.
+</aside>
+
+<aside class="notice">
+If you edit phone field, is_phone_validated field will become false (at least <a href="#4-configuration-provider">Self-validate phone</a> is set as false)
+</aside>
+<h3 id='8-2-1-http-request'>8.2.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
 
 <p>This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
@@ -1411,7 +1419,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tr>
 <tr>
 <td>400</td>
-<td>Bad Request -- Out of zone XXX</td>
+<td>Bad Request -- Point (position) out of zone (Users cannot request a Joinup in this point)</td>
 </tr>
 </tbody></table>
 </div><div class='content service'><h1 id='10-service'>10. Service</h1><h2 id='10-1-create-service'>10.1 Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
@@ -1783,7 +1791,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </tr>
 <tr>
 <td>400</td>
-<td>Bad Request -- XXX</td>
+<td>Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field <code>min_time_request_reservation_*</code></td>
 </tr>
 </tbody></table>
 <h2 id='10-2-edit'>10.2 Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span> <span class="se">\</span>
