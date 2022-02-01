@@ -86,12 +86,13 @@
         } else {
           document.title = originalTitle;
         }
-      
-        var content = $("#" + $best.attr("href").replace('#', '')).parent(".content");
-        if (content.find('pre').length === 0) {
-          $(".dark-box .lang-selector").fadeOut();
-        } else {
-          $(".dark-box .lang-selector").fadeIn();
+        if ($best.length > 0) {
+          var content = $("#" + $best.attr("href").replace('#', '')).parent(".content");
+          if (content.find('pre').length === 0) {
+            $(".dark-box .lang-selector").fadeOut();
+          } else {
+            $(".dark-box .lang-selector").fadeIn();
+          }
         }
       }
     };
