@@ -633,7 +633,12 @@ html, body {
 }
 
 /* Custom CSS */
-
+h1, h2, h3 {
+  color: #00a495;
+}
+h2, h3 {
+  text-decoration: underline;
+}
 .introduction, .integrations, .urls, .config, .success, .errors {
   background-color: $main-bg;
   &.content {
@@ -653,8 +658,5 @@ html, body {
   &>h2[id='11-2-query-parameters'],
   &>h2[id='11-3-places-attributes-response'] {
     clear: unset;
-  }
-  #6-1-http-request {
-    border: 1px solid red;
   }
 }
