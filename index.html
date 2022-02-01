@@ -8,7 +8,7 @@
     <link rel="icon" href="images/favicon-7af61118.png">
         <meta
             name="description"
-            content="Documentation for the Joinup API"
+            content="API Documentation for Joinup Providers"
         >
     <title>Joinup API Reference</title>
 
@@ -287,7 +287,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-20313522.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-5f88b8eb.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-5c9001fd.js"></script>
 
@@ -316,158 +316,149 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#1-introduction" class="toc-h1 toc-link" data-title="1. Introduction">1. Introduction</a>
           </li>
           <li>
-            <a href="#integration-types" class="toc-h1 toc-link" data-title="Integration types">Integration types</a>
+            <a href="#2-integration-types" class="toc-h1 toc-link" data-title="2. Integration types">2. Integration types</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#server-to-server" class="toc-h2 toc-link" data-title="Server to server">Server to server</a>
+                    <a href="#2-1-server-to-server" class="toc-h2 toc-link" data-title="2.1 Server to server">2.1 Server to server</a>
                   </li>
                   <li>
-                    <a href="#client-to-server" class="toc-h2 toc-link" data-title="Client to server">Client to server</a>
+                    <a href="#2-2-client-to-server" class="toc-h2 toc-link" data-title="2.2 Client to server">2.2 Client to server</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#urls" class="toc-h1 toc-link" data-title="URLs">URLs</a>
+            <a href="#3-urls" class="toc-h1 toc-link" data-title="3. URLs">3. URLs</a>
           </li>
           <li>
-            <a href="#configuration-provider" class="toc-h1 toc-link" data-title="Configuration provider">Configuration provider</a>
+            <a href="#4-configuration-provider" class="toc-h1 toc-link" data-title="4. Configuration provider">4. Configuration provider</a>
           </li>
           <li>
-            <a href="#authentication-authorization-amp-impersonate" class="toc-h1 toc-link" data-title="Authentication, Authorization &amp; Impersonate">Authentication, Authorization &amp; Impersonate</a>
+            <a href="#5-authentication-authorization-amp-impersonate" class="toc-h1 toc-link" data-title="5. Authentication, Authorization &amp; Impersonate">5. Authentication, Authorization &amp; Impersonate</a>
           </li>
           <li>
-            <a href="#signup" class="toc-h1 toc-link" data-title="Signup">Signup</a>
+            <a href="#6-signup" class="toc-h1 toc-link" data-title="6. Signup">6. Signup</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#signup-attributes-data" class="toc-h2 toc-link" data-title="Signup attributes data">Signup attributes data</a>
+                    <a href="#6-1-http-request" class="toc-h2 toc-link" data-title="6.1 HTTP Request">6.1 HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#6-2-signup-attributes-data" class="toc-h2 toc-link" data-title="6.2 Signup attributes data">6.2 Signup attributes data</a>
                   </li>
                   <li>
-                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
+                    <a href="#6-3-signup-attributes-response" class="toc-h2 toc-link" data-title="6.3 Signup attributes response">6.3 Signup attributes response</a>
                   </li>
                   <li>
-                    <a href="#40x-errors" class="toc-h2 toc-link" data-title="40X Errors">40X Errors</a>
+                    <a href="#6-4-response-codes" class="toc-h2 toc-link" data-title="6.4 Response codes">6.4 Response codes</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#validate-optional" class="toc-h1 toc-link" data-title="Validate (optional)">Validate (optional)</a>
+            <a href="#7-validates" class="toc-h1 toc-link" data-title="7. Validates">7. Validates</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#validate-email" class="toc-h2 toc-link" data-title="Validate email">Validate email</a>
+                    <a href="#7-1-validate-email" class="toc-h2 toc-link" data-title="7.1 Validate email">7.1 Validate email</a>
                   </li>
                   <li>
-                    <a href="#validate-phone" class="toc-h2 toc-link" data-title="Validate phone">Validate phone</a>
+                    <a href="#7-2-validate-phone" class="toc-h2 toc-link" data-title="7.2 Validate phone">7.2 Validate phone</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
+            <a href="#8-profile" class="toc-h1 toc-link" data-title="8. Profile">8. Profile</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#profile-attributes-response" class="toc-h2 toc-link" data-title="Profile attributes response">Profile attributes response</a>
+                    <a href="#8-1-get-profile" class="toc-h2 toc-link" data-title="8.1 Get Profile">8.1 Get Profile</a>
                   </li>
                   <li>
-                    <a href="#get-profile" class="toc-h2 toc-link" data-title="Get Profile">Get Profile</a>
-                  </li>
-                  <li>
-                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
-                  </li>
-                  <li>
-                    <a href="#edit-profile" class="toc-h2 toc-link" data-title="Edit profile">Edit profile</a>
+                    <a href="#8-2-edit-profile" class="toc-h2 toc-link" data-title="8.2 Edit profile">8.2 Edit profile</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#zone" class="toc-h1 toc-link" data-title="Zone">Zone</a>
+            <a href="#9-zone" class="toc-h1 toc-link" data-title="9. Zone">9. Zone</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#zone-attributes-response" class="toc-h2 toc-link" data-title="Zone attributes response">Zone attributes response</a>
+                    <a href="#9-1-http-request" class="toc-h2 toc-link" data-title="9.1 HTTP Request">9.1 HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                    <a href="#9-2-query-parameters" class="toc-h2 toc-link" data-title="9.2 Query Parameters">9.2 Query Parameters</a>
                   </li>
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#success-code" class="toc-h2 toc-link" data-title="Success code">Success code</a>
-                  </li>
-                  <li>
-                    <a href="#40x-errors" class="toc-h2 toc-link" data-title="40X Errors">40X Errors</a>
+                    <a href="#9-3-status-code" class="toc-h2 toc-link" data-title="9.3 Status code">9.3 Status code</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#service" class="toc-h1 toc-link" data-title="Service">Service</a>
+            <a href="#10-service" class="toc-h1 toc-link" data-title="10. Service">10. Service</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-service" class="toc-h2 toc-link" data-title="Create Service">Create Service</a>
+                    <a href="#10-1-create-service" class="toc-h2 toc-link" data-title="10.1 Create Service">10.1 Create Service</a>
                   </li>
                   <li>
-                    <a href="#edit" class="toc-h2 toc-link" data-title="Edit">Edit</a>
+                    <a href="#10-2-edit" class="toc-h2 toc-link" data-title="10.2 Edit">10.2 Edit</a>
                   </li>
                   <li>
-                    <a href="#current" class="toc-h2 toc-link" data-title="Current">Current</a>
+                    <a href="#10-3-current" class="toc-h2 toc-link" data-title="10.3 Current">10.3 Current</a>
                   </li>
                   <li>
-                    <a href="#services" class="toc-h2 toc-link" data-title="Services">Services</a>
+                    <a href="#10-4-services" class="toc-h2 toc-link" data-title="10.4 Services">10.4 Services</a>
                   </li>
                   <li>
-                    <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
+                    <a href="#10-5-cancel" class="toc-h2 toc-link" data-title="10.5 Cancel">10.5 Cancel</a>
                   </li>
                   <li>
-                    <a href="#vote-optional" class="toc-h2 toc-link" data-title="Vote (optional)">Vote (optional)</a>
+                    <a href="#10-6-vote-optional" class="toc-h2 toc-link" data-title="10.6 Vote (optional)">10.6 Vote (optional)</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#places" class="toc-h1 toc-link" data-title="Places">Places</a>
+            <a href="#11-places" class="toc-h1 toc-link" data-title="11. Places">11. Places</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#places-attributes-response" class="toc-h2 toc-link" data-title="Places attributes response">Places attributes response</a>
+                    <a href="#11-1-http-request" class="toc-h2 toc-link" data-title="11.1 HTTP Request">11.1 HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#get-all-places" class="toc-h2 toc-link" data-title="Get All Places">Get All Places</a>
+                    <a href="#11-2-query-parameters" class="toc-h2 toc-link" data-title="11.2 Query Parameters">11.2 Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#11-3-places-attributes-response" class="toc-h2 toc-link" data-title="11.3 Places attributes response">11.3 Places attributes response</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#address" class="toc-h1 toc-link" data-title="Address">Address</a>
+            <a href="#12-address" class="toc-h1 toc-link" data-title="12. Address">12. Address</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#address-attributes-response" class="toc-h2 toc-link" data-title="Address attributes response">Address attributes response</a>
+                    <a href="#12-1-address-attributes-response" class="toc-h2 toc-link" data-title="12.1 Address attributes response">12.1 Address attributes response</a>
                   </li>
                   <li>
-                    <a href="#get-all-address" class="toc-h2 toc-link" data-title="Get All Address">Get All Address</a>
+                    <a href="#12-2-get-all-address" class="toc-h2 toc-link" data-title="12.2 Get All Address">12.2 Get All Address</a>
                   </li>
                   <li>
-                    <a href="#get-an-address" class="toc-h2 toc-link" data-title="Get an Address">Get an Address</a>
+                    <a href="#12-3-get-an-address" class="toc-h2 toc-link" data-title="12.3 Get an Address">12.3 Get an Address</a>
                   </li>
                   <li>
-                    <a href="#create-an-address" class="toc-h2 toc-link" data-title="Create an Address">Create an Address</a>
+                    <a href="#12-4-create-an-address" class="toc-h2 toc-link" data-title="12.4 Create an Address">12.4 Create an Address</a>
                   </li>
                   <li>
-                    <a href="#edit-an-address" class="toc-h2 toc-link" data-title="Edit an Address">Edit an Address</a>
+                    <a href="#12-5-edit-an-address" class="toc-h2 toc-link" data-title="12.5 Edit an Address">12.5 Edit an Address</a>
                   </li>
                   <li>
-                    <a href="#delete-an-address" class="toc-h2 toc-link" data-title="Delete an address">Delete an address</a>
+                    <a href="#12-6-delete-an-address" class="toc-h2 toc-link" data-title="12.6 Delete an address">12.6 Delete an address</a>
                   </li>
                   <li>
-                    <a href="#40x-errors" class="toc-h2 toc-link" data-title="40X Errors">40X Errors</a>
+                    <a href="#12-7-40x-errors" class="toc-h2 toc-link" data-title="12.7 40X Errors">12.7 40X Errors</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#success-codes" class="toc-h1 toc-link" data-title="Success codes">Success codes</a>
+            <a href="#13-success-codes" class="toc-h1 toc-link" data-title="13. Success codes">13. Success codes</a>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#14-errors" class="toc-h1 toc-link" data-title="14. Errors">14. Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -478,7 +469,7 @@
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
-      <div class='content introduction'><h1 id='introduction'>Introduction</h1>
+      <div class='content introduction'><h1 id='1-introduction'>1. Introduction</h1>
 <p><strong>Congrats</strong> you are about to work with the most mobility friendly system:</p>
 
 <p>- Why do dragons sleep during the day?</p>
@@ -487,28 +478,28 @@
 
 <p><strong>;-)</strong></p>
 
-<p><strong>Welcome</strong> to the <strong>Joinup API</strong>!</p>
+<p><strong>Welcome</strong> to the <strong>API Documentation for Joinup Providers</strong>!</p>
 
 <p>You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.</p>
 
-<p>We have language bindings in Shell, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
-</div><div class='content integrations'><h1 id='integration-types'>Integration types</h1>
-<p>You can integrated with us of several ways. In this documentation, we will focus on Server to server integration, but you must know that we have another ways to connect with us. In client to server integration the endpoints are the same, almost everything is the same, but for example the AAI (Authentication and authorization infrastructure) is different or we don&#39;t need an own push system.</p>
-<h2 id='server-to-server'>Server to server</h2>
+<p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
+</div><div class='content integrations'><h1 id='2-integration-types'>2. Integration types</h1>
+<p>You can integrate with us in several ways. In this documentation, we will focus on Server to server integration, but you must know that we have other ways to connect with us. In client to server integration the endpoints are the same, almost everything is the same, but for example the <a href="#5-authentication-authorization-amp-impersonate">AAI</a> (Authentication and authorization infrastructure) is different or we don&#39;t need an own push system.</p>
+<h2 id='2-1-server-to-server'>2.1 Server to server</h2>
 <p>You can choose between two ways:</p>
 
 <p>- Connecting with us using a generic user. </p>
 
-<p>- Every request uses the end-user to authorize (see more info in <i>Authentication, Authorization &amp; Impersonate</i> section)</p>
-<h2 id='client-to-server'>Client to server</h2>
+<p>- Every request uses the end-user to authorize (see more info in <a href="#5-authentication-authorization-amp-impersonate">AAI</a> section)</p>
+<h2 id='2-2-client-to-server'>2.2 Client to server</h2>
 <p>You can choose between two ways:</p>
 
-<p>- Own development.</p>
+<p>- Own development. You can create a Web or App and connect with this API</p>
 
-<p>- We can do a clone web and app for you. We can do it very quicly</p>
-</div><div class='content urls'><h1 id='urls'>URLs</h1>
+<p>- We can do a clone of our web or/and our app for you with several customizations. We can do it very quickly :-)</p>
+</div><div class='content urls'><h1 id='3-urls'>3. URLs</h1>
 <aside class="notice">
-    In this documentation will use next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
+     This documentation will use the next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
 </aside>
 
 <p>Every URL have next path prefix:  /api/corporative-PROVIDER-PREFIX/apps/passenger/PLATFORM/VERSION/</p>
@@ -521,7 +512,7 @@
 </thead><tbody>
 <tr>
 <td>PROVIDER-PREFIX</td>
-<td>Identificator of your system in our URL path</td>
+<td>Identificator of your system in our URL path. You can choose it</td>
 </tr>
 <tr>
 <td>PLATFORM</td>
@@ -532,7 +523,7 @@
 <td>3.0.0</td>
 </tr>
 </tbody></table>
-</div><div class='content config'><h1 id='configuration-provider'>Configuration provider</h1>
+</div><div class='content config'><h1 id='4-configuration-provider'>4. Configuration provider</h1>
 <p>We try to adapt to your system and for this reason we have several parameters that we can configure for you in our system.</p>
 
 <table><thead>
@@ -550,41 +541,66 @@
 <tr>
 <td>Prefix</td>
 <td>URL prefix</td>
-<td>Slugify of name of your system</td>
+<td><a href="https://stackoverflow.com/questions/4357007/what-does-slug-mean">Slugify</a> of name of your system</td>
 </tr>
 <tr>
-<td>Send mail</td>
+<td>Enabled</td>
+<td>It works to disable very quicly the integration.</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Send mail?</td>
 <td>If you want that our system send emails.e.g.: After signup</td>
 <td>False</td>
 </tr>
 <tr>
-<td>Send sms</td>
+<td>Send sms?</td>
 <td>If you want that our system send SMSs.e.g.: After signup</td>
 <td>False</td>
 </tr>
 <tr>
-<td>Auto validate phone</td>
-<td>If you want that our system validate the phone of your users or if you want we trust in the validation in your system.</td>
-<td>False</td>
+<td>Available taxi types</td>
+<td>XXXX</td>
+<td></td>
 </tr>
 <tr>
-<td>Auto validate mail</td>
-<td>If you want that our system validate the e-mail of your users or if you want we trust in the validation in your system.</td>
-<td>False</td>
+<td>Can request event services?</td>
+<td>XXXX</td>
+<td></td>
 </tr>
 <tr>
-<td>Allow to vote</td>
+<td>Self-validate phone?</td>
+<td>If you want that our system validate the phone of your users or if you want that we trust in the validation in your system.</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Self-validate email?</td>
+<td>If you want that our system validate the e-mail of your users or if you want that we trust in the validation in your system.</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Can passengers vote?</td>
 <td>If you want that your users can vote yours services in our system</td>
 <td>True</td>
 </tr>
 <tr>
+<td>Skip reservation pickup date validation?</td>
+<td>Our bookings has a minimum time to request. E.g.: No sense requesting a booking for in a minute. But if you want we can skip this validation</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Allow fixed rate?</td>
+<td>XXX</td>
+<td></td>
+</tr>
+<tr>
 <td>Default company</td>
-<td>Any passenger registered will be added to this company by default</td>
-<td>None</td>
+<td>Any passenger registered will be added to this company by default. This is for billing. If a passenger belongs to a company, so your system can request a taxi service on credit.</td>
+<td>Your company</td>
 </tr>
 <tr>
 <td>Allow companies</td>
-<td>Your system can registered an user of these companies (it can be useful for billing)</td>
+<td>Your system can register a user of these companies. The difference with the previous attribute is that you can have several companies with different configurations. And you have to set the company of every passenger in the signup endpoint</td>
 <td>None</td>
 </tr>
 <tr>
@@ -599,13 +615,23 @@
 </tr>
 <tr>
 <td>Always services for association</td>
-<td>True: every service will be for the previous association. False: Only when pickup zone or destination zone will be a integration zone of this association</td>
+<td>True: every service will be for the previous association. False: Only when pickup zone or destination zone will be a  zone of this association</td>
 <td>False</td>
+</tr>
+<tr>
+<td>Cost cancellation enabled</td>
+<td>Cost cancellation only is applied when you cancel a service and the taxi is running to pickup point.</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cost cancellation enabled: required personal stripe</td>
+<td>XXX</td>
+<td>True</td>
 </tr>
 </tbody></table>
 
 <p>Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.</p>
-</div><div class='content auth'><h1 id='authentication-authorization-amp-impersonate'>Authentication, Authorization &amp; Impersonate</h1>
+</div><div class='content auth'><h1 id='5-authentication-authorization-amp-impersonate'>5. Authentication, Authorization &amp; Impersonate</h1>
 <blockquote>
 <p>To authorization, use this code when we are creating an user:</p>
 </blockquote>
@@ -692,7 +718,22 @@
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </aside>
-</div><div class='content signup'><h1 id='signup'>Signup</h1><h3 id='signup-attributes-data'>Signup attributes data</h3>
+</div><div class='content signup'><h1 id='6-signup'>6. Signup</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+      "email":"test@example.com", 
+      "first_name":"Test",
+      "last_name": "Foo",
+      "phone": "+34123456780"
+  }'</span>
+
+</code></pre></div><h2 id='6-1-http-request'>6.1 HTTP Request</h2>
+<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
+
+<p>This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<h2 id='6-2-signup-attributes-data'>6.2 Signup attributes data</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -716,44 +757,45 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-X</span> POST <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-      "email":"test@example.com", 
-      "first_name":"Test",
-      "last_name": "Foo",
-      "phone": "+34123456780"
-  }'</span>
-
-</code></pre></div><h2 id='http-request'>HTTP Request</h2>
-<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
-
-<p>This endpoint creates a new passenger, a new user.</p>
-<h2 id='success-code'>Success code</h2>
+<h2 id='6-3-signup-attributes-response'>6.3 Signup attributes response</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>XXXX</td>
+</tr>
+<tr>
+<td>is_phone_validated</td>
+<td>XXXXX2</td>
+</tr>
+<tr>
+<td>is_email_validated</td>
+<td>XXXXX2</td>
+</tr>
+</tbody></table>
+<h2 id='6-4-response-codes'>6.4 Response codes</h2>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<p>201 | Created</p>
-<h2 id='40x-errors'>40X Errors</h2>
-<table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<td>201</td>
+<td>Created</td>
 </tr>
-</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Needs a required field</td>
+</tr>
 </tbody></table>
-
-<p>400 | Bad Request -- Needs a required field</p>
-</div><div class='content validate'><h1 id='validate-optional'>Validate (optional)</h1>
-<p>Depends on configuration provider</p>
-<h2 id='validate-email'>Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span> <span class="se">\</span>
+</div><div class='content validate'><h1 id='7-validates'>7. Validates</h1>
+<p>These endpoints depend on configuration provider. These don&#39;t make sense if you want to use only <a href="#2-1-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a></p>
+<h2 id='7-1-validate-email'>7.1 Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -766,29 +808,25 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"email_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='7-1-1-http-request'>7.1.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/</code></p>
-<h3 id='success-code'>Success code</h3>
+<h3 id='7-1-2-status-code'>7.1.2 Status code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<p>200 | OK</p>
-<h3 id='40x-errors'>40X Errors</h3>
-<table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<td>200</td>
+<td>OK</td>
 </tr>
-</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- The email code is invalid</td>
+</tr>
 </tbody></table>
-
-<p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='validate-phone'>Validate phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span> <span class="se">\</span>
+<h2 id='7-2-validate-phone'>7.2 Validate phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -801,29 +839,94 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"phone_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='7-2-1-http-request'>7.2.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/</code></p>
-<h3 id='success-code-2'>Success code</h3>
+<h3 id='7-2-2-success-code'>7.2.2 Success code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<p>200 | OK</p>
-<h3 id='40x-errors-2'>40X Errors</h3>
-<table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<td>200</td>
+<td>OK</td>
 </tr>
-</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- The phone code is invalid</td>
+</tr>
 </tbody></table>
+</div><div class='content profile'><h1 id='8-profile'>8. Profile</h1><h2 id='8-1-get-profile'>8.1 Get Profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 123 456 789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_phone_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_email_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dialcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"co2_not_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"saved_money"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"can_impersonate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_personal_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_employee_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"required_personal_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cost_cancellation_required_personal_stripe_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cost_cancellation_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"can_test_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='8-1-1-http-request'>8.1.1 HTTP Request</h3>
+<p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
-<p>400 | Bad Request -- The phone code is invalid</p>
-</div><div class='content profile'><h1 id='profile'>Profile</h1><h2 id='profile-attributes-response'>Profile attributes response</h2><h3 id='profile-attributes-response-user'>Profile attributes response (user)</h3>
+<p>This endpoint get the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<h3 id='8-1-2-profile-attributes-response-user'>8.1.2 Profile attributes response (user)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -843,7 +946,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h3 id='profile-attributes-response-passenger'>Profile attributes response (passenger)</h3>
+<h3 id='8-1-3-profile-attributes-response-passenger'>8.1.3 Profile attributes response (passenger)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -931,7 +1034,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h3 id='profile-attributes-response-employee'>Profile attributes response (employee)</h3>
+<h3 id='8-1-4-profile-attributes-response-employee'>8.1.4 Profile attributes response (employee)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -963,7 +1066,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h3 id='profile-attributes-response-company'>Profile attributes response (company)</h3>
+<h3 id='8-1-5-profile-attributes-response-company'>8.1.5 Profile attributes response (company)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1063,86 +1166,19 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h2 id='get-profile'>Get Profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foo"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 123 456 789"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"is_phone_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"is_email_validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"dialcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"co2_not_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"saved_money"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"can_impersonate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"has_personal_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"has_employee_credit_card_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"required_personal_credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cost_cancellation_required_personal_stripe_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cost_cancellation_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"can_test_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
-
-<p>This endpoint get the passenger profile.</p>
-<h2 id='success-code'>Success code</h2>
+<h3 id='8-1-6-success-code'>8.1.6 Success code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
 </tbody></table>
-
-<p>200 | OK</p>
-<h2 id='edit-profile'>Edit profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
+<h2 id='8-2-edit-profile'>8.2 Edit profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -1168,11 +1204,70 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34123456780"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='8-2-1-http-request'>8.2.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
 
-<p>This endpoint update several attributes of the passenger profile.</p>
-</div><div class='content zone'><h1 id='zone'>Zone</h1><h2 id='zone-attributes-response'>Zone attributes response</h2>
+<p>This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<h3 id='8-2-2-success-code'>8.2.2 Success code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+</tbody></table>
+</div><div class='content zone'><h1 id='9-zone'>9. Zone</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATOCHA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delegate_always"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"immediates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"destination_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_six_seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_eco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_electric_car"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_high_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_screen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_adapted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_taxi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_vtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_time_request_reservation_integrated_moto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allow_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"only_credit_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"test_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"need_place_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"railstation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"taxis"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"enabled_rate_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"only_credit_service_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_cost_cancellation_inmmediates_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"has_cost_cancellation_reservations_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"company_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"conventional"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"personal_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"conventional"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='9-1-http-request'>9.1 HTTP Request</h2>
+<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693</code></p>
+
+<p>This endpoint returns the configuration of a zone.</p>
+<h3 id='9-1-2-zone-attributes-response'>9.1.2 Zone attributes response</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1288,50 +1383,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATOCHA"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"delegate_always"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"immediates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"destination_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_six_seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_eco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_electric_car"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_high_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_screen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_adapted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_integrated_taxi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_integrated_vtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"min_time_request_reservation_integrated_moto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"allow_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"only_credit_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"test_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"need_place_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"railstation"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"taxis"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="nl">"enabled_rate_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"only_credit_service_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"has_cost_cancellation_inmmediates_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"has_cost_cancellation_reservations_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"company_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"conventional"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"personal_taxi_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"conventional"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='query-parameters'>Query Parameters</h2>
+<h2 id='9-2-query-parameters'>9.2 Query Parameters</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1345,31 +1397,23 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>True</td>
 </tr>
 </tbody></table>
-<h2 id='http-request'>HTTP Request</h2>
-<p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693</code></p>
-
-<p>This endpoint returns the configuration of a zone.</p>
-<h2 id='success-code'>Success code</h2>
+<h2 id='9-3-status-code'>9.3 Status code</h2>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<p>200 | OK</p>
-<h2 id='40x-errors'>40X Errors</h2>
-<table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<td>200</td>
+<td>OK</td>
 </tr>
-</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Out of zone XXX</td>
+</tr>
 </tbody></table>
-
-<p>400 | Bad Request -- Out of zone XXX</p>
-</div><div class='content service'><h1 id='service'>Service</h1><h2 id='create-service'>Create Service</h2><h3 id='service-attributes-request'>Service attributes request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
+</div><div class='content service'><h1 id='10-service'>10. Service</h1><h2 id='10-1-create-service'>10.1 Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -1451,7 +1495,9 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
     </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h3 id='10-1-1-http-request'>10.1.1 HTTP Request</h3>
+<p><code>POST &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/</code></p>
+<h3 id='10-1-2-service-attributes-request'>10.1.2 Service attributes request</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1579,7 +1625,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h3 id='service-attributes-response-traveller'>Service attributes response (traveller)</h3>
+<h3 id='10-1-3-service-attributes-response-traveller'>10.1.3 Service attributes response (traveller)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1655,7 +1701,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h3 id='service-attributes-response-service'>Service attributes response (service)</h3>
+<h3 id='10-1-4-service-attributes-response-service'>10.1.4 Service attributes response (service)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1723,29 +1769,23 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/</code></p>
-<h3 id='success-code'>Success code</h3>
+<h3 id='10-1-5-status-code'>10.1.5 Status code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<p>200 | OK</p>
-<h3 id='40x-errors'>40X Errors</h3>
-<table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<td>200</td>
+<td>OK</td>
 </tr>
-</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- XXX</td>
+</tr>
 </tbody></table>
-
-<p>400 | Bad Request -- The email code is invalid</p>
-<h2 id='edit'>Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span> <span class="se">\</span>
+<h2 id='10-2-edit'>10.2 Edit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -1828,9 +1868,9 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='10-2-1-http-request'>10.2.1 HTTP Request</h3>
 <p><code>PUT &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='10-2-2-url-parameters'>10.2.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1842,11 +1882,11 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>The ID of traveller</td>
 </tr>
 </tbody></table>
-<h2 id='current'>Current</h2><h3 id='http-request-3'>HTTP Request</h3>
+<h2 id='10-3-current'>10.3 Current</h2><h3 id='10-3-1-http-request'>10.3.1 HTTP Request</h3>
 <p><code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/</code>
 or
 <code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='10-3-2-url-parameters'>10.3.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1858,7 +1898,7 @@ or
 <td>The ID of traveller</td>
 </tr>
 </tbody></table>
-<h2 id='services'>Services</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/"</span> <span class="se">\</span>
+<h2 id='10-4-services'>10.4 Services</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Impersonate: test@example.com"</span> <span class="se">\</span>
@@ -1928,9 +1968,9 @@ or
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre></div><h3 id='10-4-1-http-request'>10.4.1 HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='10-4-2-url-parameters'>10.4.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1954,7 +1994,7 @@ or
 <td>Values: service_<em>state, service</em><em>pickup_date, -service</em><em>state, -service</em>_pickup_date</td>
 </tr>
 </tbody></table>
-<h3 id='service-attributes-response-traveller-2'>Service attributes response (traveller)</h3>
+<h3 id='10-4-3-service-attributes-response-traveller'>10.4.3 Service attributes response (traveller)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2050,7 +2090,7 @@ or
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h3 id='service-attributes-response-service-2'>Service attributes response (service)</h3>
+<h3 id='10-4-4-service-attributes-response-service'>10.4.4 Service attributes response (service)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2138,7 +2178,7 @@ or
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h2 id='cancel'>Cancel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/&lt;ID&gt;/"</span> <span class="se">\</span>
+<h2 id='10-5-cancel'>10.5 Cancel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/&lt;ID&gt;/"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Impersonate: test@example.com"</span> <span class="se">\</span>
@@ -2153,9 +2193,9 @@ or
   </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre></div><h3 id='10-5-1-http-request'>10.5.1 HTTP Request</h3>
 <p><code>PUT &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/cancel/&lt;ID&gt;/</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='10-5-2-url-parameters'>10.5.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2167,7 +2207,7 @@ or
 <td>The ID of traveller</td>
 </tr>
 </tbody></table>
-<h3 id='attributes-response'>Attributes response</h3>
+<h3 id='10-5-3-attributes-response'>10.5.3 Attributes response</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2183,63 +2223,15 @@ or
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h2 id='vote-optional'>Vote (optional)</h2>
+<h2 id='10-6-vote-optional'>10.6 Vote (optional)</h2>
 <p>Depends on configuration provider</p>
 
 <p>TODO</p>
-</div><div class='content places'><h1 id='places'>Places</h1><h2 id='places-attributes-response'>Places attributes response</h2>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the place</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Name of the place</td>
-</tr>
-<tr>
-<td>location</td>
-<td>Coordinates about this place (longitude, latitude)</td>
-</tr>
-<tr>
-<td>address</td>
-<td>Postal address of the place</td>
-</tr>
-</tbody></table>
-<h2 id='get-all-places'>Get All Places</h2>
-<p>This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position</p>
-<h3 id='query-parameters'>Query Parameters</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
+</div><div class='content places'><h1 id='11-places'>11. Places</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
 curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>type</td>
-<td>railstation or airport. With this parameter filter by train station or airport</td>
-<td>False</td>
-<td>Return airports &amp; train stations</td>
-</tr>
-<tr>
-<td>position</td>
-<td>With this parameter we get the places ordering by closer to this position (longitude, latitude)</td>
-<td>False</td>
-<td>Return places with random ordering</td>
-</tr>
-</tbody></table>
-
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -2283,9 +2275,57 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="p">},</span><span class="w">
 
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h2 id='11-1-http-request'>11.1 HTTP Request</h2>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/</code></p>
-</div><div class='content address'><h1 id='address'>Address</h1><h2 id='address-attributes-response'>Address attributes response</h2>
+
+<p>This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position</p>
+<h2 id='11-2-query-parameters'>11.2 Query Parameters</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>railstation or airport. With this parameter filter by train station or airport</td>
+<td>False</td>
+<td>Return airports &amp; train stations</td>
+</tr>
+<tr>
+<td>position</td>
+<td>With this parameter we get the places ordering by closer to this position (longitude, latitude)</td>
+<td>False</td>
+<td>Return places with random ordering</td>
+</tr>
+</tbody></table>
+<h2 id='11-3-places-attributes-response'>11.3 Places attributes response</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the place</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the place</td>
+</tr>
+<tr>
+<td>location</td>
+<td>Coordinates about this place (longitude, latitude)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Postal address of the place</td>
+</tr>
+</tbody></table>
+</div><div class='content address'><h1 id='12-address'>12. Address</h1><h2 id='12-1-address-attributes-response'>12.1 Address attributes response</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2313,7 +2353,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Type of address: home, work or general.</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-address'>Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
+<h2 id='12-2-get-all-address'>12.2 Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
@@ -2354,11 +2394,11 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="p">},</span><span class="w">
 
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all address of an user.</p>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='12-2-1-http-request'>12.2.1 HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
-<h2 id='get-an-address'>Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
+
+<p>This endpoint retrieves all address of an user.</p>
+<h2 id='12-3-get-an-address'>12.3 Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
 </code></pre></div>
@@ -2375,11 +2415,11 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h3 id='12-3-1-http-request'>12.3.1 HTTP Request</h3>
 <p>This endpoint retrieves a specific address.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='12-2-2-url-parameters'>12.2.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2391,7 +2431,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='create-an-address'>Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
+<h2 id='12-4-create-an-address'>12.4 Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\ </span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -2417,11 +2457,11 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h3 id='12-4-1-http-request'>12.4.1 HTTP Request</h3>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
-<h2 id='edit-an-address'>Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
+<h2 id='12-5-edit-an-address'>12.5 Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\</span>
@@ -2448,9 +2488,9 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
   </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo de Santa María de la Cabeza, 10, 28045 Madrid España"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre></div><h3 id='12-5-1-http-request'>12.5.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='12-5-2-url-parameters'>12.5.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2464,18 +2504,18 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tbody></table>
 
 <p>This endpoint edit a current address of an user.</p>
-<h2 id='delete-an-address'>Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="se">\</span>
+<h2 id='12-6-delete-an-address'>12.6 Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="se">\</span>
   <span class="nt">-X</span> DELETE <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command does not return anything (status code 204 No Content).</p>
 </blockquote>
-
+<h3 id='12-6-1-http-request'>12.6.1 HTTP Request</h3>
 <p>This endpoint deletes a specific address.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+
 <p><code>DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='12-6-2-url-parameters'>12.6.2 URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2487,7 +2527,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to delete</td>
 </tr>
 </tbody></table>
-<h2 id='40x-errors'>40X Errors</h2>
+<h2 id='12-7-40x-errors'>12.7 40X Errors</h2>
 <table><thead>
 <tr>
 <th>Error Code</th>
@@ -2503,7 +2543,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Not found -- Address does not found or this address belongs to another user</td>
 </tr>
 </tbody></table>
-</div><div class='content success'><h1 id='success-codes'>Success codes</h1>
+</div><div class='content success'><h1 id='13-success-codes'>13. Success codes</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
@@ -2525,7 +2565,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>No Content -- A status code and a header are given in the response, but there is no entity-body in the reply.</td>
 </tr>
 </tbody></table>
-</div><div class='content errors'><h1 id='errors'>Errors</h1>
+</div><div class='content errors'><h1 id='14-errors'>14. Errors</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
