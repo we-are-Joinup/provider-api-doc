@@ -758,6 +758,10 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields.
+</aside>
 <h2 id='6-3-signup-attributes-response'>6.3 Signup attributes response</h2>
 <table><thead>
 <tr>
@@ -892,38 +896,13 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
   </span><span class="nl">"allow_taxi_request_personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"allow_taxi_request_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"default_way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"employee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"has_deferred_employees"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"allow_milage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"allow_joinup_parking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doc Empresa"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"credit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"has_service_reasons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"vote_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"pin_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_travel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auto_geolocalize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"card_charge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"allow_fixed_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"milage_km_cost_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"percent_to_settle_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"parking_img"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"employee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='8-1-1-http-request'>8.1.1 HTTP Request</h3>
+</span></code></pre></div>
+<blockquote>
+<p>In addition to these fields there are undocumented employee/company fields, &quot;employee&quot; would be a dict</p>
+</blockquote>
+<h3 id='8-1-1-http-request'>8.1.1 HTTP Request</h3>
 <p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
 <p>This endpoint get the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
@@ -1035,138 +1014,10 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h3 id='8-1-4-profile-attributes-response-employee'>8.1.4 Profile attributes response (employee)</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>cost_center</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>has_deferred_employees</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_fields</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>default_travel_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>allow_milage</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>allow_joinup_parking</td>
-<td>XXXXX2</td>
-</tr>
-</tbody></table>
-<h3 id='8-1-5-profile-attributes-response-company'>8.1.5 Profile attributes response (company)</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>credit_payment</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>has_service_reasons</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>default_travel_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_center</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_center_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>vote_required</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_center_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>pin_required</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>default_travel_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>auto_geolocalize</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_center_type</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>card_charge</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_1_visibility</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_2_visibility</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_3_visibility</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_1_label</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_2_label</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>extra_text_3_label</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>allow_fixed_rate</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>milage_km_cost_str</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>percent_to_settle_str</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>parking_img</td>
-<td>XXXXX2</td>
-</tr>
-</tbody></table>
+
+<aside class="notice">
+In addition to these fields there are undocumented employee / company fields.
+</aside>
 <h3 id='8-1-6-success-code'>8.1.6 Success code</h3>
 <table><thead>
 <tr>
@@ -1442,31 +1293,22 @@ If you edit phone field, is_phone_validated field will become false (at least <a
     "destination_place_id": null,
     "requester_employee_pk": null,
     "coupon": null,
-
     "platform_model": "",
-    "service_reason": "",
     "credit_card": false,
     "comment": "",
-    "cost_center": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
     "rate_data": null,
-    "event": false,
-    "test_service": false,
-    "company_extra_fields": null,
     "original_service_id": null,
     "observations": ""
     }'</span>
 </code></pre></div>
 <blockquote>
+<p>In addition to these fields there are undocumented employee/company fields</p>
+
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440214</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439930</span><span class="p">,</span><span class="w">
         </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1494,9 +1336,6 @@ If you edit phone field, is_phone_validated field will become false (at least <a
     </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1506,7 +1345,11 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='10-1-1-http-request'>10.1.1 HTTP Request</h3>
 <p><code>POST &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/</code></p>
-<h3 id='10-1-2-service-attributes-request'>10.1.2 Service attributes request</h3>
+<h3 id='10-1-2-service-data-request'>10.1.2 Service data request</h3>
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields
+</aside>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1578,43 +1421,11 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <td>XXX</td>
 </tr>
 <tr>
-<td>service_reason</td>
-<td>XXX</td>
-</tr>
-<tr>
 <td>credit_card</td>
 <td>XXX</td>
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>cost_center</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_1</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_2</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_3</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>event</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>test_service</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>company_extra_fields</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -1650,14 +1461,6 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <td>XXX</td>
 </tr>
 <tr>
-<td>cost_center</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>service_reason</td>
-<td>XXX</td>
-</tr>
-<tr>
 <td>is_company_travel</td>
 <td>XXX</td>
 </tr>
@@ -1671,18 +1474,6 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_1</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_2</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_3</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -1817,17 +1608,9 @@ If you edit phone field, is_phone_validated field will become false (at least <a
     "coupon": null,
 
     "platform_model": "",
-    "service_reason": "",
     "credit_card": false,
     "comment": "",
-    "cost_center": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
     "rate_data": null,
-    "event": false,
-    "test_service": false,
-    "company_extra_fields": null,
     "original_service_id": null,
     "observations": ""
     }'</span>
@@ -1891,6 +1674,10 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <td>The ID of traveller</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+Same "Service data request", "Service attributes response (traveller)", "Service attributes response (service)" and "Status code" that in "Create Service"
+</aside>
 <h2 id='10-3-current'>10.3 Current</h2><h3 id='10-3-1-http-request'>10.3.1 HTTP Request</h3>
 <p><code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/</code>
 or
@@ -1925,15 +1712,10 @@ or
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440218</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1943,7 +1725,6 @@ or
       </span><span class="nl">"credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"finished_from_cancelled_passenger"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439934</span><span class="p">,</span><span class="w">
@@ -1977,7 +1758,11 @@ or
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='10-4-1-http-request'>10.4.1 HTTP Request</h3>
+</span></code></pre></div>
+<blockquote>
+<p>In addition to these fields there are undocumented employee/company fields</p>
+</blockquote>
+<h3 id='10-4-1-http-request'>10.4.1 HTTP Request</h3>
 <p><code>GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/</code></p>
 <h3 id='10-4-2-url-parameters'>10.4.2 URL Parameters</h3>
 <table><thead>
@@ -2004,6 +1789,10 @@ or
 </tr>
 </tbody></table>
 <h3 id='10-4-3-service-attributes-response-traveller'>10.4.3 Service attributes response (traveller)</h3>
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields
+</aside>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2016,14 +1805,6 @@ or
 </tr>
 <tr>
 <td>amount_str</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>cost_center</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>service_reason</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -2040,18 +1821,6 @@ or
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_1</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_2</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_3</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -2088,10 +1857,6 @@ or
 </tr>
 <tr>
 <td>finished_from_cancelled_passenger</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>company_extra_fields</td>
 <td>XXX</td>
 </tr>
 <tr>
