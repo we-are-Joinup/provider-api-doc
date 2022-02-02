@@ -629,7 +629,7 @@ Status Code | Meaning
 404 | Not found
 
 
-## 10.6 Vote (optional)
+## 10.6 Vote
 
 Depends on configuration provider
 
