@@ -287,7 +287,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-120f2b2c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-dfad25d6.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-5c9001fd.js"></script>
 
@@ -322,10 +322,10 @@
             <a href="#2-integration-types" class="toc-h1 toc-link" data-title="2. Integration types">2. Integration types</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2-1-server-to-server" class="toc-h2 toc-link" data-title="2.1 Server to server">2.1 Server to server</a>
+                    <a href="#2-1-client-to-server" class="toc-h2 toc-link" data-title="2.1 Client to server">2.1 Client to server</a>
                   </li>
                   <li>
-                    <a href="#2-2-client-to-server" class="toc-h2 toc-link" data-title="2.2 Client to server">2.2 Client to server</a>
+                    <a href="#2-2-server-to-server" class="toc-h2 toc-link" data-title="2.2 Server to server">2.2 Server to server</a>
                   </li>
               </ul>
           </li>
@@ -351,7 +351,7 @@
                     <a href="#6-3-signup-attributes-response" class="toc-h2 toc-link" data-title="6.3 Signup attributes response">6.3 Signup attributes response</a>
                   </li>
                   <li>
-                    <a href="#6-4-response-codes" class="toc-h2 toc-link" data-title="6.4 Response codes">6.4 Response codes</a>
+                    <a href="#6-4-status-codes" class="toc-h2 toc-link" data-title="6.4 Status codes">6.4 Status codes</a>
                   </li>
               </ul>
           </li>
@@ -410,7 +410,7 @@
                     <a href="#10-5-cancel" class="toc-h2 toc-link" data-title="10.5 Cancel">10.5 Cancel</a>
                   </li>
                   <li>
-                    <a href="#10-6-vote-optional" class="toc-h2 toc-link" data-title="10.6 Vote (optional)">10.6 Vote (optional)</a>
+                    <a href="#10-6-vote" class="toc-h2 toc-link" data-title="10.6 Vote">10.6 Vote</a>
                   </li>
               </ul>
           </li>
@@ -425,6 +425,9 @@
                   </li>
                   <li>
                     <a href="#11-3-places-attributes-response" class="toc-h2 toc-link" data-title="11.3 Places attributes response">11.3 Places attributes response</a>
+                  </li>
+                  <li>
+                    <a href="#11-4-status-code" class="toc-h2 toc-link" data-title="11.4 Status code">11.4 Status code</a>
                   </li>
               </ul>
           </li>
@@ -449,21 +452,21 @@
                   <li>
                     <a href="#12-6-delete-an-address" class="toc-h2 toc-link" data-title="12.6 Delete an address">12.6 Delete an address</a>
                   </li>
-                  <li>
-                    <a href="#12-7-40x-errors" class="toc-h2 toc-link" data-title="12.7 40X Errors">12.7 40X Errors</a>
-                  </li>
               </ul>
           </li>
           <li>
-            <a href="#13-success-codes" class="toc-h1 toc-link" data-title="13. Success codes">13. Success codes</a>
+            <a href="#13-push-notifications" class="toc-h1 toc-link" data-title="13. Push notifications">13. Push notifications</a>
           </li>
           <li>
-            <a href="#14-errors" class="toc-h1 toc-link" data-title="14. Errors">14. Errors</a>
+            <a href="#12-success-codes" class="toc-h1 toc-link" data-title="12. Success codes">12. Success codes</a>
+          </li>
+          <li>
+            <a href="#15-errors" class="toc-h1 toc-link" data-title="15. Errors">15. Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://joinup.es'>Joinup website</a></li>
-            <li><a href='mailto:desarrollo@joinup.es'>Contact to get the credentials</a></li>
+            <li><a href='mailto:integrations@joinup.es'>Contact to get the credentials</a></li>
             <li><a href='https://github.com/we-are-Joinup/provider-api-doc'>Source code of the documentation</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
@@ -485,19 +488,41 @@
 
 <p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
 </div><div class='content integrations'><h1 id='2-integration-types'>2. Integration types</h1>
-<p>You can integrate with us in several ways. In this documentation, we will focus on Server to server integration, but you must know that we have other ways to connect with us. In client to server integration the endpoints are the same, almost everything is the same, but for example the <a href="#5-authentication-authorization-amp-impersonate">AAI</a> (Authentication and authorization infrastructure) is different or we don&#39;t need an own push system.</p>
-<h2 id='2-1-server-to-server'>2.1 Server to server</h2>
-<p>You can choose between two ways:</p>
-
-<p>- Connecting with us using a generic user. </p>
-
-<p>- Every request uses the end-user to authorize (see more info in <a href="#5-authentication-authorization-amp-impersonate">AAI</a> section)</p>
-<h2 id='2-2-client-to-server'>2.2 Client to server</h2>
+<p>You can integrate with us in several ways. In this documentation, we will focus on Server to server integration, but you must know that you can connect with us from client to server. In client to server integration the endpoints are the same, almost everything is the same, but for example the <a href="#5-authentication-authorization-amp-impersonate">AAI</a> (Authentication and authorization infrastructure) is different or we don&#39;t need an own <a href="#13-push-notifications">push system</a>.</p>
+<h2 id='2-1-client-to-server'>2.1 Client to server</h2>
 <p>You can choose between two ways:</p>
 
 <p>- Own development. You can create a Web or App and connect with this API</p>
 
 <p>- We can do a clone of our web or/and our app for you with several customizations. We can do it very quickly :-)</p>
+<h2 id='2-2-server-to-server'>2.2 Server to server</h2><h3 id='2-2-1-where-to-start'>2.2.1 Where to start?</h3>
+<p>There are several endpoints in this documentation, but there is only one mandatory endpoint: <a href="#10-1-create-service"> Create Service </a>. But if do you want do an integration more rich we have another endpoints to use</p>
+
+<p>By importance, the next endpoint is to <a href="#10-5-cancel">Cancel service</a>. It is not mandatory, but it is very recommended if you want to cancel a service after request.</p>
+
+<p>If your services may be modified after request them, so you should be use <a href="10-2-edit"> Edit service </a></p>
+
+<p>You can use a generic user for the integration or you can use a specific user for every request. So, if you want to request a service to <code>John Smith</code>, you will create (<a href="#6-signup">signup</a>) a user for <code>John Smith</code> in our system the first time, and after it you will create a service in our system. If <code>John Smith</code> wants another service, you do not have to create a user the next time. See more info in <a href="#5-authentication-authorization-amp-impersonate">AAI</a> section.</p>
+
+<p>To track services we recommend to use <a href="#10-3-current"> Current endpoint </a>. Although we enable <a href="#13-push-notifications"> push notifications</a>, polling is highly recommended. We recommend you to call one of these endpoints every 30 seconds or one time per minute for good feedback about your services.</p>
+<h3 id='2-2-2-where-to-continue'>2.2.2 Where to continue?</h3>
+<p>If you want to go deeper into the integration. We recommend you to use <a href="9-zone">Zone</a>. Every zone has a configuration. The configuration is not the same in a big city than in a little city or a town, in the downtown of a city than in the suburbs of a city, in an airport than in another airport</p>
+
+<p>With <a href="9-zone">Zone endpoint</a>, you can knows the available taxi types (conventionals, six seats, ecos, electrics, high-ends, adapteds, etc), if you can request an immediate service, if there is cost cancellation in this zone, if destination is required, min time to request a reservation, etc</p>
+
+<p>But if you want to request only conventional taxis, and you can request them within a reasonable time... Really, this endpoint is not necessary</p>
+
+<p>Also, we recommend you use <a href="11-places">Places</a> if you want to request services in railstations or airports. But if you are not going to request in these places it is not necessary for you too</p>
+
+<p>If you do not choose the generic user option and your users can change his/her data: first name, last name, phone or even gender. So, you should use <a href="#8-2-edit-profile"> Edit profile</a></p>
+
+<p>For good feedback. Please, you should use <a href="#10-6-vote-optional">Vote service</a>. If we do not know what we&#39;re doing wrong, we won&#39;t be able to improve for you :-)</p>
+<h3 id='2-2-3-other-endpoints'>2.2.3 Other endpoints</h3>
+<p>If you have a solution where endusers signup, so it is possible that you want to use <a href="#7-validates">Validates endpoints</a></p>
+
+<p>We have documented: <a href="#10-4-services">Services</a> e.g.: to synchronize one time per day (e.g.: a taxi driver was wrong for an amount, and we can update it after finishing the service). <a href="#8-1-get-profile">Get Profile</a> if you want to get the data we have about a user or <a href="#12-address">Address</a> to save the favorite addresses of the users (e.g.: home, work, etc)</p>
+
+<p>Also, we have about 20 endpoints undocumented more. So, if you need something, please <a href="mailto:integrations@joinup.es">contact us</a> because it is very possible that we have developed it.</p>
 </div><div class='content urls'><h1 id='3-urls'>3. URLs</h1>
 <aside class="notice">
      This documentation will use the next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
@@ -782,7 +807,7 @@ In addition to these fields there are undocumented employee/company fields.
 <td>XXXXX2</td>
 </tr>
 </tbody></table>
-<h2 id='6-4-response-codes'>6.4 Response codes</h2>
+<h2 id='6-4-status-codes'>6.4 Status codes</h2>
 <table><thead>
 <tr>
 <th>Status Code</th>
@@ -1018,7 +1043,7 @@ In addition to these fields there are undocumented employee/company fields.
 <aside class="notice">
 In addition to these fields there are undocumented employee / company fields.
 </aside>
-<h3 id='8-1-6-success-code'>8.1.6 Success code</h3>
+<h3 id='8-1-4-success-code'>8.1.4 Success code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
@@ -1577,8 +1602,8 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 </thead><tbody>
 <tr>
-<td>200</td>
-<td>OK</td>
+<td>201</td>
+<td>Created</td>
 </tr>
 <tr>
 <td>400</td>
@@ -1606,7 +1631,6 @@ In addition to these fields there are undocumented employee/company fields
     "destination_place_id": null,
     "requester_employee_pk": null,
     "coupon": null,
-
     "platform_model": "",
     "credit_card": false,
     "comment": "",
@@ -1674,14 +1698,122 @@ In addition to these fields there are undocumented employee/company fields
 <td>The ID of traveller</td>
 </tr>
 </tbody></table>
+<h3 id='10-2-3-status-code'>10.2.3 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field <code>min_time_request_reservation_*</code></td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
-Same "Service data request", "Service attributes response (traveller)", "Service attributes response (service)" and "Status code" that in "Create Service"
+Same "Service data request", "Service attributes response (traveller)", and "Service attributes response (service)" that in "Create Service"
 </aside>
-<h2 id='10-3-current'>10.3 Current</h2><h3 id='10-3-1-http-request'>10.3.1 HTTP Request</h3>
-<p><code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/</code>
-or
-<code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/&lt;ID&gt;</code></p>
+<h2 id='10-3-current'>10.3 Current</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like these:</p>
+
+<ol>
+<li>There is not any current service</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<ol>
+<li>There is any current vote service. There is 4 current service (active or pending voting)</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440248</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.75 €"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439964</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"cached_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T10:47:54Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 40 Madrid España"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vote"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<ol>
+<li>There is any current active service. There is 4 current service (active or pending voting)</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440246</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439962</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mf">-3.693407</span><span class="p">,</span><span class="w">
+      </span><span class="mf">40.4121412</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T10:22:02.642724Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paseo del Prado, 26 Madrid España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pickup_place_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"destination_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mf">-3.7121572</span><span class="p">,</span><span class="w">
+      </span><span class="mf">40.4343557</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"arrival_taxi_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reservation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service__zone__time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>In addition to these fields there are undocumented employee/company fields and configurations</p>
+</blockquote>
+<h3 id='10-3-1-http-request'>10.3.1 HTTP Request</h3>
+<p>This endpoint returns a current service. If you have several current services you can specify an id. A current service can be a service pending voting or an active service. An active service is a service in state: pending, ongoing, pickup and running. Also an active service is a booking in state reservation or reservation accepted but it is very close to the pickup date.</p>
+
+<p><code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/</code></p>
+
+<p>or</p>
+
+<p><code>GET &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/&lt;ID&gt;</code></p>
 <h3 id='10-3-2-url-parameters'>10.3.2 URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1692,6 +1824,222 @@ or
 <tr>
 <td>ID</td>
 <td>The ID of traveller</td>
+</tr>
+</tbody></table>
+<h3 id='10-3-3-service-attributes-response-pending-vote'>10.3.3 Service attributes response (pending vote)</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pk</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>amount_str</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>count</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+
+<p>In service attribute:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pk</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>taxi.cached_name</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>pickup_date</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>destination_address</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+<h3 id='10-3-4-service-attributes-response-pending-vote'>10.3.4 Service attributes response (pending vote)</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pk</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>amount_str</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>is_company_travel</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>deferred</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>deferred_pk</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>way_to_pay</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>coupon</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>amount_with_coupon</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>amount_cancellation</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>amount_currency</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>taxi_type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>service_<em>zone</em>_time_zone</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>count</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+
+<p>In service attribute:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pk</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>taxi</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>state</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>pickup_location</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>pickup_date</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>pickup_place_type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>updated_position</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>destination_location</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>destination_address</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>taxi_pickup_date</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>finish_date</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>vehicle_type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>rate_type</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>rate_data</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_info</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>arrival_taxi_date</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>reservation</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields and configurations
+</aside>
+<h3 id='10-3-5-status-code'>10.3.5 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
 </tr>
 </tbody></table>
 <h2 id='10-4-services'>10.4 Services</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/"</span> <span class="se">\</span>
@@ -1952,6 +2300,18 @@ In addition to these fields there are undocumented employee/company fields
 <td>XXX</td>
 </tr>
 </tbody></table>
+<h3 id='10-4-5-status-code'>10.4.5 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
+</tr>
+</tbody></table>
 <h2 id='10-5-cancel'>10.5 Cancel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/&lt;ID&gt;/"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1997,10 +2357,82 @@ In addition to these fields there are undocumented employee/company fields
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h2 id='10-6-vote-optional'>10.6 Vote (optional)</h2>
+<h3 id='10-5-4-status-code'>10.5.4 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not found</td>
+</tr>
+</tbody></table>
+<h2 id='10-6-vote'>10.6 Vote</h2>
 <p>Depends on configuration provider</p>
-
-<p>TODO</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/&lt;ID&gt;/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "vote": "down",
+    "comment": "bla bla bla"
+  }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ask_app_vote"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='10-6-1-http-request'>10.6.1 HTTP Request</h3>
+<p><code>PUT &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/&lt;ID&gt;/</code></p>
+<h3 id='10-6-1-vote-data-request'>10.6.1 Vote data request</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>vote</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+<h3 id='10-6-2-vote-attribute-response'>10.6.2 Vote attribute response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ask_app_vote</td>
+<td>XXX</td>
+</tr>
+</tbody></table>
+<h3 id='10-6-3-status-code'>10.6.3 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not found</td>
+</tr>
+</tbody></table>
 </div><div class='content places'><h1 id='11-places'>11. Places</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
 curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
@@ -2099,6 +2531,18 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Postal address of the place</td>
 </tr>
 </tbody></table>
+<h2 id='11-4-status-code'>11.4 Status code</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+</tbody></table>
 </div><div class='content address'><h1 id='12-address'>12. Address</h1><h2 id='12-1-address-attributes-response'>12.1 Address attributes response</h2>
 <table><thead>
 <tr>
@@ -2172,6 +2616,18 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <p><code>GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint retrieves all address of an user.</p>
+<h3 id='12-2-2-status-code'>12.2.2 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+</tbody></table>
 <h2 id='12-3-get-an-address'>12.3 Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
@@ -2205,6 +2661,22 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to retrieve</td>
 </tr>
 </tbody></table>
+<h3 id='12-2-3-status-code'>12.2.3 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not found -- Address does not found or this address belongs to another user</td>
+</tr>
+</tbody></table>
 <h2 id='12-4-create-an-address'>12.4 Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\ </span>
@@ -2235,6 +2707,22 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/</code></p>
 
 <p>This endpoint creates a new address.</p>
+<h3 id='12-4-1-status-code'>12.4.1 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc</td>
+</tr>
+</tbody></table>
 <h2 id='12-5-edit-an-address'>12.5 Edit an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-X</span> PUT <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
@@ -2278,6 +2766,26 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tbody></table>
 
 <p>This endpoint edit a current address of an user.</p>
+<h3 id='12-5-2-status-code'>12.5.2 Status code</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not found -- Address does not found or this address belongs to another user</td>
+</tr>
+</tbody></table>
 <h2 id='12-6-delete-an-address'>12.6 Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="se">\</span>
   <span class="nt">-X</span> DELETE <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
@@ -2301,23 +2809,23 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>The ID of the address to delete</td>
 </tr>
 </tbody></table>
-<h2 id='12-7-40x-errors'>12.7 40X Errors</h2>
+<h3 id='12-6-3-status-code'>12.6.3 Status code</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc</td>
+<td>204</td>
+<td>No Content</td>
 </tr>
 <tr>
 <td>404</td>
 <td>Not found -- Address does not found or this address belongs to another user</td>
 </tr>
 </tbody></table>
-</div><div class='content success'><h1 id='13-success-codes'>13. Success codes</h1>
+</div><div class='content pushes'><h1 id='13-push-notifications'>13. Push notifications</h1></div><div class='content success'><h1 id='12-success-codes'>12. Success codes</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
@@ -2339,7 +2847,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>No Content -- A status code and a header are given in the response, but there is no entity-body in the reply.</td>
 </tr>
 </tbody></table>
-</div><div class='content errors'><h1 id='14-errors'>14. Errors</h1>
+</div><div class='content errors'><h1 id='15-errors'>15. Errors</h1>
 <p>The Joinup API uses the following error codes:</p>
 
 <table><thead>
