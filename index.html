@@ -761,7 +761,7 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </code></pre></div><h2 id='6-1-http-request'>6.1 HTTP Request</h2>
 <p><code>POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
-<p>This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<p>This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint</p>
 <h2 id='6-2-signup-attributes-data'>6.2 Signup attributes data</h2>
 <table><thead>
 <tr>
@@ -827,7 +827,7 @@ In addition to these fields there are undocumented employee/company fields.
 </tr>
 </tbody></table>
 </div><div class='content validate'><h1 id='7-validates'>7. Validates</h1>
-<p>These endpoints depend on configuration provider. These don&#39;t make sense if you want to use only <a href="#2-1-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a></p>
+<p>These endpoints depend on configuration provider. These don&#39;t make sense if you want to use only <a href="#2-2-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a></p>
 <h2 id='7-1-validate-email'>7.1 Validate email</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -933,7 +933,7 @@ In addition to these fields there are undocumented employee/company fields.
 <h3 id='8-1-1-http-request'>8.1.1 HTTP Request</h3>
 <p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
-<p>This endpoint get the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<p>This endpoint get the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint</p>
 <h3 id='8-1-2-profile-attributes-response-user'>8.1.2 Profile attributes response (user)</h3>
 <table><thead>
 <tr>
@@ -1095,7 +1095,7 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <h3 id='8-2-1-http-request'>8.2.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/</code></p>
 
-<p>This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint</p>
+<p>This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint</p>
 <h3 id='8-2-2-success-code'>8.2.2 Success code</h3>
 <table><thead>
 <tr>
