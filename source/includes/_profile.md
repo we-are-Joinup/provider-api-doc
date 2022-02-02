@@ -48,7 +48,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint get the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint get the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
 
 ### 8.1.2 Profile attributes response (user)
 
@@ -139,7 +139,7 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/`
 
-This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
 
 ### 8.2.2 Success code
 

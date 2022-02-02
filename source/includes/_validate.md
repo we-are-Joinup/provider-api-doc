@@ -1,6 +1,6 @@
 # 7. Validates 
 
-These endpoints depend on configuration provider. These don't make sense if you want to use only <a href="#2-1-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a>
+These endpoints depend on configuration provider. These don't make sense if you want to use only <a href="#2-2-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a>
 
 ## 7.1 Validate email
 

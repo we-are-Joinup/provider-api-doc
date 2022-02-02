@@ -18,7 +18,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-1-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
 
 
 ## 6.2 Signup attributes data
