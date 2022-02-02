@@ -23,23 +23,16 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "destination_place_id": null,
     "requester_employee_pk": null,
     "coupon": null,
-
     "platform_model": "",
-    "service_reason": "",
     "credit_card": false,
     "comment": "",
-    "cost_center": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
     "rate_data": null,
-    "event": false,
-    "test_service": false,
-    "company_extra_fields": null,
     "original_service_id": null,
     "observations": ""
     }'
 ```
+
+> In addition to these fields there are undocumented employee/company fields
 
 > The above command returns JSON structured like this:
 
@@ -47,8 +40,6 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 {
     "pk": 440214,
     "amount_str": null,
-    "cost_center": "",
-    "service_reason": "",
     "service": {
         "pk": 439930,
         "taxi": null,
@@ -76,9 +67,6 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "deferred": null,
     "deferred_pk": null,
     "comment": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
     "way_to_pay": "",
     "coupon": null,
     "amount_with_coupon": null,
@@ -92,8 +80,11 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `POST "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/`
 
-### 10.1.2 Service attributes request
+### 10.1.2 Service data request
 
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields
+</aside>
 
 Attribute | Description
 --------- | -----------
@@ -113,16 +104,8 @@ destination_place_id | XXX
 requester_employee_pk | XXX
 coupon | XXX
 platform_model | XXX
-service_reason | XXX
 credit_card | XXX
 comment | XXX
-cost_center | XXX
-extra_text_1 | XXX
-extra_text_2 | XXX
-extra_text_3 | XXX
-event | XXX
-test_service | XXX
-company_extra_fields | XXX
 original_service_id | XXX
 observations | XXX
 way_to_pay | XXX
@@ -135,15 +118,10 @@ Attribute | Description
 --------- | -----------
 pk        | XXX
 amount_str| XXX
-cost_center        | XXX
-service_reason        | XXX
 is_company_travel        | XXX
 deferred        | XXX
 deferred_pk        | XXX
 comment        | XXX
-extra_text_1        | XXX
-extra_text_2        | XXX
-extra_text_3        | XXX
 way_to_pay        | XXX
 coupon        | XXX
 amount_with_coupon        | XXX
@@ -206,17 +184,9 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "coupon": null,
 
     "platform_model": "",
-    "service_reason": "",
     "credit_card": false,
     "comment": "",
-    "cost_center": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
     "rate_data": null,
-    "event": false,
-    "test_service": false,
-    "company_extra_fields": null,
     "original_service_id": null,
     "observations": ""
     }'
@@ -282,6 +252,10 @@ Parameter | Description
 ID | The ID of traveller
 
 
+<aside class="notice">
+Same "Service data request", "Service attributes response (traveller)", "Service attributes response (service)" and "Status code" that in "Create Service"
+</aside>
+
 ## 10.3 Current
 
 ### 10.3.1 HTTP Request
@@ -318,15 +292,10 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
     {
       "pk": 440218,
       "amount_str": null,
-      "cost_center": "",
-      "service_reason": "",
       "is_company_travel": true,
       "deferred": null,
       "deferred_pk": null,
       "comment": "",
-      "extra_text_1": "",
-      "extra_text_2": "",
-      "extra_text_3": "",
       "way_to_pay": "",
       "coupon": null,
       "amount_with_coupon": null,
@@ -336,7 +305,6 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
       "credit_card": false,
       "relaunched": null,
       "finished_from_cancelled_passenger": false,
-      "company_extra_fields": null,
       "taxi_type": "conventional",
       "service": {
         "pk": 439934,
@@ -372,6 +340,8 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 }
 ```
 
+> In addition to these fields there are undocumented employee/company fields
+
 ### 10.4.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/`
@@ -388,19 +358,19 @@ ordering | Values: service__state, service__pickup_date, -service__state, -servi
 
 ### 10.4.3 Service attributes response (traveller)
 
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields
+</aside>
+
+
 Attribute | Description
 --------- | -----------
 pk        | XXX
 amount_str| XXX
-cost_center        | XXX
-service_reason        | XXX
 is_company_travel        | XXX
 deferred        | XXX
 deferred_pk        | XXX
 comment        | XXX
-extra_text_1        | XXX
-extra_text_2        | XXX
-extra_text_3        | XXX
 way_to_pay        | XXX
 coupon        | XXX
 amount_with_coupon        | XXX
@@ -410,7 +380,6 @@ service__zone__time_zone | XXX
 credit_card | XXX
 relaunched | XXX
 finished_from_cancelled_passenger | XXX
-company_extra_fields | XXX
 taxi_type | XXX
 
 ### 10.4.4 Service attributes response (service)

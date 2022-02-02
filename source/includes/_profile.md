@@ -38,38 +38,10 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   "allow_taxi_request_personal": true,
   "allow_taxi_request_company": true,
   "default_way_to_pay": "", 
-  "employee": {
-    "cost_center": "",
-    "has_deferred_employees": false,
-    "extra_fields": [],
-    "default_travel_type": "company",
-    "allow_milage": false,
-    "allow_joinup_parking": false,
-    "company": {
-      "name": "Doc Empresa",
-      "credit_payment": true,
-      "has_service_reasons": false,
-      "cost_center": "optional",
-      "cost_center_type": "employee",
-      "vote_required": true,
-      "pin_required": false,
-      "default_travel_type": "company",
-      "auto_geolocalize": true,
-      "card_charge": false,
-      "extra_text_1_visibility": "hidden",
-      "extra_text_2_visibility": "hidden",
-      "extra_text_3_visibility": "hidden",
-      "extra_text_1_label": "",
-      "extra_text_2_label": "",
-      "extra_text_3_label": "",
-      "allow_fixed_rate": false,
-      "milage_km_cost_str": null,
-      "percent_to_settle_str": null,
-      "parking_img": ""
-    },
-  },
+  "employee": null
 }
 ```
+> In addition to these fields there are undocumented employee/company fields, "employee" would be a dict
 
 
 ### 8.1.1 HTTP Request
@@ -112,47 +84,9 @@ allow_taxi_request_personal | XXXXX2
 allow_taxi_request_company | XXXXX2
 default_way_to_pay | XXXXX2
 
-
-### 8.1.4 Profile attributes response (employee)
-
-Attribute | Description
---------- | -----------
-cost_center | XXXXX2
-has_deferred_employees | XXXXX2
-extra_fields | XXXXX2
-default_travel_type | XXXXX2
-allow_milage | XXXXX2
-allow_joinup_parking | XXXXX2
-
-
-### 8.1.5 Profile attributes response (company)
-
-Attribute | Description
---------- | -----------
-name | XXXXX2
-credit_payment | XXXXX2
-has_service_reasons | XXXXX2
-default_travel_type | XXXXX2
-cost_center | XXXXX2
-cost_center_type | XXXXX2
-vote_required | XXXXX2
-cost_center_type | XXXXX2
-pin_required | XXXXX2
-default_travel_type | XXXXX2
-auto_geolocalize | XXXXX2
-cost_center_type | XXXXX2
-card_charge | XXXXX2
-extra_text_1_visibility | XXXXX2
-extra_text_2_visibility | XXXXX2
-extra_text_3_visibility | XXXXX2
-extra_text_1_label | XXXXX2
-extra_text_2_label | XXXXX2
-extra_text_3_label | XXXXX2
-allow_fixed_rate | XXXXX2
-milage_km_cost_str | XXXXX2
-percent_to_settle_str | XXXXX2
-parking_img | XXXXX2
-
+<aside class="notice">
+In addition to these fields there are undocumented employee / company fields.
+</aside>
 
 ### 8.1.6 Success code
 

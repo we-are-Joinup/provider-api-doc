@@ -30,6 +30,10 @@ first_name | XXXXX2
 last_name | XXXXX2
 phone | XXXXX2
 
+<aside class="notice">
+In addition to these fields there are undocumented employee/company fields.
+</aside>
+
 
 ## 6.3 Signup attributes response
 
