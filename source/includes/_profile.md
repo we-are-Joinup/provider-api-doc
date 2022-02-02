@@ -88,7 +88,7 @@ default_way_to_pay | XXXXX2
 In addition to these fields there are undocumented employee / company fields.
 </aside>
 
-### 8.1.6 Success code
+### 8.1.4 Success code
 
 Status Code | Meaning
 ---------- | -------

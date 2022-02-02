@@ -45,7 +45,7 @@ is_email_validated | XXXXX2
 
 
 
-## 6.4 Response codes
+## 6.4 Status codes
 
 Status Code | Meaning
 ---------- | -------

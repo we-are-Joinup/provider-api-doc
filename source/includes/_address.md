@@ -64,6 +64,12 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 This endpoint retrieves all address of an user.
 
+### 12.2.2 Status code
+
+Status Code | Meaning
+--------- | -----------
+200 | OK
+
 ## 12.3 Get an Address
 
 ```shell
@@ -103,6 +109,12 @@ Parameter | Description
 ID | The ID of the address to retrieve
 
 
+### 12.2.3 Status code
+
+Status Code | Meaning
+--------- | -----------
+200 | OK
+404 | Not found -- Address does not found or this address belongs to another user
 
 ## 12.4 Create an Address
 
@@ -144,6 +156,13 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 
 This endpoint creates a new address.
+
+### 12.4.1 Status code
+
+Status Code | Meaning
+--------- | -----------
+201 | Created
+400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
 
 ## 12.5 Edit an Address
 
@@ -194,6 +213,13 @@ ID | The ID of the address to retrieve
 
 This endpoint edit a current address of an user.
 
+### 12.5.2 Status code
+
+Status Code | Meaning
+--------- | -----------
+200 | Ok
+400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
+404 | Not found -- Address does not found or this address belongs to another user
 
 ## 12.6 Delete an address
 
@@ -221,9 +247,9 @@ Parameter | Description
 ID | The ID of the address to delete
 
 
-## 12.7 40X Errors
+### 12.6.3 Status code
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
+Status Code | Meaning
+--------- | -----------
+204 | No Content
 404 | Not found -- Address does not found or this address belongs to another user

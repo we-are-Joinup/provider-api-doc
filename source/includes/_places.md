@@ -75,3 +75,9 @@ id | The ID of the place
 name | Name of the place
 location | Coordinates about this place (longitude, latitude)
 address | Postal address of the place
+
+## 11.4 Status code
+
+Status Code | Meaning
+---------- | -------
+200 | OK
