@@ -677,3 +677,20 @@ Status Code | Meaning
 200 | Ok
 404 | Not found
 
+## 10.7 Service Status
+
+Status  | Name                        | Type          | Meaning
+------  | --------------------------- |---------------|-----------
+0       | Reserved                    |  Booking      | Initial state in a booking
+1       | Reserved  accepted          |  Booking      | When a taxi driver accept a booking
+2       | Pending                     |  Immediate    | Initial state in a immediate service
+3       | Ongoing                     | Immediate/booking | Taxi is ongoing to pickup point
+4       | Pickup                      | Immediate/booking | Taxi is in pickup point
+5       | Running                     | Immediate/booking | Taxi goes to destination
+6       | Finished                    | Immediate/booking | The service is finished succesfully
+7       | Cancelled passenger         | Immediate/booking | Passenger cancelled the service
+8       | Cancelled taxi              | Immediate/booking | Taxi cancelled the service. But our system will create another service and it will search another taxi. (it is not a common thing)
+9       | Cancelled no client         | Immediate/booking | Taxi driver cancelled the service because he/she does not find to the passenger (more strange still). Our system will not create another service             
+10      | Dismissed                   | Immediate/booking | We do not find a taxi driver or there is any error code (more strange still)
+13      | Cancelled relaunch          | Immediate/booking | The service is relaunch to find a taxi driver. Our system will create another service
+14      | Cancelled passenger edited  | Immediate/booking | Passenger edit the service, our system will create another service
