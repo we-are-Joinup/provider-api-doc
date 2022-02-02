@@ -412,6 +412,9 @@
                   <li>
                     <a href="#10-6-vote" class="toc-h2 toc-link" data-title="10.6 Vote">10.6 Vote</a>
                   </li>
+                  <li>
+                    <a href="#10-7-service-status" class="toc-h2 toc-link" data-title="10.7 Service Status">10.7 Service Status</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2431,6 +2434,94 @@ In addition to these fields there are undocumented employee/company fields
 <tr>
 <td>404</td>
 <td>Not found</td>
+</tr>
+</tbody></table>
+<h2 id='10-7-service-status'>10.7 Service Status</h2>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Name</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Reserved</td>
+<td>Booking</td>
+<td>Initial state in a booking</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Reserved  accepted</td>
+<td>Booking</td>
+<td>When a taxi driver accept a booking</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pending</td>
+<td>Immediate</td>
+<td>Initial state in a immediate service</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ongoing</td>
+<td>Immediate/booking</td>
+<td>Taxi is ongoing to pickup point</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Pickup</td>
+<td>Immediate/booking</td>
+<td>Taxi is in pickup point</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Running</td>
+<td>Immediate/booking</td>
+<td>Taxi goes to destination</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Finished</td>
+<td>Immediate/booking</td>
+<td>The service is finished succesfully</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cancelled passenger</td>
+<td>Immediate/booking</td>
+<td>Passenger cancelled the service</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Cancelled taxi</td>
+<td>Immediate/booking</td>
+<td>Taxi cancelled the service. But our system will create another service and it will search another taxi. (it is not a common thing)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Cancelled no client</td>
+<td>Immediate/booking</td>
+<td>Taxi driver cancelled the service because he/she does not find to the passenger (more strange still). Our system will not create another service</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Dismissed</td>
+<td>Immediate/booking</td>
+<td>We do not find a taxi driver or there is any error code (more strange still)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Cancelled relaunch</td>
+<td>Immediate/booking</td>
+<td>The service is relaunch to find a taxi driver. Our system will create another service</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cancelled passenger edited</td>
+<td>Immediate/booking</td>
+<td>Passenger edit the service, our system will create another service</td>
 </tr>
 </tbody></table>
 </div><div class='content places'><h1 id='11-places'>11. Places</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Airports closer to Atocha</span>
