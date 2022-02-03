@@ -27,8 +27,15 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/`
 
+This endpoint validates the email of a user. Our system sends an email with a code, you have to call to this endpoint with this value in `email_code`
 
-### 7.1.2 Status code
+### 7.1.2 Validate email attributes response
+
+Attribute | Description
+--------- | -----------
+email_code | Returns email code when the request had success, otherwise returns a 400 Bad request
+
+### 7.1.3 Status code
 
 Status Code | Meaning
 ---------- | -------
@@ -60,7 +67,17 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/`
 
 
-### 7.2.2 Success code
+This endpoint validates the phone of a user. Our system sends a SMS with a code, you have to call to this endpoint with this value in `phone_code`
+
+### 7.2.2 Validate email attributes response
+
+Attribute | Description
+--------- | -----------
+phone_code | Returns phone code when the request had success, otherwise returns a 400 Bad request
+
+
+
+### 7.2.3 Success code
 
 Status Code | Meaning
 ---------- | -------
