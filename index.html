@@ -847,7 +847,21 @@ In addition to these fields there are undocumented employee/company fields.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"email_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='7-1-1-http-request'>7.1.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/</code></p>
-<h3 id='7-1-2-status-code'>7.1.2 Status code</h3>
+
+<p>This endpoint validates the email of a user. Our system sends an email with a code, you have to call to this endpoint with this value in <code>email_code</code></p>
+<h3 id='7-1-2-validate-email-attributes-response'>7.1.2 Validate email attributes response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email_code</td>
+<td>Returns email code when the request had success, otherwise returns a 400 Bad request</td>
+</tr>
+</tbody></table>
+<h3 id='7-1-3-status-code'>7.1.3 Status code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
@@ -878,7 +892,21 @@ In addition to these fields there are undocumented employee/company fields.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="nl">"phone_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='7-2-1-http-request'>7.2.1 HTTP Request</h3>
 <p><code>PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/</code></p>
-<h3 id='7-2-2-success-code'>7.2.2 Success code</h3>
+
+<p>This endpoint validates the phone of a user. Our system sends a SMS with a code, you have to call to this endpoint with this value in <code>phone_code</code></p>
+<h3 id='7-2-2-validate-email-attributes-response'>7.2.2 Validate email attributes response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone_code</td>
+<td>Returns phone code when the request had success, otherwise returns a 400 Bad request</td>
+</tr>
+</tbody></table>
+<h3 id='7-2-3-success-code'>7.2.3 Success code</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
