@@ -25,10 +25,14 @@ This endpoint creates a new passenger, a new user. If you want to use only <a hr
 
 Attribute | Description
 --------- | -----------
-email | XXXX
-first_name | XXXXX2
-last_name | XXXXX2
-phone | XXXXX2
+email | If you do not want that we send mails to your users (See <a href="#4-configuration-provider"> configuration provider</a>. So, you can send fake emails, something like this: USER_ID@DOMAIN_PROVIDER ==> user-37812@example.com)
+first_name | First name of your user.
+last_name | Last name of your user.
+phone | Phone contact of your user.
+
+<aside class="notice">
+First name, last name and phone are important data. Because when the taxi driver arrives he/she can ask for the person (first name and last name) or even call (via call bridge) to the passenger. If you choose for connect with us only a generic user, if you want, you can add this info into the comments
+</aside>
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields.
@@ -39,9 +43,9 @@ In addition to these fields there are undocumented employee/company fields.
 
 Attribute | Description
 --------- | -----------
-token | XXXX
-is_phone_validated | XXXXX2
-is_email_validated | XXXXX2
+token | Token for integrations client to server. Ignore if your integration is server to server
+is_phone_validated | At least that you choose "self validate phone" in <a href="#4-configuration-provider"> configuration provider</a> this will be false
+is_email_validated | At least that you choose "self validate email" in <a href="#4-configuration-provider"> configuration provider</a> this will be false
 
 
 
