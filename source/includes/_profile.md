@@ -50,29 +50,28 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 This endpoint get the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
 
+We have the common info to every user (passengers, taxi drivers, Joinup operators, admins, etc) in the User model. And the specific info of a passsenger in a Passenger model. For this reason, we have this structure in the json object
+
 ### 8.1.2 Profile attributes response (user)
 
 Attribute | Description
 --------- | -----------
-username | XXXX
-first_name | XXXXX2
-last_name | XXXXX2
+username | email of your user
+first_name | First name of your user
+last_name | Last name of your user
 
 
 ### 8.1.3 Profile attributes response (passenger)
 
 Attribute | Description
 --------- | -----------
-phone | XXXX
-gender | XXXXX2
-image_url | XXXXX2
-is_phone_validated | XXXXX2
-is_email_validated | XXXXX2
-vote | XXXXX2
-dialcode | XXXXX2
-co2_not_emitted | XXXXX2
-saved_money | XXXXX2
-can_impersonate | XXXXX2
+phone | phone of your user
+gender | undefined, male or female. This field is used for form of address, for courtesy
+image_url | URL of your avatar. We have another udocumented endpoint to upload an avatar.
+is_phone_validated | It indicates if this user has the phone validated
+is_email_validated | It indicates if this user has the email validated
+vote | Can vote when a service is finished
+dialcode | dial code of his/her phone
 has_personal_credit_card_valid | XXXXX2
 has_employee_credit_card_valid | XXXXX2
 required_personal_credit_card | XXXXX2
@@ -83,6 +82,10 @@ can_test_request | XXXXX2
 allow_taxi_request_personal | XXXXX2
 allow_taxi_request_company | XXXXX2
 default_way_to_pay | XXXXX2
+co2_not_emitted | Undocumented field
+saved_money | Undocumented field
+can_impersonate | Undocumented field
+
 
 <aside class="notice">
 In addition to these fields there are undocumented employee / company fields.
