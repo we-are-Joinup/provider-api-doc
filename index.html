@@ -966,6 +966,8 @@ In addition to these fields there are undocumented employee/company fields.
 <p><code>Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/</code></p>
 
 <p>This endpoint get the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint</p>
+
+<p>We have the common info to every user (passengers, taxi drivers, Joinup operators, admins, etc) in the User model. And the specific info of a passsenger in a Passenger model. For this reason, we have this structure in the json object</p>
 <h3 id='8-1-2-profile-attributes-response-user'>8.1.2 Profile attributes response (user)</h3>
 <table><thead>
 <tr>
@@ -975,15 +977,15 @@ In addition to these fields there are undocumented employee/company fields.
 </thead><tbody>
 <tr>
 <td>username</td>
-<td>XXXX</td>
+<td>email of your user</td>
 </tr>
 <tr>
 <td>first_name</td>
-<td>XXXXX2</td>
+<td>First name of your user</td>
 </tr>
 <tr>
 <td>last_name</td>
-<td>XXXXX2</td>
+<td>Last name of your user</td>
 </tr>
 </tbody></table>
 <h3 id='8-1-3-profile-attributes-response-passenger'>8.1.3 Profile attributes response (passenger)</h3>
@@ -995,43 +997,31 @@ In addition to these fields there are undocumented employee/company fields.
 </thead><tbody>
 <tr>
 <td>phone</td>
-<td>XXXX</td>
+<td>phone of your user</td>
 </tr>
 <tr>
 <td>gender</td>
-<td>XXXXX2</td>
+<td>undefined, male or female. This field is used for form of address, for courtesy</td>
 </tr>
 <tr>
 <td>image_url</td>
-<td>XXXXX2</td>
+<td>URL of your avatar. We have another udocumented endpoint to upload an avatar.</td>
 </tr>
 <tr>
 <td>is_phone_validated</td>
-<td>XXXXX2</td>
+<td>It indicates if this user has the phone validated</td>
 </tr>
 <tr>
 <td>is_email_validated</td>
-<td>XXXXX2</td>
+<td>It indicates if this user has the email validated</td>
 </tr>
 <tr>
 <td>vote</td>
-<td>XXXXX2</td>
+<td>Can vote when a service is finished</td>
 </tr>
 <tr>
 <td>dialcode</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>co2_not_emitted</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>saved_money</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>can_impersonate</td>
-<td>XXXXX2</td>
+<td>dial code of his/her phone</td>
 </tr>
 <tr>
 <td>has_personal_credit_card_valid</td>
@@ -1072,6 +1062,18 @@ In addition to these fields there are undocumented employee/company fields.
 <tr>
 <td>default_way_to_pay</td>
 <td>XXXXX2</td>
+</tr>
+<tr>
+<td>co2_not_emitted</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>saved_money</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>can_impersonate</td>
+<td>Undocumented field</td>
 </tr>
 </tbody></table>
 
