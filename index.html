@@ -771,21 +771,25 @@ You must replace <code>beep-beep-beep-beep-beep</code> with your token.
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>XXXX</td>
+<td>If you do not want that we send mails to your users (See <a href="#4-configuration-provider"> configuration provider</a>. So, you can send fake emails, something like this: USER_ID@DOMAIN_PROVIDER ==&gt; user-37812@example.com)</td>
 </tr>
 <tr>
 <td>first_name</td>
-<td>XXXXX2</td>
+<td>First name of your user.</td>
 </tr>
 <tr>
 <td>last_name</td>
-<td>XXXXX2</td>
+<td>Last name of your user.</td>
 </tr>
 <tr>
 <td>phone</td>
-<td>XXXXX2</td>
+<td>Phone contact of your user.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+First name, last name and phone are important data. Because when the taxi driver arrives he/she can ask for the person (first name and last name) or even call (via call bridge) to the passenger. If you choose for connect with us only a generic user, if you want, you can add this info into the comments
+</aside>
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields.
@@ -799,15 +803,15 @@ In addition to these fields there are undocumented employee/company fields.
 </thead><tbody>
 <tr>
 <td>token</td>
-<td>XXXX</td>
+<td>Token for integrations client to server. Ignore if your integration is server to server</td>
 </tr>
 <tr>
 <td>is_phone_validated</td>
-<td>XXXXX2</td>
+<td>At least that you choose &quot;self validate phone&quot; in <a href="#4-configuration-provider"> configuration provider</a> this will be false</td>
 </tr>
 <tr>
 <td>is_email_validated</td>
-<td>XXXXX2</td>
+<td>At least that you choose &quot;self validate email&quot; in <a href="#4-configuration-provider"> configuration provider</a> this will be false</td>
 </tr>
 </tbody></table>
 <h2 id='6-4-status-codes'>6.4 Status codes</h2>
@@ -2916,12 +2920,52 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Not found -- Address does not found or this address belongs to another user</td>
 </tr>
 </tbody></table>
-</div><div class='content pushes'><h1 id='13-push-notifications'>13. Push notifications</h1></div><div class='content success'><h1 id='12-success-codes'>12. Success codes</h1>
-<p>The Joinup API uses the following error codes:</p>
+</div><div class='content pushes'><h1 id='13-push-notifications'>13. Push notifications</h1>
+<blockquote>
+<p>It is the only part of the provider integration ad-hoc. But it could be an example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.provider/api/ANY-PATH/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: auu-auu-auu-auu-auu"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+      "traveller_id": 1234,
+      "event": 2
+  }'</span>
+</code></pre></div>
+<p>To track services in real time, our system can make requests to your system when there is an important event (e.g.: status change). It is possible you do not need it, but it is very recommended if you want to track services.</p>
+
+<p>Our recommendation is to use push notifications and polling system. So you know the data service every 30 seconds / 1 minute and if there is any important event immediately.</p>
+
+<p>In addition to <a href="#10-7-service-status">status changes</a>, we can inform about next events</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Event</th>
+<th>Final time</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>20</td>
+<td>Service final time</td>
+<td>Immediate</td>
+<td>We are still looking a taxi for you</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Service modified</td>
+<td>Immediate/booking</td>
+<td>Service info has been modified</td>
+</tr>
+</tbody></table>
+</div><div class='content success'><h1 id='12-success-codes'>12. Success codes</h1>
+<p>The Joinup API uses the following status codes:</p>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
@@ -2935,61 +2979,45 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tr>
 <tr>
 <td>204</td>
-<td>No Content -- A status code and a header are given in the response, but there is no entity-body in the reply.</td>
+<td>No Content -- A status code and a header are given in the response, but there is no entity-body in the reply</td>
 </tr>
 </tbody></table>
 </div><div class='content errors'><h1 id='15-errors'>15. Errors</h1>
-<p>The Joinup API uses the following error codes:</p>
+<p>The Joinup API uses the following error status codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Bad Request -- Your request is invalid. Your request does not pass some validation</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong or it was not provided.</td>
+<td>Unauthorized -- Your auth header is wrong or it was not provided</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- User in impersonate header can not do this action</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The resource does not exists or the resource belongs to another user</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Method Not Allowed -- You tried to access our API with an invalid method</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later</td>
 </tr>
 </tbody></table>
 </div>
