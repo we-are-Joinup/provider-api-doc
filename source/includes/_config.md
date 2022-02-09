@@ -10,7 +10,6 @@ Enabled | It works to disable very quicly the integration. | True
 Send mail? | If you want that our system send emails.e.g.: After signup | False
 Send sms? | If you want that our system send SMSs.e.g.: After signup | False
 Available taxi types | XXXX |
-Can request event services? | XXXX |
 Self-validate phone? | If you want that our system validate the phone of your users or if you want that we trust in the validation in your system. | True
 Self-validate email? | If you want that our system validate the e-mail of your users or if you want that we trust in the validation in your system. | True
 Can passengers vote? | If you want that your users can vote yours services in our system | True
@@ -21,8 +20,7 @@ Allow companies | Your system can register a user of these companies. The differ
 Area | Your users may only request services in the area zones | None
 Association | Any service requested by your users will be assigned to the indicated association | None
 Always services for association | True: every service will be for the previous association. False: Only when pickup zone or destination zone will be a  zone of this association | False
-Cost cancellation enabled | Cost cancellation only is applied when you cancel a service and the taxi is running to pickup point. | True
-Cost cancellation enabled: required personal stripe | XXX | True
 
-
+<aside class="notice">
 Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.
+</aside>
