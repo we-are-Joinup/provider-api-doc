@@ -1,5 +1,9 @@
 # 10. Service
 
+<aside class="notice">
+Our info is structured in two models. Travellers & Services. We have two models because we have the shared services. So, a service can have several travellers. In Service is saved the commmon data, and in traveller is saved the info related to the passengers. Shared services are undocummented.
+</aside>
+
 ## 10.1 Create Service
 
 ```shell
@@ -21,14 +25,10 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "private": false,
     "pickup_place_id": null,
     "destination_place_id": null,
-    "requester_employee_pk": null,
     "coupon": null,
     "platform_model": "",
     "credit_card": false,
     "comment": "",
-    "rate_data": null,
-    "original_service_id": null,
-    "observations": ""
     }'
 ```
 
@@ -91,81 +91,70 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 In addition to these fields there are undocumented employee/company fields
 </aside>
 
-Attribute | Description
---------- | -----------
-reservation | XXX
-pickup_date | XXX
-pickup_address | XXX
-destination_address | XXX
-pickup | XXX
-destination | XXX
-flight_number | XXX
-flight_origin | XXX
-train_number | XXX
-train_origin | XXX
-private | XXX
-pickup_place_id | XXX
-destination_place_id | XXX
-requester_employee_pk | XXX
-coupon | XXX
-platform_model | XXX
-service_reason | XXX
-credit_card | XXX
-comment | XXX
-cost_center | XXX
-extra_text_1 | XXX
-extra_text_2 | XXX
-extra_text_3 | XXX
-event | XXX
-test_service | XXX
-company_extra_fields | XXX
-original_service_id | XXX
-observations | XXX
-way_to_pay | XXX
-rate_type | XXX
+Attribute | Description   |  Required
+--------- | --------------|-------------
+private | True: personal services (passenger pays the service). False: company services (company pays the service) | False (Default is False)
+reservation | It indicates if the user can creates a booking or an immediate service | True
+pickup_date | Pickup date. Only for bookings         | False
+pickup_address | Pickup address  | True
+pickup | Pickup point. Format: [longitude, latitude] | True
+pickup_place_id | If user is requesting in an airport or railstation you can add its id in this field for efficiency | False
+destination_address | Destination address | False (depends on destination_required field of zone)
+destination | Destination point. Format: [longitude, latitude]  | False (depends on destination_required field of zone)
+destination_place_id | If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency | False
+flight_number | Flight info | False (depends on need_place_info field of zone)
+flight_origin | Flight info | False (depends on need_place_info field of zone) 
+train_number | Train info | False
+train_origin | Train info | False
+comment | Add another info | False
+coupon | We have a coupon system. And the user can request a service with a discount coupon | False
+platform_model | Add any identify of your provider and version. e.g.: PROVIDER_ID@1.0.0 | False
+way_to_pay | If private is false. You can indicates: cash, credit-card or app | False
 
 
 ### 10.1.3 Service attributes response (traveller)
 
 Attribute | Description
 --------- | -----------
-pk        | XXX
-amount_str| XXX
-cost_center        | XXX
-service_reason        | XXX
-is_company_travel        | XXX
-deferred        | XXX
-deferred_pk        | XXX
-comment        | XXX
-extra_text_1        | XXX
-extra_text_2        | XXX
-extra_text_3        | XXX
-way_to_pay        | XXX
-coupon        | XXX
-amount_with_coupon        | XXX
-amount_cancellation        | XXX
-amount_currency        | XXX
-passenger_extra_message        | XXX
+pk        | Traveller id
+is_company_travel  | invert of private field. False: personal services (passenger pays the service). True: company services (company pays the service) 
+amount_str| Amount in format string
+amount_with_coupon        | Amount with the coupon applied
+amount_cancellation        | Cancellation amount. When a service is created always is null
+amount_currency        | Currency. E.g.: EUR
+passenger_extra_message        | Promotional text for some services
+comment        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
+way_to_pay        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
+coupon        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
+cost_center        | Undocummented field
+service_reason        | Undocummented field
+deferred        | Undocummented field
+deferred_pk        | Undocummented field
+extra_text_1        | Undocummented field
+extra_text_2        | Undocummented field
+extra_text_3        | Undocummented field
+
+
 
 ### 10.1.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
-pk        | XXX
-taxi| XXX
-state        | XXX
-pickup_location        | XXX
-pickup_date        | XXX
-pickup_address        | XXX
-pickup_place_type        | XXX
-updated_position        | XXX
-destination_location        | XXX
-destination_address        | XXX
-taxi_pickup_date        | XXX
-finish_date        | XXX
-vehicle_type        | XXX
-rate_type        | XXX
-rate_data        | XXX
+pk        | Service id
+taxi | Data of taxi
+state        | <a href="#10-7-service-status"> Service status </a> 
+pickup_location        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (pickup)
+pickup_date        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
+pickup_address        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
+pickup_place_type        | It indicates if you are requesting in a railstation or an airport
+updated_position        | If you request in a railstation or in an airport without to get the coordinated from <a href="#11-places"> place endpoint </a> our backend will update the pickup point to the meeting point of the railstation or the airport
+destination_location        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (destination)
+destination_address        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
+taxi_pickup_date        | Date of taxi is in pickup. When a service is created always is null
+finish_date        | Date of taxi is in destination. When a service is created always is null
+vehicle_type        | Undocummented field
+rate_type        | Undocummented field
+rate_data        | Undocummented field
 
 
 
@@ -198,7 +187,6 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "private": false,
     "pickup_place_id": null,
     "destination_place_id": null,
-    "requester_employee_pk": null,
     "coupon": null,
     "platform_model": "",
     "credit_card": false,
