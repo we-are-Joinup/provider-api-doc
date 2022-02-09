@@ -61,32 +61,31 @@ Attribute | Description
 --------- | -----------
 id | The ID of the zone
 name | Name of the zone
-delegate_always | XXX
-immediates | XXX
-reservations | XXX
-destination_required | XXX
-min_time_request_reservation | XXX
-min_time_request_reservation_six_seats | XXX
-min_time_request_reservation_eco | XXX
-min_time_request_reservation_electric_car | XXX
-min_time_request_reservation_high_end | XXX
-min_time_request_reservation_screen | XXX
-min_time_request_reservation_adapted | XXX
-min_time_request_reservation_integrated_taxi | XXX
-min_time_request_reservation_integrated_vtc | XXX
-min_time_request_reservation_integrated_moto | XXX
-allow_comments | XXX
-only_credit_service | XXX
-test_zone | XXX
-need_place_info | XXX
-taxis | XXX
-enabled_rate_type | XXX
-only_credit_service_fixed_rate | XXX
-has_cost_cancellation_inmmediates_enabled | XXX
-has_cost_cancellation_reservations_enabled | XXX
-company_taxi_types | XXX
-personal_taxi_types | XXX
-
+immediates | this field indicates if in this zone is enabled immediates services
+reservations | this field indicates if in this zone is enabled bookings. Immediates & reservations fields can be false (it is a disabled zone for any reason). But reservations can not be false if immediates is true
+destination_required | this indicates if you need set a destination or not when you are requesting a service
+min_time_request_reservation | Min. time to request a booking for conventional taxis
+min_time_request_reservation_six_seats | Min. time to request a booking for six seats taxis
+min_time_request_reservation_eco | Min. time to request a booking for eco taxis
+min_time_request_reservation_electric_car | Min. time to request a booking for electric taxis
+min_time_request_reservation_high_end | Min. time to request a booking for hihg-end taxis
+min_time_request_reservation_screen | Min. time to request a booking for screen taxis
+min_time_request_reservation_adapted | Min. time to request a booking for adapted taxis
+min_time_request_reservation_integrated_taxi | Undocumented field
+min_time_request_reservation_integrated_vtc | Undocumented field
+min_time_request_reservation_integrated_moto | Undocumented field
+allow_comments | the user can add comments like: "I am in front of the bank"
+only_credit_service | This zone is only for credit services.
+test_zone | A user can request a service, but we are opening this zone and we need a few time to get a perfect service
+need_place_info | If this value is true, and a user requests in an airport of this zone must fill flight_number & flight_origin fields. And if a user requests in a railstation of this zone can fill train_number or train_origin
+taxis | A list of the 50 taxis closest to position param
+has_cost_cancellation_inmmediates_enabled | is there cost cancellation for immediate services?
+has_cost_cancellation_reservations_enabled | is there cost cancellation for bookings?
+company_taxi_types | Taxi types available for create services with private equal to False
+personal_taxi_types | Taxi types available for create services with private equal to True
+enabled_rate_type | Undocumented field
+only_credit_service_fixed_rate | Undocumented field
+delegate_always | Undocumented field
 
 ## 9.2 Query Parameters
 
