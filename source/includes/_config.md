@@ -9,12 +9,11 @@ Prefix | URL prefix | <a href="https://stackoverflow.com/questions/4357007/what-
 Enabled | It works to disable very quicly the integration. | True
 Send mail? | If you want that our system send emails.e.g.: After signup | False
 Send sms? | If you want that our system send SMSs.e.g.: After signup | False
-Available taxi types | XXXX |
+Available taxi types | The taxi types that your users can requests: conventional, six seats, eco, electric car, high-end, screen or adapted | e.g.: conventional and six seats
 Self-validate phone? | If you want that our system validate the phone of your users or if you want that we trust in the validation in your system. | True
 Self-validate email? | If you want that our system validate the e-mail of your users or if you want that we trust in the validation in your system. | True
 Can passengers vote? | If you want that your users can vote yours services in our system | True
 Skip reservation pickup date validation? | Our bookings has a minimum time to request. E.g.: No sense requesting a booking for in a minute. But if you want we can skip this validation | False
-Allow fixed rate? | XXX |
 Default company | Any passenger registered will be added to this company by default. This is for billing. If a passenger belongs to a company, so your system can request a taxi service on credit. | Your company
 Allow companies | Your system can register a user of these companies. The difference with the previous attribute is that you can have several companies with different configurations. And you have to set the company of every passenger in the signup endpoint | None
 Area | Your users may only request services in the area zones | None
