@@ -489,7 +489,7 @@
 
 <p>You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.</p>
 
-<p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can view code examples in the dark area to the right.</p>
+<p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can find code example in the right dark area.</p>
 </div><div class='content integrations'><h1 id='2-integration-types'>2. Integration types</h1>
 <p>You can integrate with us in several ways. In this documentation, we will focus on Server to server integration, but you must know that you can connect with us from client to server. In client to server integration the endpoints are the same, almost everything is the same, but for example the <a href="#5-authentication-authorization-amp-impersonate">AAI</a> (Authentication and authorization infrastructure) is different or we don&#39;t need an own <a href="#13-push-notifications">push system</a>.</p>
 <h2 id='2-1-client-to-server'>2.1 Client to server</h2>
@@ -589,13 +589,8 @@
 </tr>
 <tr>
 <td>Available taxi types</td>
-<td>XXXX</td>
-<td></td>
-</tr>
-<tr>
-<td>Can request event services?</td>
-<td>XXXX</td>
-<td></td>
+<td>The taxi types that your users can requests: conventional, six seats, eco, electric car, high-end, screen or adapted</td>
+<td>e.g.: conventional and six seats</td>
 </tr>
 <tr>
 <td>Self-validate phone?</td>
@@ -616,11 +611,6 @@
 <td>Skip reservation pickup date validation?</td>
 <td>Our bookings has a minimum time to request. E.g.: No sense requesting a booking for in a minute. But if you want we can skip this validation</td>
 <td>False</td>
-</tr>
-<tr>
-<td>Allow fixed rate?</td>
-<td>XXX</td>
-<td></td>
 </tr>
 <tr>
 <td>Default company</td>
@@ -647,19 +637,11 @@
 <td>True: every service will be for the previous association. False: Only when pickup zone or destination zone will be a  zone of this association</td>
 <td>False</td>
 </tr>
-<tr>
-<td>Cost cancellation enabled</td>
-<td>Cost cancellation only is applied when you cancel a service and the taxi is running to pickup point.</td>
-<td>True</td>
-</tr>
-<tr>
-<td>Cost cancellation enabled: required personal stripe</td>
-<td>XXX</td>
-<td>True</td>
-</tr>
 </tbody></table>
 
-<p>Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.</p>
+<aside class="notice">
+Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.
+</aside>
 </div><div class='content auth'><h1 id='5-authentication-authorization-amp-impersonate'>5. Authentication, Authorization &amp; Impersonate</h1>
 <blockquote>
 <p>To authorization, use this code when we are creating an user:</p>
@@ -996,16 +978,20 @@ In addition to these fields there are undocumented employee/company fields.
 </tr>
 </thead><tbody>
 <tr>
-<td>phone</td>
-<td>phone of your user</td>
-</tr>
-<tr>
 <td>gender</td>
 <td>undefined, male or female. This field is used for form of address, for courtesy</td>
 </tr>
 <tr>
 <td>image_url</td>
 <td>URL of your avatar. We have another udocumented endpoint to upload an avatar.</td>
+</tr>
+<tr>
+<td>dialcode</td>
+<td>dial code of his/her phone</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>phone of your user</td>
 </tr>
 <tr>
 <td>is_phone_validated</td>
@@ -1017,51 +1003,47 @@ In addition to these fields there are undocumented employee/company fields.
 </tr>
 <tr>
 <td>vote</td>
-<td>Can vote when a service is finished</td>
-</tr>
-<tr>
-<td>dialcode</td>
-<td>dial code of his/her phone</td>
-</tr>
-<tr>
-<td>has_personal_credit_card_valid</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>has_employee_credit_card_valid</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>required_personal_credit_card</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_cancellation_required_personal_stripe_enabled</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>cost_cancellation_enabled</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>allow_fixed_rate</td>
-<td>XXXXX2</td>
-</tr>
-<tr>
-<td>can_test_request</td>
-<td>XXXXX2</td>
+<td>Can the user vote when a service is finished?</td>
 </tr>
 <tr>
 <td>allow_taxi_request_personal</td>
-<td>XXXXX2</td>
+<td>The user can request a service with private value equal to true</td>
 </tr>
 <tr>
 <td>allow_taxi_request_company</td>
-<td>XXXXX2</td>
+<td>The user can request a service with private value equal to false</td>
+</tr>
+<tr>
+<td>has_personal_credit_card_valid</td>
+<td>The user has a personal credit card valid</td>
+</tr>
+<tr>
+<td>has_employee_credit_card_valid</td>
+<td>The user has a enterprise credit card valid</td>
+</tr>
+<tr>
+<td>cost_cancellation_required_personal_stripe_enabled</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>cost_cancellation_enabled</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>can_test_request</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>required_personal_credit_card</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>allow_fixed_rate</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>default_way_to_pay</td>
-<td>XXXXX2</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>co2_not_emitted</td>
@@ -1205,104 +1187,104 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <td>Name of the zone</td>
 </tr>
 <tr>
-<td>delegate_always</td>
-<td>XXX</td>
-</tr>
-<tr>
 <td>immediates</td>
-<td>XXX</td>
+<td>this field indicates if in this zone is enabled immediates services</td>
 </tr>
 <tr>
 <td>reservations</td>
-<td>XXX</td>
+<td>this field indicates if in this zone is enabled bookings. Immediates &amp; reservations fields can be false (it is a disabled zone for any reason). But reservations can not be false if immediates is true</td>
 </tr>
 <tr>
 <td>destination_required</td>
-<td>XXX</td>
+<td>this indicates if you need set a destination or not when you are requesting a service</td>
 </tr>
 <tr>
 <td>min_time_request_reservation</td>
-<td>XXX</td>
+<td>Min. time to request a booking for conventional taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_six_seats</td>
-<td>XXX</td>
+<td>Min. time to request a booking for six seats taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_eco</td>
-<td>XXX</td>
+<td>Min. time to request a booking for eco taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_electric_car</td>
-<td>XXX</td>
+<td>Min. time to request a booking for electric taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_high_end</td>
-<td>XXX</td>
+<td>Min. time to request a booking for hihg-end taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_screen</td>
-<td>XXX</td>
+<td>Min. time to request a booking for screen taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_adapted</td>
-<td>XXX</td>
+<td>Min. time to request a booking for adapted taxis</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_integrated_taxi</td>
-<td>XXX</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_integrated_vtc</td>
-<td>XXX</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>min_time_request_reservation_integrated_moto</td>
-<td>XXX</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>allow_comments</td>
-<td>XXX</td>
+<td>the user can add comments like: &quot;I am in front of the bank&quot;</td>
 </tr>
 <tr>
 <td>only_credit_service</td>
-<td>XXX</td>
+<td>This zone is only for credit services.</td>
 </tr>
 <tr>
 <td>test_zone</td>
-<td>XXX</td>
+<td>A user can request a service, but we are opening this zone and we need a few time to get a perfect service</td>
 </tr>
 <tr>
 <td>need_place_info</td>
-<td>XXX</td>
+<td>If this value is true, and a user requests in an airport of this zone must fill flight_number &amp; flight_origin fields. And if a user requests in a railstation of this zone can fill train_number or train_origin</td>
 </tr>
 <tr>
 <td>taxis</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>enabled_rate_type</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>only_credit_service_fixed_rate</td>
-<td>XXX</td>
+<td>A list of the 50 taxis closest to position param</td>
 </tr>
 <tr>
 <td>has_cost_cancellation_inmmediates_enabled</td>
-<td>XXX</td>
+<td>is there cost cancellation for immediate services?</td>
 </tr>
 <tr>
 <td>has_cost_cancellation_reservations_enabled</td>
-<td>XXX</td>
+<td>is there cost cancellation for bookings?</td>
 </tr>
 <tr>
 <td>company_taxi_types</td>
-<td>XXX</td>
+<td>Taxi types available for create services with private equal to False</td>
 </tr>
 <tr>
 <td>personal_taxi_types</td>
-<td>XXX</td>
+<td>Taxi types available for create services with private equal to True</td>
+</tr>
+<tr>
+<td>enabled_rate_type</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>only_credit_service_fixed_rate</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>delegate_always</td>
+<td>Undocumented field</td>
 </tr>
 </tbody></table>
 <h2 id='9-2-query-parameters'>9.2 Query Parameters</h2>
@@ -1335,7 +1317,11 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <td>Bad Request -- Point (position) out of zone (Users cannot request a Joinup in this point)</td>
 </tr>
 </tbody></table>
-</div><div class='content service'><h1 id='10-service'>10. Service</h1><h2 id='10-1-create-service'>10.1 Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
+</div><div class='content service'><h1 id='10-service'>10. Service</h1>
+<aside class="notice">
+Our info is structured in two models. Travellers & Services. We have two models because we have the shared services. So, a service can have several travellers. In Service is saved the commmon data, and in traveller is saved the info related to the passengers. Shared services are undocummented.
+</aside>
+<h2 id='10-1-create-service'>10.1 Create Service</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
@@ -1353,14 +1339,10 @@ If you edit phone field, is_phone_validated field will become false (at least <a
     "private": false,
     "pickup_place_id": null,
     "destination_place_id": null,
-    "requester_employee_pk": null,
     "coupon": null,
     "platform_model": "",
     "credit_card": false,
     "comment": "",
-    "rate_data": null,
-    "original_service_id": null,
-    "observations": ""
     }'</span>
 </code></pre></div>
 <blockquote>
@@ -1371,6 +1353,21 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440214</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439930</span><span class="p">,</span><span class="w">
         </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1393,17 +1390,7 @@ If you edit phone field, is_phone_validated field will become false (at least <a
         </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='10-1-1-http-request'>10.1.1 HTTP Request</h3>
 <p><code>POST &quot;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/</code></p>
@@ -1416,95 +1403,93 @@ In addition to these fields there are undocumented employee/company fields
 <tr>
 <th>Attribute</th>
 <th>Description</th>
+<th>Required</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>private</td>
+<td>True: personal services (passenger pays the service). False: company services (company pays the service)</td>
+<td>False (Default is False)</td>
+</tr>
+<tr>
 <td>reservation</td>
-<td>XXX</td>
+<td>It indicates if the user can creates a booking or an immediate service</td>
+<td>True</td>
 </tr>
 <tr>
 <td>pickup_date</td>
-<td>XXX</td>
+<td>Pickup date. Only for bookings</td>
+<td>False</td>
 </tr>
 <tr>
 <td>pickup_address</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>destination_address</td>
-<td>XXX</td>
+<td>Pickup address</td>
+<td>True</td>
 </tr>
 <tr>
 <td>pickup</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>destination</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>flight_number</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>flight_origin</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>train_number</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>train_origin</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>private</td>
-<td>XXX</td>
+<td>Pickup point. Format: [longitude, latitude]</td>
+<td>True</td>
 </tr>
 <tr>
 <td>pickup_place_id</td>
-<td>XXX</td>
+<td>If user is requesting in an airport or railstation you can add its id in this field for efficiency</td>
+<td>False</td>
+</tr>
+<tr>
+<td>destination_address</td>
+<td>Destination address</td>
+<td>False (depends on destination_required field of zone)</td>
+</tr>
+<tr>
+<td>destination</td>
+<td>Destination point. Format: [longitude, latitude]</td>
+<td>False (depends on destination_required field of zone)</td>
 </tr>
 <tr>
 <td>destination_place_id</td>
-<td>XXX</td>
+<td>If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency</td>
+<td>False</td>
 </tr>
 <tr>
-<td>requester_employee_pk</td>
-<td>XXX</td>
+<td>flight_number</td>
+<td>Flight info</td>
+<td>False (depends on need_place_info field of zone)</td>
 </tr>
 <tr>
-<td>coupon</td>
-<td>XXX</td>
+<td>flight_origin</td>
+<td>Flight info</td>
+<td>False (depends on need_place_info field of zone)</td>
 </tr>
 <tr>
-<td>platform_model</td>
-<td>XXX</td>
+<td>train_number</td>
+<td>Train info</td>
+<td>False</td>
 </tr>
 <tr>
-<td>credit_card</td>
-<td>XXX</td>
+<td>train_origin</td>
+<td>Train info</td>
+<td>False</td>
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
+<td>Add another info</td>
+<td>False</td>
 </tr>
 <tr>
-<td>original_service_id</td>
-<td>XXX</td>
+<td>coupon</td>
+<td>We have a coupon system. And the user can request a service with a discount coupon</td>
+<td>False</td>
 </tr>
 <tr>
-<td>observations</td>
-<td>XXX</td>
+<td>platform_model</td>
+<td>Add any identify of your provider and version. e.g.: PROVIDER_ID@1.0.0</td>
+<td>False</td>
 </tr>
 <tr>
 <td>way_to_pay</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>rate_type</td>
-<td>XXX</td>
+<td>If private is false. You can indicates: cash, credit-card or app</td>
+<td>False</td>
 </tr>
 </tbody></table>
 <h3 id='10-1-3-service-attributes-response-traveller'>10.1.3 Service attributes response (traveller)</h3>
@@ -1516,51 +1501,71 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>amount_str</td>
-<td>XXX</td>
+<td>Traveller id</td>
 </tr>
 <tr>
 <td>is_company_travel</td>
-<td>XXX</td>
+<td>invert of private field. False: personal services (passenger pays the service). True: company services (company pays the service)</td>
 </tr>
 <tr>
-<td>deferred</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>deferred_pk</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>way_to_pay</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>coupon</td>
-<td>XXX</td>
+<td>amount_str</td>
+<td>Amount in format string</td>
 </tr>
 <tr>
 <td>amount_with_coupon</td>
-<td>XXX</td>
+<td>Amount with the coupon applied</td>
 </tr>
 <tr>
 <td>amount_cancellation</td>
-<td>XXX</td>
+<td>Cancellation amount. When a service is created always is null</td>
 </tr>
 <tr>
 <td>amount_currency</td>
-<td>XXX</td>
+<td>Currency. E.g.: EUR</td>
 </tr>
 <tr>
 <td>passenger_extra_message</td>
-<td>XXX</td>
+<td>Promotional text for some services</td>
+</tr>
+<tr>
+<td>comment</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>way_to_pay</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>coupon</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>cost_center</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>service_reason</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>deferred</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>deferred_pk</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_1</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_2</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_3</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 <h3 id='10-1-4-service-attributes-response-service'>10.1.4 Service attributes response (service)</h3>
@@ -1572,63 +1577,63 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>Service id</td>
 </tr>
 <tr>
 <td>taxi</td>
-<td>XXX</td>
+<td>Data of taxi</td>
 </tr>
 <tr>
 <td>state</td>
-<td>XXX</td>
+<td><a href="#10-7-service-status"> Service status </a></td>
 </tr>
 <tr>
 <td>pickup_location</td>
-<td>XXX</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (pickup)</td>
 </tr>
 <tr>
 <td>pickup_date</td>
-<td>XXX</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_address</td>
-<td>XXX</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_place_type</td>
-<td>XXX</td>
+<td>It indicates if you are requesting in a railstation or an airport</td>
 </tr>
 <tr>
 <td>updated_position</td>
-<td>XXX</td>
+<td>If you request in a railstation or in an airport without to get the coordinated from <a href="#11-places"> place endpoint </a> our backend will update the pickup point to the meeting point of the railstation or the airport</td>
 </tr>
 <tr>
 <td>destination_location</td>
-<td>XXX</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (destination)</td>
 </tr>
 <tr>
 <td>destination_address</td>
-<td>XXX</td>
+<td><a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>taxi_pickup_date</td>
-<td>XXX</td>
+<td>Date of taxi is in pickup. When a service is created always is null</td>
 </tr>
 <tr>
 <td>finish_date</td>
-<td>XXX</td>
+<td>Date of taxi is in destination. When a service is created always is null</td>
 </tr>
 <tr>
 <td>vehicle_type</td>
-<td>XXX</td>
+<td>Undocummented field</td>
 </tr>
 <tr>
 <td>rate_type</td>
-<td>XXX</td>
+<td>Undocummented field</td>
 </tr>
 <tr>
 <td>rate_data</td>
-<td>XXX</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 <h3 id='10-1-5-status-code'>10.1.5 Status code</h3>
@@ -1666,7 +1671,6 @@ In addition to these fields there are undocumented employee/company fields
     "private": false,
     "pickup_place_id": null,
     "destination_place_id": null,
-    "requester_employee_pk": null,
     "coupon": null,
     "platform_model": "",
     "credit_card": false,
@@ -1825,6 +1829,12 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
     </span><span class="nl">"arrival_taxi_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"reservation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1913,7 +1923,7 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 <td>XXX</td>
 </tr>
 </tbody></table>
-<h3 id='10-3-4-service-attributes-response-pending-vote'>10.3.4 Service attributes response (pending vote)</h3>
+<h3 id='10-3-4-service-attributes-response-active-service'>10.3.4 Service attributes response (active service)</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1970,6 +1980,30 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </tr>
 <tr>
 <td>service_<em>zone</em>_time_zone</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>cost_center</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>service_reason</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_1</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_2</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_3</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>company_extra_fields</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -2097,10 +2131,15 @@ In addition to these fields there are undocumented employee/company fields and c
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440218</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2110,6 +2149,7 @@ In addition to these fields there are undocumented employee/company fields and c
       </span><span class="nl">"credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"finished_from_cancelled_passenger"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439934</span><span class="p">,</span><span class="w">
@@ -2193,6 +2233,14 @@ In addition to these fields there are undocumented employee/company fields
 <td>XXX</td>
 </tr>
 <tr>
+<td>cost_center</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>service_reason</td>
+<td>XXX</td>
+</tr>
+<tr>
 <td>is_company_travel</td>
 <td>XXX</td>
 </tr>
@@ -2206,6 +2254,18 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>comment</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_1</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_2</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>extra_text_3</td>
 <td>XXX</td>
 </tr>
 <tr>
@@ -2242,6 +2302,10 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>finished_from_cancelled_passenger</td>
+<td>XXX</td>
+</tr>
+<tr>
+<td>company_extra_fields</td>
 <td>XXX</td>
 </tr>
 <tr>
