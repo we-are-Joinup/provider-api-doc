@@ -40,6 +40,21 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 {
     "pk": 440214,
     "amount_str": null,
+    "cost_center": "",
+    "service_reason": "",
+    "is_company_travel": true,
+    "deferred": null,
+    "deferred_pk": null,
+    "comment": "",
+    "extra_text_1": "",
+    "extra_text_2": "",
+    "extra_text_3": "",
+    "way_to_pay": "",
+    "coupon": null,
+    "amount_with_coupon": null,
+    "amount_cancellation": null,
+    "amount_currency": "EUR",
+    "passenger_extra_message": "",
     "service": {
         "pk": 439930,
         "taxi": null,
@@ -62,17 +77,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
         "vehicle_type": "taxi",
         "rate_type": "",
         "rate_data": null
-    },
-    "is_company_travel": true,
-    "deferred": null,
-    "deferred_pk": null,
-    "comment": "",
-    "way_to_pay": "",
-    "coupon": null,
-    "amount_with_coupon": null,
-    "amount_cancellation": null,
-    "amount_currency": "EUR",
-    "passenger_extra_message": ""
+    }
 }
 ```
 
@@ -104,8 +109,16 @@ destination_place_id | XXX
 requester_employee_pk | XXX
 coupon | XXX
 platform_model | XXX
+service_reason | XXX
 credit_card | XXX
 comment | XXX
+cost_center | XXX
+extra_text_1 | XXX
+extra_text_2 | XXX
+extra_text_3 | XXX
+event | XXX
+test_service | XXX
+company_extra_fields | XXX
 original_service_id | XXX
 observations | XXX
 way_to_pay | XXX
@@ -118,10 +131,15 @@ Attribute | Description
 --------- | -----------
 pk        | XXX
 amount_str| XXX
+cost_center        | XXX
+service_reason        | XXX
 is_company_travel        | XXX
 deferred        | XXX
 deferred_pk        | XXX
 comment        | XXX
+extra_text_1        | XXX
+extra_text_2        | XXX
+extra_text_3        | XXX
 way_to_pay        | XXX
 coupon        | XXX
 amount_with_coupon        | XXX
@@ -332,6 +350,12 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "arrival_taxi_date": null,
     "reservation": false
   },
+  "cost_center": "",
+  "service_reason": "",
+  "extra_text_1": "",
+  "extra_text_2": "",
+  "extra_text_3": "",
+  "company_extra_fields": null,
   "is_company_travel": true,
   "deferred": null,
   "deferred_pk": null,
@@ -385,7 +409,7 @@ pickup_date | XXX
 destination_address | XXX
 
 
-### 10.3.4 Service attributes response (pending vote)
+### 10.3.4 Service attributes response (active service)
 
 Attribute | Description
 --------- | -----------
@@ -402,6 +426,12 @@ amount_cancellation | XXX
 amount_currency | XXX
 taxi_type | XXX
 service__zone__time_zone | XXX
+cost_center | XXX
+service_reason | XXX
+extra_text_1 | XXX
+extra_text_2 | XXX
+extra_text_3 | XXX
+company_extra_fields | XXX
 type | XXX
 count | XXX
 
@@ -461,10 +491,15 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
     {
       "pk": 440218,
       "amount_str": null,
+      "cost_center": "",
+      "service_reason": "",
       "is_company_travel": true,
       "deferred": null,
       "deferred_pk": null,
       "comment": "",
+      "extra_text_1": "",
+      "extra_text_2": "",
+      "extra_text_3": "",
       "way_to_pay": "",
       "coupon": null,
       "amount_with_coupon": null,
@@ -474,6 +509,7 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
       "credit_card": false,
       "relaunched": null,
       "finished_from_cancelled_passenger": false,
+      "company_extra_fields": null,
       "taxi_type": "conventional",
       "service": {
         "pk": 439934,
@@ -535,10 +571,15 @@ Attribute | Description
 --------- | -----------
 pk        | XXX
 amount_str| XXX
+cost_center        | XXX
+service_reason        | XXX
 is_company_travel        | XXX
 deferred        | XXX
 deferred_pk        | XXX
 comment        | XXX
+extra_text_1        | XXX
+extra_text_2        | XXX
+extra_text_3        | XXX
 way_to_pay        | XXX
 coupon        | XXX
 amount_with_coupon        | XXX
@@ -548,6 +589,7 @@ service__zone__time_zone | XXX
 credit_card | XXX
 relaunched | XXX
 finished_from_cancelled_passenger | XXX
+company_extra_fields | XXX
 taxi_type | XXX
 
 ### 10.4.4 Service attributes response (service)
