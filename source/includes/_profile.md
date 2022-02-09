@@ -65,23 +65,23 @@ last_name | Last name of your user
 
 Attribute | Description
 --------- | -----------
-phone | phone of your user
 gender | undefined, male or female. This field is used for form of address, for courtesy
 image_url | URL of your avatar. We have another udocumented endpoint to upload an avatar.
+dialcode | dial code of his/her phone
+phone | phone of your user
 is_phone_validated | It indicates if this user has the phone validated
 is_email_validated | It indicates if this user has the email validated
-vote | Can vote when a service is finished
-dialcode | dial code of his/her phone
-has_personal_credit_card_valid | XXXXX2
-has_employee_credit_card_valid | XXXXX2
-required_personal_credit_card | XXXXX2
-cost_cancellation_required_personal_stripe_enabled | XXXXX2
-cost_cancellation_enabled | XXXXX2
-allow_fixed_rate | XXXXX2
-can_test_request | XXXXX2
-allow_taxi_request_personal | XXXXX2
-allow_taxi_request_company | XXXXX2
-default_way_to_pay | XXXXX2
+vote | Can the user vote when a service is finished?
+allow_taxi_request_personal | The user can request a service with private value equal to true
+allow_taxi_request_company | The user can request a service with private value equal to false
+has_personal_credit_card_valid | The user has a personal credit card valid
+has_employee_credit_card_valid | The user has a enterprise credit card valid
+cost_cancellation_required_personal_stripe_enabled | Undocumented field
+cost_cancellation_enabled | Undocumented field
+can_test_request | Undocumented field
+required_personal_credit_card | Undocumented field
+allow_fixed_rate | Undocumented field
+default_way_to_pay | Undocumented field
 co2_not_emitted | Undocumented field
 saved_money | Undocumented field
 can_impersonate | Undocumented field
