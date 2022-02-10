@@ -1,6 +1,6 @@
 # 7. Validates 
 
-These endpoints depend on configuration provider. These don't make sense if you want to use only <a href="#2-2-server-to-server">a generic user</a> or If you want that we set self-validate email / phone in <a href="#4-configuration-provider">Configuration provider</a>
+These endpoints depend on configuration provider. These don't make sense if you want to use only [a generic user][server2server] or If you want that we set self-validate email / phone in [Configuration provider][config]
 
 ## 7.1 Validate email
 
@@ -83,3 +83,7 @@ Status Code | Meaning
 ---------- | -------
 200 | OK
 400 | Bad Request -- The phone code is invalid
+
+<!-- Link section -->
+  [server2server]:    /#2-2-server-to-server
+  [config]: /#4-configuration-provider

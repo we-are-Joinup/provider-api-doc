@@ -123,9 +123,9 @@ amount_with_coupon        | Amount with the coupon applied
 amount_cancellation        | Cancellation amount. When a service is created always is null
 amount_currency        | Currency. E.g.: EUR
 passenger_extra_message        | Promotional text for some services
-comment        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
-way_to_pay        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
-coupon        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> 
+comment        | [Docummented in 10.1.2 Service data request section][create-service]
+way_to_pay        | [Docummented in 10.1.2 Service data request section][create-service]
+coupon        | [Docummented in 10.1.2 Service data request section][create-service]
 cost_center        | Undocummented field
 service_reason        | Undocummented field
 deferred        | Undocummented field
@@ -142,14 +142,14 @@ Attribute | Description
 --------- | -----------
 pk        | Service id
 taxi | Data of taxi
-state        | <a href="#10-7-service-status"> Service status </a> 
-pickup_location        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (pickup)
-pickup_date        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
-pickup_address        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
+state        | [Service status][service-status]
+pickup_location        | [Docummented in 10.1.2 Service data request section][create-service] (pickup)
+pickup_date        | [Docummented in 10.1.2 Service data request section][create-service]
+pickup_address        | [Docummented in 10.1.2 Service data request section][create-service]
 pickup_place_type        | It indicates if you are requesting in a railstation or an airport
-updated_position        | If you request in a railstation or in an airport without to get the coordinated from <a href="#11-places"> place endpoint </a> our backend will update the pickup point to the meeting point of the railstation or the airport
-destination_location        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a> (destination)
-destination_address        | <a href="#10-1-create-service"> Docummented in 10.1.2 Service data request section</a>
+updated_position        | If you request in a railstation or in an airport without to get the coordinated from [place endpoint][places] our backend will update the pickup point to the meeting point of the railstation or the airport
+destination_location        | [Docummented in 10.1.2 Service data request section][create-service] (destination)
+destination_address        | [Docummented in 10.1.2 Service data request section][create-service]
 taxi_pickup_date        | Date of taxi is in pickup. When a service is created always is null
 finish_date        | Date of taxi is in destination. When a service is created always is null
 vehicle_type        | Undocummented field
@@ -724,3 +724,9 @@ Status  | Name                        | Type          | Meaning
 10      | Dismissed                   | Immediate/booking | We do not find a taxi driver or there is any error code (more strange still)
 13      | Cancelled relaunch          | Immediate/booking | The service is relaunch to find a taxi driver. Our system will create another service
 14      | Cancelled passenger edited  | Immediate/booking | Passenger edit the service, our system will create another service
+
+
+<!-- Link section -->
+  [create-service]:  /#10-1-create-service
+  [service-status]:  /#10-7-service-status
+  [places]: /#11-places

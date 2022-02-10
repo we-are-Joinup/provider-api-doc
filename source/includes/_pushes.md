@@ -18,9 +18,13 @@ To track services in real time, our system can make requests to your system when
 
 Our recommendation is to use push notifications and polling system. So you know the data service every 30 seconds / 1 minute and if there is any important event immediately.
 
-In addition to <a href="#10-7-service-status">status changes</a>, we can inform about next events
+In addition to [status changes][service-status], we can inform about next events
 
 Event   | Final time                  | Type          | Meaning
 --------| --------------------------- |---------------|-----------
 20      | Service final time          |  Immediate    | We are still looking a taxi for you
 22      | Service modified            |  Immediate/booking | Service info has been modified
+
+
+<!-- Link section -->
+  [service-status]:  /#10-7-service-status

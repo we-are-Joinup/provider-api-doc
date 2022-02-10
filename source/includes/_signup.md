@@ -18,14 +18,14 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint creates a new passenger, a new user. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint creates a new passenger, a new user. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
 
 ## 6.2 Signup attributes data
 
 Attribute | Description
 --------- | -----------
-email | If you do not want that we send mails to your users (See <a href="#4-configuration-provider"> configuration provider</a>. So, you can send fake emails, something like this: USER_ID@DOMAIN_PROVIDER ==> user-37812@example.com)
+email | If you do not want that we send mails to your users (See [configuration provider][config]. So, you can send fake emails, something like this: USER_ID@DOMAIN_PROVIDER ==> user-37812@example.com)
 first_name | First name of your user.
 last_name | Last name of your user.
 phone | Phone contact of your user.
@@ -44,8 +44,8 @@ In addition to these fields there are undocumented employee/company fields.
 Attribute | Description
 --------- | -----------
 token | Token for integrations client to server. Ignore if your integration is server to server
-is_phone_validated | At least that you choose "self validate phone" in <a href="#4-configuration-provider"> configuration provider</a> this will be false
-is_email_validated | At least that you choose "self validate email" in <a href="#4-configuration-provider"> configuration provider</a> this will be false
+is_phone_validated | At least that you choose "self validate phone" in [configuration provider][config] this will be false
+is_email_validated | At least that you choose "self validate email" in [configuration provider][config] this will be false
 
 
 
@@ -56,3 +56,6 @@ Status Code | Meaning
 201 | Created
 400 | Bad Request -- A field is empty or there is any validation error, e.g.: there is another user registered with this phone
 
+<!-- Link section -->
+  [server2server]:    /#2-2-server-to-server
+  [config]: /#4-configuration-provider

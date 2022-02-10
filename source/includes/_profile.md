@@ -48,7 +48,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint get the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint get the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
 We have the common info to every user (passengers, taxi drivers, Joinup operators, admins, etc) in the User model. And the specific info of a passsenger in a Passenger model. For this reason, we have this structure in the json object
 
@@ -135,17 +135,20 @@ Email can not be updated.
 </aside>
 
 <aside class="notice">
-If you edit phone field, is_phone_validated field will become false (at least <a href="#4-configuration-provider">Self-validate phone</a> is set as false)
+If you edit phone field, is_phone_validated field will become false (at least <a href="#4-configuration-provider">Self-validate phone</a> is set as false) 
 </aside>
 
 ### 8.2.1 HTTP Request
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/`
 
-This endpoint update several attributes of the passenger profile. If you want to use only <a href="#2-2-server-to-server">a generic user</a> you should do not use this endpoint
+This endpoint update several attributes of the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
 ### 8.2.2 Success code
 
 Status Code | Meaning
 ---------- | -------
 200 | OK
+
+<!-- Link section -->
+  [server2server]:    /#2-2-server-to-server

@@ -5,7 +5,7 @@ We try to adapt to your system and for this reason we have several parameters th
 Parameter | Description | Recomendation
 --------- | ----------- | ----------- 
 Name | It is only a name. | Name of your system
-Prefix | URL prefix | <a href="https://stackoverflow.com/questions/4357007/what-does-slug-mean">Slugify</a> of name of your system
+Prefix | URL prefix | [Slugify][stackoverflow] of name of your system
 Enabled | It works to disable very quicly the integration. | True
 Send mail? | If you want that our system send emails.e.g.: After signup | False
 Send sms? | If you want that our system send SMSs.e.g.: After signup | False
@@ -23,3 +23,6 @@ Always services for association | True: every service will be for the previous a
 <aside class="notice">
 Also we have more configurations like differents request options or bill options. But we prefer talk about it in a private conversation.
 </aside>
+
+<!-- Link section -->
+  [stackoverflow]:  https://stackoverflow.com/questions/4357007/what-does-slug-mean
