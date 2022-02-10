@@ -1,10 +1,12 @@
 # 10. Service
 
 <aside class="notice">
-Our info is structured in two models. Travellers & Services. We have two models because we have the shared services. So, a service can have several travellers. In Service is saved the commmon data, and in traveller is saved the info related to the passengers. Shared services are undocummented.
+Our info is structured in two models. Travellers & Services. We have two models because we have shared services. So, a service can have several travellers. In Service is saved the commmon data, and in traveller is saved the info related to the passengers. Shared services are unDocumented.
 </aside>
 
 ## 10.1 Create Service
+
+This endpoint creates a new service, immediate or booking.
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/" \
@@ -96,22 +98,22 @@ In addition to these fields there are undocumented employee/company fields
 Attribute | Description   |  Required
 --------- | --------------|-------------
 private | True: personal services (passenger pays the service). False: company services (company pays the service) | False (Default is False)
-reservation | It indicates if the user can creates a booking or an immediate service | True
+reservation | True: booking. False: immediate service | True
 pickup_date | Pickup date. Only for bookings         | False
 pickup_address | Pickup address  | True
 pickup | Pickup point. Format: [longitude, latitude] | True
-pickup_place_id | If user is requesting in an airport or railstation you can add its id in this field for efficiency | False
+pickup_place_id | If user is requesting in an airport or railstation you can add its id in this field for efficiency. See [Place endpoint][places] | False
 destination_address | Destination address | False (depends on destination_required field of zone)
 destination | Destination point. Format: [longitude, latitude]  | False (depends on destination_required field of zone)
-destination_place_id | If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency | False
+destination_place_id | If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency. See [Place endpoint][places] | False
 comment | Add another info | False
-rate_data.taxi_type | Rate data is a object with a lot info. But for this documentation we only use taxi type. In this field indicates the taxi type (See Available taxi types in [Configuration provider][config]) | False (Default is convencional)
+rate_data.taxi_type | `Rate data` is an object with a lot of info. But for this documentation we only use `taxi type`. This field will indicate the taxi type (See Available taxi types in [Configuration provider][config]) | False (Default is convencional)
 flight_number | Flight info | False (depends on need_place_info field of zone)
 flight_origin | Flight info | False (depends on need_place_info field of zone) 
 train_number | Train info | False
 train_origin | Train info | False
 coupon | We have a coupon system. And the user can request a service with a discount coupon | False
-platform_model | Add any identify of your provider and version. e.g.: PROVIDER_ID@1.0.0 | False
+platform_model | Add any identity of your provider and version. e.g.: PROVIDER_ID@1.0.0 | False
 way_to_pay | If private is false. You can indicates: cash, credit-card or app | False
 
 
@@ -120,22 +122,22 @@ way_to_pay | If private is false. You can indicates: cash, credit-card or app | 
 Attribute | Description
 --------- | -----------
 pk        | Traveller id
-is_company_travel  | invert of private field. False: personal services (passenger pays the service). True: company services (company pays the service) 
-amount_str| Amount in format string
+is_company_travel  | It is the same like `not private`. False: personal services (passenger pays the service). True: company services (company pays the service) 
+amount_str| Amount in string format
 amount_with_coupon        | Amount with the coupon applied
 amount_cancellation        | Cancellation amount. When a service is created always is null
 amount_currency        | Currency. E.g.: EUR
 passenger_extra_message        | Promotional text for some services
-comment        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-coupon        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-cost_center        | Undocummented field
-service_reason        | Undocummented field
-deferred        | Undocummented field
-deferred_pk        | Undocummented field
-extra_text_1        | Undocummented field
-extra_text_2        | Undocummented field
-extra_text_3        | Undocummented field
+comment        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+way_to_pay        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+coupon        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+cost_center        | UnDocumented field
+service_reason        | UnDocumented field
+deferred        | UnDocumented field
+deferred_pk        | UnDocumented field
+extra_text_1        | UnDocumented field
+extra_text_2        | UnDocumented field
+extra_text_3        | UnDocumented field
 
 
 
@@ -146,18 +148,18 @@ Attribute | Description
 pk        | Service id
 taxi | Data of taxi. When a service is created always is null 
 state        | [Service status][service-status]
-pickup_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+pickup_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+pickup_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 pickup_place_type        | It indicates if you are requesting in a railstation or an airport
-updated_position        | If you request in a railstation or in an airport without to get the coordinated from [place endpoint][places] our backend will update the pickup point to the meeting point of the railstation or the airport
-destination_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request] (destination)
-destination_address        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-taxi_pickup_date        | Date of taxi is in pickup. When a service is created always is null
-finish_date        | Date of taxi is in destination. When a service is created always is null
-vehicle_type        | Undocummented field
-rate_type        | Undocummented field
-rate_data        | Undocummented field
+updated_position        | When you request in a railstation or in an airport without to get the coordinates from [place endpoint][places] our backend will update the pickup point to the meeting point of the railstation or the airport
+destination_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (destination)
+destination_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+taxi_pickup_date        | Date of taxi when it arrives at pickup point. When a service is created always is null
+finish_date        | Date of taxi when it arrives at destination point. When a service is created always is null
+vehicle_type        | UnDocumented field
+rate_type        | UnDocumented field
+rate_data        | UnDocumented field
 
 
 
@@ -177,27 +179,26 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Impersonate: EMAIL_PASSENGER" \
   -X PUT \
   -d '{
+    "private": false,
     "reservation": true,
-    "pickup_address": "Paseo del Prado, 26 Madrid España",
     "pickup_date": "2022-02-02T10:15:00.000Z",
-    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
+    "pickup_address": "Paseo del Prado, 26 Madrid España",
     "pickup": [-3.693407, 40.4121412],
+    "pickup_place_id": null,
+    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
     "destination": [-3.7121572, 40.4343557],
+    "destination_place_id": null,
+    "comment": "",
+    "rate_data": {
+      "taxi_type": "electric"
+    }
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
     "train_origin": "",
-    "private": false,
-    "pickup_place_id": null,
-    "destination_place_id": null,
     "coupon": null,
-    "platform_model": "",
-    "credit_card": false,
-    "comment": "",
-    "rate_data": null,
-    "original_service_id": null,
-    "observations": ""
-    }'
+    "platform_model": ""
+  }'
 ```
 
 > The above command returns JSON structured like this:
@@ -252,6 +253,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/<ID>`
 
+This endpoint updates a service. Only for bookings.
 
 ### 10.2.2 URL Parameters
 
@@ -264,7 +266,7 @@ ID | The ID of traveller
 Status Code | Meaning
 ---------- | -------
 200 | Ok
-400 | Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field `min_time_request_reservation_*`
+400 | Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), if you request a booking with less time than zone says in the field `min_time_request_reservation_*`, etc
 
 
 <aside class="notice">
@@ -398,9 +400,9 @@ ID | The ID of traveller
 Attribute | Description
 --------- | -----------
 pk | The ID of traveller
-amount_str | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_str | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 type | It indicates that user can vote this service
-count | Number of services: booked, actives or pending vote
+count | Number of services: book, active or pending vote
 
 In service attribute:
 
@@ -408,8 +410,8 @@ Attribute | Description
 --------- | -----------
 pk | The ID of service
 taxi.cached_name | Complete name of the taxi driver
-pickup_date | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-destination_address | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+pickup_date | [Documented in 10.1.2 Service data request section][create-service-service-request]
+destination_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
 
 
 ### 10.3.4 Service attributes response (active service)
@@ -417,26 +419,26 @@ destination_address | [Docummented in 10.1.2 Service data request section][creat
 Attribute | Description
 --------- | -----------
 pk | The ID of traveller
-amount_str | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-is_company_travel | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-comment | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-coupon | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-amount_with_coupon | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_cancellation | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_currency | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-taxi_type | [Docummented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+amount_str | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+is_company_travel | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+comment | [Documented in 10.1.2 Service data request section][create-service-service-request]
+way_to_pay | [Documented in 10.1.2 Service data request section][create-service-service-request]
+coupon | [Documented in 10.1.2 Service data request section][create-service-service-request]
+amount_with_coupon | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_cancellation | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_currency | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
 service__zone__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
 type | It indicates that user has an active service
-count | [Docummented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
-deferred | Undocummented field
-deferred_pk | Undocummented field
-cost_center | Undocummented field
-service_reason | Undocummented field
-extra_text_1 | Undocummented field
-extra_text_2 | Undocummented field
-extra_text_3 | Undocummented field
-company_extra_fields | Undocummented field
+count | [Documented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
+deferred | UnDocumented field
+deferred_pk | UnDocumented field
+cost_center | UnDocumented field
+service_reason | UnDocumented field
+extra_text_1 | UnDocumented field
+extra_text_2 | UnDocumented field
+extra_text_3 | UnDocumented field
+company_extra_fields | UnDocumented field
 
 In service attribute:
 
@@ -450,23 +452,23 @@ taxi.license | Taxi licence
 taxi.plate | Taxi plate
 taxi.reputation_stars | Taxi reputation. A value from 0 to 5
 taxi.vehicle | Brand & model of taxi
-taxi.vehicle_type | Undocummented field
-reservation | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+taxi.vehicle_type | UnDocumented field
+reservation | [Documented in 10.1.2 Service data request section][create-service-service-request]
 state | [10.1.4 Service attributes response (service)][create-service-service-response]
-pickup_location | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+pickup_location | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date | [Documented in 10.1.2 Service data request section][create-service-service-request]
+pickup_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
 pickup_place_type | [10.1.4 Service attributes response (service)][create-service-service-response]
 updated_position | [10.1.4 Service attributes response (service)][create-service-service-response]
-destination_location | [Docummented in 10.1.2 Service data request section][create-service-service-request] (destination)
-destination_address | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+destination_location | [Documented in 10.1.2 Service data request section][create-service-service-request] (destination)
+destination_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date | [10.1.4 Service attributes response (service)][create-service-service-response]
 finish_date | [10.1.4 Service attributes response (service)][create-service-service-response]
 extra_info | A message for the passenger. E.g.: "Personalized welcome with a sign at the exit of the flight"
 arrival_taxi_date | In some zones, we do not know the coords of the taxi. So, we will estimate an arrival taxi date
-vehicle_type | Undocummented field
-rate_type | Undocummented field
-rate_data | Undocummented field
+vehicle_type | UnDocumented field
+rate_type | UnDocumented field
+rate_data | UnDocumented field
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields and configurations
@@ -579,27 +581,27 @@ In addition to these fields there are undocumented employee/company fields
 Attribute | Description
 --------- | -----------
 pk        | Traveller id
-amount_str| [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-is_company_travel        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-comment        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-coupon        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-amount_with_coupon        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_cancellation        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_currency        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-service__zone__time_zone | [Docummented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
+amount_str| [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+is_company_travel        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+comment        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+way_to_pay        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+coupon        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+amount_with_coupon        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_cancellation        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_currency        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+service__zone__time_zone | [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
 relaunched | Traveller id of the new relaunch traveller
 finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so state is finished
 company_extra_fields | Undocumented field
-taxi_type | [Docummented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
 credit_card | Undocumented field
-cost_center        | Undocummented field
-service_reason        | Undocummented field
-deferred        | Undocummented field
-deferred_pk        | Undocummented field
-extra_text_1        | Undocummented field
-extra_text_2        | Undocummented field
-extra_text_3        | Undocummented field
+cost_center        | UnDocumented field
+service_reason        | UnDocumented field
+deferred        | UnDocumented field
+deferred_pk        | UnDocumented field
+extra_text_1        | UnDocumented field
+extra_text_2        | UnDocumented field
+extra_text_3        | UnDocumented field
 
 
 ### 10.4.4 Service attributes response (service)
@@ -607,25 +609,25 @@ extra_text_3        | Undocummented field
 Attribute | Description
 --------- | -----------
 pk        | Service id
-taxi      | Taxi data [Docummented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
+taxi      | Taxi data [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
 state        | [10.1.4 Service attributes response (service)][create-service-service-response]
-pickup_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+pickup_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+pickup_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 pickup_place_type        |  [10.1.4 Service attributes response (service)][create-service-service-response]
 updated_position        | [10.1.4 Service attributes response (service)][create-service-service-response]
-destination_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-destination_address        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+destination_location        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+destination_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
 finish_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
-flight_number | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-flight_origin | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-train_number | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-train_origin | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+flight_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
+flight_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
+train_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
+train_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
 relaunched | Service id of the new relaunch service
-vehicle_type        | Undocummented field
-rate_type        | Undocummented field
-rate_data        | Undocummented field
+vehicle_type        | UnDocumented field
+rate_type        | UnDocumented field
+rate_data        | UnDocumented field
 
 ### 10.4.5 Status code
 
@@ -720,7 +722,7 @@ comment | Add any info about your vote, specially for down vote |  False
 
 Attribute | Description
 --------- | -----------
-ask_app_vote | Undocummented field
+ask_app_vote | UnDocumented field
 
 ### 10.6.3 Status code
 

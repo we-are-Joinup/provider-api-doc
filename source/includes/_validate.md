@@ -1,6 +1,6 @@
 # 7. Validates 
 
-These endpoints depend on configuration provider. These don't make sense if you want to use only [a generic user][server2server] or If you want that we set self-validate email / phone in [Configuration provider][config]
+These endpoints depend on the configuration provider. These don't make sense if you want to use only [a generic user][server2server] or If you want that we set self-validate email / phone in [Configuration provider][config]
 
 ## 7.1 Validate email
 

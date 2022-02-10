@@ -18,26 +18,26 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "first_name": "Test",
     "last_name": "Foo"
   },
-  "phone": "+34 123 456 789",
   "gender": "",
   "image_url": null,
+  "dialcode": "+34",
+  "phone": "+34 123 456 789",
   "is_phone_validated": true,
   "is_email_validated": true,
   "vote": false,
-  "dialcode": "+34",
+  "allow_taxi_request_personal": true,
+  "allow_taxi_request_company": true,
+  "has_personal_credit_card_valid": false,
+  "has_employee_credit_card_valid": false,
+  "cost_cancellation_required_personal_stripe_enabled": true,
+  "cost_cancellation_enabled": true,
+  "can_test_request": false,
+  "required_personal_credit_card": false,
+  "allow_fixed_rate": false,
+  "default_way_to_pay": "", 
   "co2_not_emitted": 0,
   "saved_money": 0,
   "can_impersonate": false,
-  "has_personal_credit_card_valid": false,
-  "has_employee_credit_card_valid": false,
-  "required_personal_credit_card": false,
-  "cost_cancellation_required_personal_stripe_enabled": true,
-  "cost_cancellation_enabled": true,
-  "allow_fixed_rate": false,
-  "can_test_request": false,
-  "allow_taxi_request_personal": true,
-  "allow_taxi_request_company": true,
-  "default_way_to_pay": "", 
   "employee": null
 }
 ```
@@ -48,9 +48,9 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 
 `Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint get the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
+This endpoint gets the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
-We have the common info to every user (passengers, taxi drivers, Joinup operators, admins, etc) in the User model. And the specific info of a passsenger in a Passenger model. For this reason, we have this structure in the json object
+We have the common info to every user (passengers, taxi drivers, Joinup operators, admins, etc) in the `User` model. And the specific info of a passenger in a `Passenger` model. For this reason, we have this structure in the json object
 
 ### 8.1.2 Profile attributes response (user)
 
@@ -66,14 +66,14 @@ last_name | Last name of your user
 Attribute | Description
 --------- | -----------
 gender | undefined, male or female. This field is used for form of address, for courtesy
-image_url | URL of your avatar. We have another udocumented endpoint to upload an avatar.
+image_url | URL of your avatar. We have another undocumented endpoint to upload an avatar.
 dialcode | dial code of his/her phone
 phone | phone of your user
 is_phone_validated | It indicates if this user has the phone validated
 is_email_validated | It indicates if this user has the email validated
 vote | Can the user vote when a service is finished?
-allow_taxi_request_personal | The user can request a service with private value equal to true
-allow_taxi_request_company | The user can request a service with private value equal to false
+allow_taxi_request_personal | The user can request a service with private value equal to true (See [Create service endpoint][create-service])
+allow_taxi_request_company | The user can request a service with private value equal to false (See [Create service endpoint][create-service])
 has_personal_credit_card_valid | The user has a personal credit card valid
 has_employee_credit_card_valid | The user has a enterprise credit card valid
 cost_cancellation_required_personal_stripe_enabled | Undocumented field
@@ -142,7 +142,7 @@ If you edit phone field, is_phone_validated field will become false (at least <a
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/`
 
-This endpoint update several attributes of the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
+This endpoint updates several attributes of the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
 ### 8.2.2 Success code
 
@@ -152,3 +152,4 @@ Status Code | Meaning
 
 <!-- Link section -->
   [server2server]:    /#2-2-server-to-server
+  [create-service]:  /#10-1-create-service

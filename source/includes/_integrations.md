@@ -8,7 +8,7 @@ You can choose between two ways:
 
     - Own development. You can create a Web or App and connect with this API
     
-    - We can do a clone of our web or/and our app for you with several customizations. We can do it very quickly :-)
+    - We can clone our web or/and our app for you with several customizations. We can do it very quickly :-)
 
 
 ## 2.2 Server to server
@@ -24,7 +24,7 @@ If your services may be modified after request them, so you should be use [Edit 
 
 You can use a generic user for the integration or you can use a specific user for every request. So, if you want to request a service to `John Smith`, you will create ([signup][signup]) a user for `John Smith` in our system the first time, and after it you will create a service in our system. If `John Smith` wants another service, you do not have to create a user the next time. See more info in [AAI][aai] section.
 
-To track services we recommend to use [Current endpoint][current-service]. Although we enable [push notifications][push], polling is highly recommended. We recommend you to call one of these endpoints every 30 seconds or one time per minute for good feedback about your services.
+To track services we recommend to use [Current endpoint][current-service]. Although we enable [push notifications][push], polling is highly recommended. We recommend you to call to this endpoint every 30 seconds or one time per minute for good feedback about your services.
 
 ### 2.2.2 Where to continue?
 
@@ -38,7 +38,7 @@ Also, we recommend you use [Places][places] if you want to request services in r
 
 If you do not choose the generic user option and your users can change his/her data: first name, last name, phone or even gender. So, you should use [Edit profile][edit-profile]
 
-For good feedback. Please, you should use [Vote service][vote-service]. If we do not know what we're doing wrong, we won't be able to improve for you :-)
+For good feedback. Please, you should use [Vote endpoint][vote-service]. If we do not know what we're doing wrong, we won't be able to improve for you :-)
 
 
 ### 2.2.3 Other endpoints
