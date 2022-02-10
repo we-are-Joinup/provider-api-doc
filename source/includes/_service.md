@@ -447,7 +447,7 @@ Attribute | Description
 pk | The ID of service
 taxi.pk | The ID of taxi
 taxi.cached_name | Complete name of the taxi driver
-taxi.coords | Coordenades of the taxi. Format: [longitude, latitude]
+taxi.coords | Coordinates of the taxi in real time. Format: [longitude, latitude]
 taxi.license | Taxi licence
 taxi.plate | Taxi plate
 taxi.reputation_stars | Taxi reputation. A value from 0 to 5
@@ -512,8 +512,8 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
       "service__zone__time_zone": "Europe/Madrid",
       "relaunched": null,
       "finished_from_cancelled_passenger": false,
-      "company_extra_fields": null,
       "taxi_type": "conventional",
+      "company_extra_fields": null,
       "credit_card": false,
       "cost_center": "",
       "service_reason": "",
@@ -562,6 +562,8 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 
 `GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/`
 
+This endpoint returns a paginated list of services of an user. This endpoint has parameters to filter the result or order it.
+
 ### 10.4.2 URL Parameters
 
 Parameter | Description
@@ -590,10 +592,10 @@ amount_with_coupon        | [Documented in 10.1.3 Service attributes response (t
 amount_cancellation        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_currency        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 service__zone__time_zone | [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
-relaunched | Traveller id of the new relaunch traveller
-finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so state is finished
-company_extra_fields | Undocumented field
+relaunched | Traveller id of the new relaunched traveller
+finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so its state is finished
 taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+company_extra_fields | Undocumented field
 credit_card | Undocumented field
 cost_center        | Undocumented field
 service_reason        | Undocumented field
@@ -624,7 +626,7 @@ flight_number | [Documented in 10.1.2 Service data request section][create-servi
 flight_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
 train_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
 train_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
-relaunched | Service id of the new relaunch service
+relaunched | Service id of the new relaunched service
 vehicle_type        | Undocumented field
 rate_type        | Undocumented field
 rate_data        | Undocumented field
@@ -662,6 +664,8 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/`
 
+This endpoint cancels a service.
+
 ### 10.5.2 URL Parameters
 
 Parameter | Description
@@ -685,7 +689,7 @@ Status Code | Meaning
 
 ## 10.6 Vote
 
-Depends on configuration provider
+This endpoint allows users to vote. Depends on [configuration provider][config]
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/<ID>/" \
@@ -736,17 +740,17 @@ Status Code | Meaning
 Status  | Name                        | Type          | Meaning
 ------  | --------------------------- |---------------|-----------
 0       | Reserved                    |  Booking      | Initial state in a booking
-1       | Reserved  accepted          |  Booking      | When a taxi driver accept a booking
+1       | Reserved  accepted          |  Booking      | A taxi driver accepted a booking
 2       | Pending                     |  Immediate    | Initial state in a immediate service
 3       | Ongoing                     | Immediate/booking | Taxi is ongoing to pickup point
 4       | Pickup                      | Immediate/booking | Taxi is in pickup point
 5       | Running                     | Immediate/booking | Taxi goes to destination
-6       | Finished                    | Immediate/booking | The service is finished succesfully
+6       | Finished                    | Immediate/booking | The service is finished successfully
 7       | Cancelled passenger         | Immediate/booking | Passenger cancelled the service
-8       | Cancelled taxi              | Immediate/booking | Taxi cancelled the service. But our system will create another service and it will search another taxi. (it is not a common thing)
-9       | Cancelled no client         | Immediate/booking | Taxi driver cancelled the service because he/she does not find to the passenger (more strange still). Our system will not create another service             
+8       | Cancelled taxi              | Immediate/booking | Taxi driver cancelled the service. But our system will create another service and it will search for another taxi. (it is not a common thing)
+9       | Cancelled no client         | Immediate/booking | Taxi driver cancelled the service because he/she did not find the passenger (more strange still). Our system will not create another service             
 10      | Dismissed                   | Immediate/booking | We do not find a taxi driver or there is any error code (more strange still)
-13      | Cancelled relaunch          | Immediate/booking | The service is relaunch to find a taxi driver. Our system will create another service
+13      | Cancelled relaunch          | Immediate/booking | The service is relaunching to find a taxi driver. Our system will create another service
 14      | Cancelled passenger edited  | Immediate/booking | Passenger edit the service, our system will create another service
 
 
