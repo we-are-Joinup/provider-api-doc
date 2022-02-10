@@ -2258,18 +2258,14 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 <blockquote>
 <p>The above command returns JSON structured like these:</p>
 
-<ol>
-<li>There is not any current service</li>
-</ol>
+<p>1: There is not any current service</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>There is any current vote service. There is 4 current service (active or pending voting)</li>
-</ol>
+<p>2: There is any current vote service. There is 4 current service (active or pending voting)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440248</span><span class="p">,</span><span class="w">
@@ -2287,9 +2283,7 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>There is any current active service. There is 4 current service (active or pending voting)</li>
-</ol>
+<p>3: There is any current active service. There is 4 current service (active or pending voting)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440246</span><span class="p">,</span><span class="w">
@@ -3471,7 +3465,8 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
-  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/'</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
@@ -3863,7 +3858,8 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span>
-  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/'</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
