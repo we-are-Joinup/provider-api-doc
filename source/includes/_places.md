@@ -50,10 +50,6 @@ class Main {
 }
 ```
 
-# Note: original query string below. It seems impossible to parse and
-# reproduce query strings 100% accurately so the one below is given
-# in case the reproduced version is not "correct".
-#response = requests.get('https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&position=-3.681477,40.398396', headers=headers)
 > The above command returns JSON structured like this:
 
 ```json
