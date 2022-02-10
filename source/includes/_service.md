@@ -13,23 +13,25 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Impersonate: EMAIL_PASSENGER" \
   -X POST \
   -d '{
+    "private": false,
     "reservation": false,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
-    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
     "pickup": [-3.693407, 40.4121412],
+    "pickup_place_id": null,
+    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
     "destination": [-3.7121572, 40.4343557],
+    "destination_place_id": null,
+    "comment": "",
+    "rate_data": {
+      "taxi_type": "eco"
+    }
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
     "train_origin": "",
-    "private": false,
-    "pickup_place_id": null,
-    "destination_place_id": null,
     "coupon": null,
-    "platform_model": "",
-    "credit_card": false,
-    "comment": "",
-    }'
+    "platform_model": ""
+  }'
 ```
 
 > In addition to these fields there are undocumented employee/company fields
@@ -39,22 +41,22 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 ```json
 {
     "pk": 440214,
-    "amount_str": null,
-    "cost_center": "",
-    "service_reason": "",
     "is_company_travel": true,
-    "deferred": null,
-    "deferred_pk": null,
-    "comment": "",
-    "extra_text_1": "",
-    "extra_text_2": "",
-    "extra_text_3": "",
-    "way_to_pay": "",
-    "coupon": null,
+    "amount_str": null,
     "amount_with_coupon": null,
     "amount_cancellation": null,
     "amount_currency": "EUR",
     "passenger_extra_message": "",
+    "comment": "",
+    "way_to_pay": "",
+    "coupon": null,
+    "cost_center": "",
+    "service_reason": "",
+    "deferred": null,
+    "deferred_pk": null,
+    "extra_text_1": "",
+    "extra_text_2": "",
+    "extra_text_3": "",  
     "service": {
         "pk": 439930,
         "taxi": null,
@@ -102,11 +104,12 @@ pickup_place_id | If user is requesting in an airport or railstation you can add
 destination_address | Destination address | False (depends on destination_required field of zone)
 destination | Destination point. Format: [longitude, latitude]  | False (depends on destination_required field of zone)
 destination_place_id | If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency | False
+comment | Add another info | False
+rate_data.taxi_type | Rate data is a object with a lot info. But for this documentation we only use taxi type. In this field indicates the taxi type (See Available taxi types in [Configuration provider][config]) | False (Default is convencional)
 flight_number | Flight info | False (depends on need_place_info field of zone)
 flight_origin | Flight info | False (depends on need_place_info field of zone) 
 train_number | Train info | False
 train_origin | Train info | False
-comment | Add another info | False
 coupon | We have a coupon system. And the user can request a service with a discount coupon | False
 platform_model | Add any identify of your provider and version. e.g.: PROVIDER_ID@1.0.0 | False
 way_to_pay | If private is false. You can indicates: cash, credit-card or app | False
@@ -141,7 +144,7 @@ extra_text_3        | Undocummented field
 Attribute | Description
 --------- | -----------
 pk        | Service id
-taxi | Data of taxi
+taxi | Data of taxi. When a service is created always is null 
 state        | [Service status][service-status]
 pickup_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
 pickup_date        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
@@ -312,10 +315,40 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 {
   "pk": 440246,
   "amount_str": null,
+  "is_company_travel": true,
+  "comment": "",
+  "way_to_pay": "",
+  "coupon": null,
+  "amount_with_coupon": null,
+  "amount_cancellation": null,
+  "amount_currency": "EUR",
+  "taxi_type": "conventional",
+  "service__zone__time_zone": "Europe/Madrid",
+  "deferred": null,
+  "deferred_pk": null,  
+  "cost_center": "",
+  "service_reason": "",
+  "extra_text_1": "",
+  "extra_text_2": "",
+  "extra_text_3": "",
+  "company_extra_fields": null,
   "service": {
     "pk": 439962,
-    "taxi": null,
-    "state": 2,
+    "reservation": false,
+    "taxi": {
+      "pk": 201234, 
+      "cached_name": "Tom Jonhson",
+      "coords": [
+        -3.7033387,
+        40.4167278
+      ],
+      "license": "1234",
+      "plate": "1234 ABC",
+      "reputation_stars": 5,
+      "vehicle": "vehicle_type",
+      "vehicle_type": "taxi"
+    },
+    "state": 3,
     "pickup_location": [
       -3.693407,
       40.4121412
@@ -335,26 +368,8 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "rate_type": "",
     "rate_data": null,
     "extra_info": "",
-    "arrival_taxi_date": null,
-    "reservation": false
+    "arrival_taxi_date": null
   },
-  "cost_center": "",
-  "service_reason": "",
-  "extra_text_1": "",
-  "extra_text_2": "",
-  "extra_text_3": "",
-  "company_extra_fields": null,
-  "is_company_travel": true,
-  "deferred": null,
-  "deferred_pk": null,
-  "comment": "",
-  "way_to_pay": "",
-  "coupon": null,
-  "amount_with_coupon": null,
-  "amount_cancellation": null,
-  "amount_currency": "EUR",
-  "taxi_type": "conventional",
-  "service__zone__time_zone": "Europe/Madrid",
   "type": "active",
   "count": 4
 }
@@ -404,31 +419,39 @@ Attribute | Description
 pk | The ID of traveller
 amount_str | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 is_company_travel | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-deferred | Undocummented field
-deferred_pk | Undocummented field
 comment | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 way_to_pay | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 coupon | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 amount_with_coupon | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_cancellation | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_currency | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-taxi_type | XXX
+taxi_type | [Docummented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
 service__zone__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
+type | It indicates that user has an active service
+count | [Docummented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
+deferred | Undocummented field
+deferred_pk | Undocummented field
 cost_center | Undocummented field
 service_reason | Undocummented field
 extra_text_1 | Undocummented field
 extra_text_2 | Undocummented field
 extra_text_3 | Undocummented field
 company_extra_fields | Undocummented field
-type | It indicates that user has an active service
-count | [Docummented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
 
 In service attribute:
 
 Attribute | Description
 --------- | -----------
 pk | The ID of service
-taxi | XXX
+taxi.pk | The ID of taxi
+taxi.cached_name | Complete name of the taxi driver
+taxi.coords | Coordenades of the taxi. Format: [longitude, latitude]
+taxi.license | Taxi licence
+taxi.plate | Taxi plate
+taxi.reputation_stars | Taxi reputation. A value from 0 to 5
+taxi.vehicle | Brand & model of taxi
+taxi.vehicle_type | Undocummented field
+reservation | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 state | [10.1.4 Service attributes response (service)][create-service-service-response]
 pickup_location | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
 pickup_date | [Docummented in 10.1.2 Service data request section][create-service-service-request]
@@ -439,12 +462,11 @@ destination_location | [Docummented in 10.1.2 Service data request section][crea
 destination_address | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date | [10.1.4 Service attributes response (service)][create-service-service-response]
 finish_date | [10.1.4 Service attributes response (service)][create-service-service-response]
+extra_info | A message for the passenger. E.g.: "Personalized welcome with a sign at the exit of the flight"
+arrival_taxi_date | In some zones, we do not know the coords of the taxi. So, we will estimate an arrival taxi date
 vehicle_type | Undocummented field
-rate_type | XXX
-rate_data | XXX
-extra_info | XXX
-arrival_taxi_date | XXX
-reservation | [Docummented in 10.1.2 Service data request section][create-service-service-request]
+rate_type | Undocummented field
+rate_data | Undocummented field
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields and configurations
@@ -464,7 +486,6 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
    -H "Authorization: beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
    -H "Impersonate: test@example.com" \
-   -X PUT 
 ```  
 
 > The above command returns JSON structured like this:
@@ -479,26 +500,26 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
     {
       "pk": 440218,
       "amount_str": null,
-      "cost_center": "",
-      "service_reason": "",
       "is_company_travel": true,
-      "deferred": null,
-      "deferred_pk": null,
       "comment": "",
-      "extra_text_1": "",
-      "extra_text_2": "",
-      "extra_text_3": "",
       "way_to_pay": "",
       "coupon": null,
       "amount_with_coupon": null,
       "amount_cancellation": null,
       "amount_currency": "EUR",
       "service__zone__time_zone": "Europe/Madrid",
-      "credit_card": false,
       "relaunched": null,
       "finished_from_cancelled_passenger": false,
       "company_extra_fields": null,
       "taxi_type": "conventional",
+      "credit_card": false,
+      "cost_center": "",
+      "service_reason": "",
+      "deferred": null,
+      "deferred_pk": null,
+      "extra_text_1": "",
+      "extra_text_2": "",
+      "extra_text_3": "",
       "service": {
         "pk": 439934,
         "taxi": null,
@@ -518,14 +539,14 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
         "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
         "taxi_pickup_date": null,
         "finish_date": null,
-        "vehicle_type": "taxi",
-        "rate_type": "",
-        "rate_data": null,
         "flight_number": "",
         "flight_origin": "",
         "train_number": "",
         "train_origin": "",
-        "relaunched": null
+        "relaunched": null,
+        "vehicle_type": "taxi",
+        "rate_type": "",
+        "rate_data": null
       },
     },
     ...
@@ -559,33 +580,34 @@ Attribute | Description
 --------- | -----------
 pk        | Traveller id
 amount_str| [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-cost_center        | Undocummented field
-service_reason        | Undocummented field
 is_company_travel        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-deferred        | Undocummented field
-deferred_pk        | Undocummented field
 comment        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-extra_text_1        | Undocummented field
-extra_text_2        | XXUndocummented fieldX
-extra_text_3        | Undocummented field
 way_to_pay        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 coupon        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 amount_with_coupon        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_cancellation        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_currency        | [Docummented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 service__zone__time_zone | [Docummented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
-credit_card | Undocumented field
-relaunched | XXX
+relaunched | Traveller id of the new relaunch traveller
 finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so state is finished
 company_extra_fields | Undocumented field
-taxi_type | XXX
+taxi_type | [Docummented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+credit_card | Undocumented field
+cost_center        | Undocummented field
+service_reason        | Undocummented field
+deferred        | Undocummented field
+deferred_pk        | Undocummented field
+extra_text_1        | Undocummented field
+extra_text_2        | Undocummented field
+extra_text_3        | Undocummented field
+
 
 ### 10.4.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
 pk        | Service id
-taxi      | XXX
+taxi      | Taxi data [Docummented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
 state        | [10.1.4 Service attributes response (service)][create-service-service-response]
 pickup_location        | [Docummented in 10.1.2 Service data request section][create-service-service-request] (pickup)
 pickup_date        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
@@ -596,14 +618,14 @@ destination_location        | [Docummented in 10.1.2 Service data request sectio
 destination_address        | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
 finish_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
-vehicle_type        | Undocummented field
-rate_type        | XXX
-rate_data        | XXX
 flight_number | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 flight_origin | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 train_number | [Docummented in 10.1.2 Service data request section][create-service-service-request]
 train_origin | [Docummented in 10.1.2 Service data request section][create-service-service-request]
-relaunched | XXX
+relaunched | Service id of the new relaunch service
+vehicle_type        | Undocummented field
+rate_type        | Undocummented field
+rate_data        | Undocummented field
 
 ### 10.4.5 Status code
 
@@ -727,6 +749,7 @@ Status  | Name                        | Type          | Meaning
 
 
 <!-- Link section -->
+  [config]: /#4-configuration-provider
   [create-service-service-request]:  /#10-1-2-service-data-request
   [create-service-traveller-response]: /#10-1-3-service-attributes-response-traveller
   [create-service-service-response]: /#10-1-4-service-attributes-response-service
