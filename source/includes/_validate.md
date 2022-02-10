@@ -28,7 +28,8 @@ json_data = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/', 
+  headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;
@@ -120,7 +121,8 @@ json_data = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/', 
+  headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;

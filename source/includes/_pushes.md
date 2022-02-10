@@ -25,7 +25,9 @@ json_data = {
     'event': 2,
 }
 
-response = requests.post('https://api.provider/api/ANY-PATH/', headers=headers, json=json_data)
+response = requests.post(
+	'https://api.provider/api/ANY-PATH/',
+	headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;

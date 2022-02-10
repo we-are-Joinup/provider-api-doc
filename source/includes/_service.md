@@ -72,7 +72,8 @@ json_data = {
 }
 
 response = requests.post(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/', 
+  headers=headers, json=json_data)
 ```
 ```java
 
@@ -313,7 +314,8 @@ json_data = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/', 
+  headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;
@@ -442,7 +444,8 @@ headers = {
 }
 
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/', headers=headers)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/', 
+  headers=headers)
 ```
 ```java
 import java.io.IOException;
@@ -690,7 +693,8 @@ headers = {
 }
 
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/', headers=headers)
+  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/', 
+  headers=headers)
 ```
 ```java
 import java.io.IOException;
@@ -887,7 +891,8 @@ headers = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/%3CID%3E/', headers=headers)
+  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/',
+  headers=headers)
 ``` 
 ```java
 import java.io.IOException;
@@ -986,7 +991,8 @@ json_data = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/%3CID%3E/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/<ID>/',
+  headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;

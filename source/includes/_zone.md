@@ -19,7 +19,8 @@ params = (
 )
 
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/', headers=headers, params=params)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/',
+  headers=headers, params=params)
 ```
 ```java
 import java.io.IOException;

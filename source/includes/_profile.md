@@ -18,7 +18,8 @@ headers = {
 }
 
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/', headers=headers)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/', 
+  headers=headers)
 ```
 ```java
 import java.io.IOException;
@@ -173,7 +174,8 @@ json_data = {
 }
 
 response = requests.put(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/',
+  headers=headers, json=json_data)
 ```
 ```java
 import java.io.IOException;

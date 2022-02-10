@@ -28,7 +28,8 @@ json_data = {
 }
 
 response = requests.post(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/', headers=headers, json=json_data)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/',
+  headers=headers, json=json_data)
 ```
 
 ```java

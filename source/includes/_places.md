@@ -20,7 +20,8 @@ params = (
 )
 # Airports closer to Atocha
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/', headers=headers, params=params)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/',
+  headers=headers, params=params)
 ```
 ```java
 import java.io.IOException;
