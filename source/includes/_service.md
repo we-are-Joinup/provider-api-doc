@@ -478,7 +478,7 @@ class Main {
 
 > The above command returns JSON structured like these:
 
-> 1. There is not any current service
+> 1: There is not any current service
 
 ```json
 {
@@ -486,7 +486,7 @@ class Main {
 }
 ```
 
-> 2. There is any current vote service. There is 4 current service (active or pending voting)
+> 2: There is any current vote service. There is 4 current service (active or pending voting)
 
 ```json
 {
@@ -505,7 +505,7 @@ class Main {
 }
 ```
 
-> 3. There is any current active service. There is 4 current service (active or pending voting)
+> 3: There is any current active service. There is 4 current service (active or pending voting)
 
 ```json
 {

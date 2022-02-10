@@ -26,7 +26,8 @@ headers = {
 }
 
 response = requests.get(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/', headers=headers)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/',
+  headers=headers)
 ```
 ```java
 import java.io.IOException;
@@ -427,7 +428,8 @@ headers = {
 }
 
 response = requests.delete(
-  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/', headers=headers)
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/',
+  headers=headers)
 ```
 ```java
 import java.io.IOException;
