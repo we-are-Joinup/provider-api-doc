@@ -489,7 +489,7 @@
 
 <p>You can use our API to request Joinups (taxis, VTCs and motorcycles) using our API endpoints.</p>
 
-<p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can find code example in the right dark area.</p>
+<p>We have language bindings in Shell, Python &amp; Java, but you can use any programming language (Python, Java, Ruby, Javascript, etc). You can find code examples in the right dark area.</p>
 </div><div class='content integrations'><h1 id='2-integration-types'>2. Integration types</h1>
 <p>You can integrate with us in several ways. In this documentation, we will focus on Server to server integration, but you must know that you can connect with us from client to server. In client to server integration the endpoints are the same, almost everything is the same, but for example the <a href="/#5-authentication-authorization-amp-impersonate">AAI</a> (Authentication and authorization infrastructure) is different or we don&#39;t need an own <a href="/#13-push-notifications">push system</a>.</p>
 <h2 id='2-1-client-to-server'>2.1 Client to server</h2>
@@ -497,7 +497,7 @@
 
 <p>- Own development. You can create a Web or App and connect with this API</p>
 
-<p>- We can do a clone of our web or/and our app for you with several customizations. We can do it very quickly :-)</p>
+<p>- We can clone our web or/and our app for you with several customizations. We can do it very quickly :-)</p>
 <h2 id='2-2-server-to-server'>2.2 Server to server</h2><h3 id='2-2-1-where-to-start'>2.2.1 Where to start?</h3>
 <p>There are several endpoints in this documentation, but there is only one mandatory endpoint: <a href="/#10-1-create-service">Create Service</a>. But if do you want do an integration more rich we have another endpoints to use</p>
 
@@ -519,7 +519,7 @@
 
 <p>If you do not choose the generic user option and your users can change his/her data: first name, last name, phone or even gender. So, you should use <a href="/#8-2-edit-profile">Edit profile</a></p>
 
-<p>For good feedback. Please, you should use <a href="/#10-6-vote-optional">Vote service</a>. If we do not know what we&#39;re doing wrong, we won&#39;t be able to improve for you :-)</p>
+<p>For good feedback. Please, you should use <a href="/#10-6-vote-optional">Vote endpoint</a>. If we do not know what we&#39;re doing wrong, we won&#39;t be able to improve for you :-)</p>
 <h3 id='2-2-3-other-endpoints'>2.2.3 Other endpoints</h3>
 <p>If you have a solution where endusers signup, so it is possible that you want to use <a href="/#7-validates">Validates endpoints</a></p>
 
@@ -1337,23 +1337,25 @@ Our info is structured in two models. Travellers & Services. We have two models 
   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
+    "private": false,
     "reservation": false,
     "pickup_address": "Paseo del Prado, 26 Madrid España",
-    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
     "pickup": [-3.693407, 40.4121412],
+    "pickup_place_id": null,
+    "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
     "destination": [-3.7121572, 40.4343557],
+    "destination_place_id": null,
+    "comment": "",
+    "rate_data": {
+      "taxi_type": "eco"
+    }
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
     "train_origin": "",
-    "private": false,
-    "pickup_place_id": null,
-    "destination_place_id": null,
     "coupon": null,
-    "platform_model": "",
-    "credit_card": false,
-    "comment": "",
-    }'</span>
+    "platform_model": ""
+  }'</span>
 </code></pre></div>
 <blockquote>
 <p>In addition to these fields there are undocumented employee/company fields</p>
@@ -1362,22 +1364,22 @@ Our info is structured in two models. Travellers & Services. We have two models 
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440214</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"passenger_extra_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">  
     </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439930</span><span class="p">,</span><span class="w">
         </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1462,6 +1464,16 @@ In addition to these fields there are undocumented employee/company fields
 <td>False</td>
 </tr>
 <tr>
+<td>comment</td>
+<td>Add another info</td>
+<td>False</td>
+</tr>
+<tr>
+<td>rate_data.taxi_type</td>
+<td>Rate data is a object with a lot info. But for this documentation we only use taxi type. In this field indicates the taxi type (See Available taxi types in <a href="/#4-configuration-provider">Configuration provider</a>)</td>
+<td>False (Default is convencional)</td>
+</tr>
+<tr>
 <td>flight_number</td>
 <td>Flight info</td>
 <td>False (depends on need_place_info field of zone)</td>
@@ -1479,11 +1491,6 @@ In addition to these fields there are undocumented employee/company fields
 <tr>
 <td>train_origin</td>
 <td>Train info</td>
-<td>False</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>Add another info</td>
 <td>False</td>
 </tr>
 <tr>
@@ -1539,15 +1546,15 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>comment</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>way_to_pay</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>coupon</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>cost_center</td>
@@ -1591,7 +1598,7 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>taxi</td>
-<td>Data of taxi</td>
+<td>Data of taxi. When a service is created always is null</td>
 </tr>
 <tr>
 <td>state</td>
@@ -1599,15 +1606,15 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>pickup_location</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a> (pickup)</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (pickup)</td>
 </tr>
 <tr>
 <td>pickup_date</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_address</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_place_type</td>
@@ -1619,11 +1626,11 @@ In addition to these fields there are undocumented employee/company fields
 </tr>
 <tr>
 <td>destination_location</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a> (destination)</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (destination)</td>
 </tr>
 <tr>
 <td>destination_address</td>
-<td><a href="/#10-1-create-service">Docummented in 10.1.2 Service data request section</a></td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>taxi_pickup_date</td>
@@ -1813,10 +1820,40 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440246</span><span class="p">,</span><span class="w">
   </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service__zone__time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  
+  </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439962</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reservation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">201234</span><span class="p">,</span><span class="w"> 
+      </span><span class="nl">"cached_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Jonhson"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"coords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">-3.7033387</span><span class="p">,</span><span class="w">
+        </span><span class="mf">40.4167278</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 ABC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reputation_stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vehicle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vehicle_type"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pickup_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mf">-3.693407</span><span class="p">,</span><span class="w">
       </span><span class="mf">40.4121412</span><span class="w">
@@ -1836,26 +1873,8 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
     </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"extra_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"arrival_taxi_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reservation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nl">"arrival_taxi_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"service__zone__time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1892,19 +1911,19 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>The ID of traveller</td>
 </tr>
 <tr>
 <td>amount_str</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>type</td>
-<td>XXX</td>
+<td>It indicates that user can vote this service</td>
 </tr>
 <tr>
 <td>count</td>
-<td>XXX</td>
+<td>Number of services: booked, actives or pending vote</td>
 </tr>
 </tbody></table>
 
@@ -1918,19 +1937,19 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>The ID of service</td>
 </tr>
 <tr>
 <td>taxi.cached_name</td>
-<td>XXX</td>
+<td>Complete name of the taxi driver</td>
 </tr>
 <tr>
 <td>pickup_date</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>destination_address</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 </tbody></table>
 <h3 id='10-3-4-service-attributes-response-active-service'>10.3.4 Service attributes response (active service)</h3>
@@ -1942,87 +1961,87 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>The ID of traveller</td>
 </tr>
 <tr>
 <td>amount_str</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>is_company_travel</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>deferred</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>deferred_pk</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>way_to_pay</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>coupon</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>amount_with_coupon</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>amount_cancellation</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>amount_currency</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>taxi_type</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (rate_data.taxi_type)</td>
 </tr>
 <tr>
 <td>service_<em>zone</em>_time_zone</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>cost_center</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>service_reason</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_1</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_2</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_3</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>company_extra_fields</td>
-<td>XXX</td>
+<td>Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc</td>
 </tr>
 <tr>
 <td>type</td>
-<td>XXX</td>
+<td>It indicates that user has an active service</td>
 </tr>
 <tr>
 <td>count</td>
-<td>XXX</td>
+<td><a href="/#10-3-3-service-attributes-response-pending-vote">Docummented in 10.3.3 Service attributes response (pending vote) section</a></td>
+</tr>
+<tr>
+<td>deferred</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>deferred_pk</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>cost_center</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>service_reason</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_1</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_2</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_3</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>company_extra_fields</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 
@@ -2036,75 +2055,103 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>The ID of service</td>
 </tr>
 <tr>
-<td>taxi</td>
-<td>XXX</td>
+<td>taxi.pk</td>
+<td>The ID of taxi</td>
 </tr>
 <tr>
-<td>state</td>
-<td>XXX</td>
+<td>taxi.cached_name</td>
+<td>Complete name of the taxi driver</td>
 </tr>
 <tr>
-<td>pickup_location</td>
-<td>XXX</td>
+<td>taxi.coords</td>
+<td>Coordenades of the taxi. Format: [longitude, latitude]</td>
 </tr>
 <tr>
-<td>pickup_date</td>
-<td>XXX</td>
+<td>taxi.license</td>
+<td>Taxi licence</td>
 </tr>
 <tr>
-<td>pickup_address</td>
-<td>XXX</td>
+<td>taxi.plate</td>
+<td>Taxi plate</td>
 </tr>
 <tr>
-<td>pickup_place_type</td>
-<td>XXX</td>
+<td>taxi.reputation_stars</td>
+<td>Taxi reputation. A value from 0 to 5</td>
 </tr>
 <tr>
-<td>updated_position</td>
-<td>XXX</td>
+<td>taxi.vehicle</td>
+<td>Brand &amp; model of taxi</td>
 </tr>
 <tr>
-<td>destination_location</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>destination_address</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>taxi_pickup_date</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>finish_date</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>vehicle_type</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>rate_type</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>rate_data</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_info</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>arrival_taxi_date</td>
-<td>XXX</td>
+<td>taxi.vehicle_type</td>
+<td>Undocummented field</td>
 </tr>
 <tr>
 <td>reservation</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>state</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
+</tr>
+<tr>
+<td>pickup_location</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (pickup)</td>
+</tr>
+<tr>
+<td>pickup_date</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>pickup_place_type</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
+</tr>
+<tr>
+<td>updated_position</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
+</tr>
+<tr>
+<td>destination_location</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (destination)</td>
+</tr>
+<tr>
+<td>destination_address</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
+</tr>
+<tr>
+<td>taxi_pickup_date</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
+</tr>
+<tr>
+<td>finish_date</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
+</tr>
+<tr>
+<td>extra_info</td>
+<td>A message for the passenger. E.g.: &quot;Personalized welcome with a sign at the exit of the flight&quot;</td>
+</tr>
+<tr>
+<td>arrival_taxi_date</td>
+<td>In some zones, we do not know the coords of the taxi. So, we will estimate an arrival taxi date</td>
+</tr>
+<tr>
+<td>vehicle_type</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>rate_type</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>rate_data</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 
@@ -2127,7 +2174,6 @@ In addition to these fields there are undocumented employee/company fields and c
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Impersonate: test@example.com"</span> <span class="se">\</span>
-   <span class="nt">-X</span> PUT 
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2141,26 +2187,26 @@ In addition to these fields there are undocumented employee/company fields and c
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">440218</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_str"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"is_company_travel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"way_to_pay"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_with_coupon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_cancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"service__zone__time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Madrid"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"finished_from_cancelled_passenger"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"company_extra_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"taxi_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conventional"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"credit_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cost_center"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"service_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"deferred"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"deferred_pk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extra_text_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pk"</span><span class="p">:</span><span class="w"> </span><span class="mi">439934</span><span class="p">,</span><span class="w">
         </span><span class="nl">"taxi"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2180,14 +2226,14 @@ In addition to these fields there are undocumented employee/company fields and c
         </span><span class="nl">"destination_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de Fernando el Católico, 42 Madrid España"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"taxi_pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"finish_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"flight_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nl">"flight_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nl">"train_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nl">"train_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">},</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
@@ -2208,19 +2254,19 @@ In addition to these fields there are undocumented employee/company fields and c
 </thead><tbody>
 <tr>
 <td>service__state</td>
-<td>XXX</td>
+<td>You can filter by <a href="/#10-7-service-status">Service status</a></td>
 </tr>
 <tr>
 <td>service_<em>pickup_date</em>_lte</td>
-<td>XXX</td>
+<td>You can filter by pickup date. Less or equal than a value in UTC</td>
 </tr>
 <tr>
 <td>service_<em>pickup_date</em>_gte</td>
-<td>XXX</td>
+<td>You can filter by pickup date. Great or equal than a value in UTC</td>
 </tr>
 <tr>
 <td>ordering</td>
-<td>Values: service_<em>state, service</em><em>pickup_date, -service</em><em>state, -service</em>_pickup_date</td>
+<td>You can order by: service_<em>state, service</em><em>pickup_date, -service</em><em>state, -service</em>_pickup_date</td>
 </tr>
 </tbody></table>
 <h3 id='10-4-3-service-attributes-response-traveller'>10.4.3 Service attributes response (traveller)</h3>
@@ -2236,91 +2282,91 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>Traveller id</td>
 </tr>
 <tr>
 <td>amount_str</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>cost_center</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>service_reason</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>is_company_travel</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>deferred</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>deferred_pk</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_1</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_2</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>extra_text_3</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>way_to_pay</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>coupon</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>amount_with_coupon</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>amount_cancellation</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>amount_currency</td>
-<td>XXX</td>
+<td><a href="/#10-1-3-service-attributes-response-traveller">Docummented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
 <td>service_<em>zone</em>_time_zone</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>credit_card</td>
-<td>XXX</td>
+<td><a href="/#10-3-4-service-attributes-response-active-service">Docummented in 10.3.4 Service attributes response (active service) section</a></td>
 </tr>
 <tr>
 <td>relaunched</td>
-<td>XXX</td>
+<td>Traveller id of the new relaunch traveller</td>
 </tr>
 <tr>
 <td>finished_from_cancelled_passenger</td>
-<td>XXX</td>
+<td>This service was cancelled by passenger, but this service has cancellation amount, so state is finished</td>
 </tr>
 <tr>
 <td>company_extra_fields</td>
-<td>XXX</td>
+<td>Undocumented field</td>
 </tr>
 <tr>
 <td>taxi_type</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (rate_data.taxi_type)</td>
+</tr>
+<tr>
+<td>credit_card</td>
+<td>Undocumented field</td>
+</tr>
+<tr>
+<td>cost_center</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>service_reason</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>deferred</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>deferred_pk</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_1</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_2</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>extra_text_3</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 <h3 id='10-4-4-service-attributes-response-service'>10.4.4 Service attributes response (service)</h3>
@@ -2332,83 +2378,83 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td>XXX</td>
+<td>Service id</td>
 </tr>
 <tr>
 <td>taxi</td>
-<td>XXX</td>
+<td>Taxi data <a href="/#10-3-4-service-attributes-response-active-service">Docummented in 10.3.4 Service attributes response (active service) section</a></td>
 </tr>
 <tr>
 <td>state</td>
-<td>XXX</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
 </tr>
 <tr>
 <td>pickup_location</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a> (pickup)</td>
 </tr>
 <tr>
 <td>pickup_date</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_address</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>pickup_place_type</td>
-<td>XXX</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
 </tr>
 <tr>
 <td>updated_position</td>
-<td>XXX</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
 </tr>
 <tr>
 <td>destination_location</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>destination_address</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>taxi_pickup_date</td>
-<td>XXX</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
 </tr>
 <tr>
 <td>finish_date</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>vehicle_type</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>rate_type</td>
-<td>XXX</td>
-</tr>
-<tr>
-<td>rate_data</td>
-<td>XXX</td>
+<td><a href="/#10-1-4-service-attributes-response-service">10.1.4 Service attributes response (service)</a></td>
 </tr>
 <tr>
 <td>flight_number</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>flight_origin</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>train_number</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>train_origin</td>
-<td>XXX</td>
+<td><a href="/#10-1-2-service-data-request">Docummented in 10.1.2 Service data request section</a></td>
 </tr>
 <tr>
 <td>relaunched</td>
-<td>XXX</td>
+<td>Service id of the new relaunch service</td>
+</tr>
+<tr>
+<td>vehicle_type</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>rate_type</td>
+<td>Undocummented field</td>
+</tr>
+<tr>
+<td>rate_data</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 <h3 id='10-4-5-status-code'>10.4.5 Status code</h3>
@@ -2461,11 +2507,11 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>cost_cancellation</td>
-<td>XXX</td>
+<td>Has this cancellation cost cancellation?</td>
 </tr>
 <tr>
 <td>amount_cancellation</td>
-<td>XXX</td>
+<td>How much is the cancellation cost?</td>
 </tr>
 </tbody></table>
 <h3 id='10-5-4-status-code'>10.5.4 Status code</h3>
@@ -2505,15 +2551,18 @@ In addition to these fields there are undocumented employee/company fields
 <tr>
 <th>Attribute</th>
 <th>Description</th>
+<th>Required</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>vote</td>
-<td>XXX</td>
+<td>Options: up, down, nothing</td>
+<td>True</td>
 </tr>
 <tr>
 <td>comment</td>
-<td>XXX</td>
+<td>Add any info about your vote, specially for down vote</td>
+<td>False</td>
 </tr>
 </tbody></table>
 <h3 id='10-6-2-vote-attribute-response'>10.6.2 Vote attribute response</h3>
@@ -2525,7 +2574,7 @@ In addition to these fields there are undocumented employee/company fields
 </thead><tbody>
 <tr>
 <td>ask_app_vote</td>
-<td>XXX</td>
+<td>Undocummented field</td>
 </tr>
 </tbody></table>
 <h3 id='10-6-3-status-code'>10.6.3 Status code</h3>
