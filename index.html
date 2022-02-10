@@ -422,6 +422,18 @@
           </li>
           <li>
             <a href="#11-places" class="toc-h1 toc-link" data-title="11. Places">11. Places</a>
+          </li>
+          <li>
+            <a href="#note-original-query-string-below-it-seems-impossible-to-parse-and" class="toc-h1 toc-link" data-title="Note: original query string below. It seems impossible to parse and">Note: original query string below. It seems impossible to parse and</a>
+          </li>
+          <li>
+            <a href="#reproduce-query-strings-100-accurately-so-the-one-below-is-given" class="toc-h1 toc-link" data-title="reproduce query strings 100% accurately so the one below is given">reproduce query strings 100% accurately so the one below is given</a>
+          </li>
+          <li>
+            <a href="#in-case-the-reproduced-version-is-not-quot-correct-quot" class="toc-h1 toc-link" data-title="in case the reproduced version is not "correct".">in case the reproduced version is not "correct".</a>
+          </li>
+          <li>
+            <a href="#response-requests-get-39-https-api-joinupbackend-api-corporative-provider-slug-apps-passenger-platform-version-places-type-railstation-amp-position-3-681477-40-398396-39-headers-headers" class="toc-h1 toc-link" data-title="response = requests.get('https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396', headers=headers)">response = requests.get('https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396', headers=headers)</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#11-1-http-request" class="toc-h2 toc-link" data-title="11.1 HTTP Request">11.1 HTTP Request</a>
@@ -3274,7 +3286,46 @@ In addition to these fields there are undocumented employee/company fields
 curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
-</code></pre></div>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s">'type'</span><span class="p">,</span> <span class="s">'railstation'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">'position'</span><span class="p">,</span> <span class="s">'-3.681477,40.398396'</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="c1"># Airports closer to Atocha
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+    <span class="c1">// Airports closer to Atocha</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h1 id='note-original-query-string-below-it-seems-impossible-to-parse-and'>Note: original query string below. It seems impossible to parse and</h1><h1 id='reproduce-query-strings-100-accurately-so-the-one-below-is-given'>reproduce query strings 100% accurately so the one below is given</h1><h1 id='in-case-the-reproduced-version-is-not-quot-correct-quot'>in case the reproduced version is not &quot;correct&quot;.</h1><h1 id='response-requests-get-39-https-api-joinupbackend-api-corporative-provider-slug-apps-passenger-platform-version-places-type-railstation-amp-position-3-681477-40-398396-39-headers-headers'>response = requests.get(&#39;https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&amp;position=-3.681477,40.398396&#39;, headers=headers)</h1>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -3411,6 +3462,39 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <h2 id='12-2-get-all-address'>12.2 Get All Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3468,6 +3552,39 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <h2 id='12-3-get-an-address'>12.3 Get an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3516,7 +3633,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 </tbody></table>
 <h2 id='12-4-create-an-address'>12.4 Create an Address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\ </span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
     "name": "Joinup office",
@@ -3526,6 +3643,60 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
     "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
     "type": "work"
   }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'name'</span><span class="p">:</span> <span class="s">'Joinup office'</span><span class="p">,</span>
+    <span class="s">'pickup'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">-</span><span class="mf">3.6945</span><span class="p">,</span>
+        <span class="mf">40.40659</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s">'address'</span><span class="p">:</span> <span class="s">'Paseo de Santa Mar</span><span class="se">\xED</span><span class="s">a de la Cabeza, 10, 28045 Madrid Espa</span><span class="se">\xF1</span><span class="s">a'</span><span class="p">,</span>
+    <span class="s">'type'</span><span class="p">:</span> <span class="s">'work'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStreamWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="nc">OutputStreamWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"{\n    \"name\": \"Joinup office\",\n    \"pickup\": [\n      -3.6945, 40.40659\n    ],\n    \"address\": \"Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a\",\n    \"type\": \"work\"\n  }"</span><span class="o">);</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">close</span><span class="o">();</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3573,6 +3744,59 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
     "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
     "type": "work"
   }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'name'</span><span class="p">:</span> <span class="s">'Joinup office (in Madrid)'</span><span class="p">,</span>
+    <span class="s">'pickup'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">-</span><span class="mf">3.6945</span><span class="p">,</span>
+        <span class="mf">40.40659</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s">'address'</span><span class="p">:</span> <span class="s">'Paseo de Santa Mar</span><span class="se">\xED</span><span class="s">a de la Cabeza, 10, 28045 Madrid Espa</span><span class="se">\xF1</span><span class="s">a'</span><span class="p">,</span>
+    <span class="s">'type'</span><span class="p">:</span> <span class="s">'work'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">put</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStreamWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="nc">OutputStreamWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"{\n    \"name\": \"Joinup office (in Madrid)\",\n    \"pickup\": [\n      -3.6945, 40.40659\n    ], \n    \"address\": \"Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a\",\n    \"type\": \"work\"\n  }"</span><span class="o">);</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">close</span><span class="o">();</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3623,9 +3847,43 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>Not found -- Address does not found or this address belongs to another user</td>
 </tr>
 </tbody></table>
-<h2 id='12-6-delete-an-address'>12.6 Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="se">\</span>
+<h2 id='12-6-delete-an-address'>12.6 Delete an address</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span> <span class="se">\</span>
   <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Impersonate: foo.bar@example.com"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'foo.bar@example.com'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span>
+  <span class="s">'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"DELETE"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"foo.bar@example.com"</span><span class="o">);</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command does not return anything (status code 204 No Content).</p>
@@ -3674,6 +3932,51 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
       "traveller_id": 1234,
       "event": 2
   }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'auu-auu-auu-auu-auu'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'traveller_id'</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s">'event'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.provider/api/ANY-PATH/'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStreamWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.provider/api/ANY-PATH/"</span><span class="o">);</span>
+        <span class="nc">HttpURLConnection</span> <span class="n">httpConn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"auu-auu-auu-auu-auu"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="nc">OutputStreamWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"{\n      \"traveller_id\": 1234,\n      \"event\": 2\n  }"</span><span class="o">);</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">close</span><span class="o">();</span>
+
+        <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
+                <span class="o">:</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getErrorStream</span><span class="o">();</span>
+        <span class="nc">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">responseStream</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">"\\A"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 <p>To track services in real time, our system can make requests to your system when there is an important event (e.g.: status change). It is possible you do not need it, but it is very recommended if you want to track services.</p>
 
