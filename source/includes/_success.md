@@ -1,4 +1,4 @@
-# 12. Success codes
+# 14. Success codes
 
 The Joinup API uses the following status codes:
 
