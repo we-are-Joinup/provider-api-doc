@@ -131,13 +131,13 @@ passenger_extra_message        | Promotional text for some services
 comment        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 way_to_pay        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 coupon        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-cost_center        | UnDocumented field
-service_reason        | UnDocumented field
-deferred        | UnDocumented field
-deferred_pk        | UnDocumented field
-extra_text_1        | UnDocumented field
-extra_text_2        | UnDocumented field
-extra_text_3        | UnDocumented field
+cost_center        | Undocumented field
+service_reason        | Undocumented field
+deferred        | Undocumented field
+deferred_pk        | Undocumented field
+extra_text_1        | Undocumented field
+extra_text_2        | Undocumented field
+extra_text_3        | Undocumented field
 
 
 
@@ -157,9 +157,9 @@ destination_location        | [Documented in 10.1.2 Service data request section
 destination_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date        | Date of taxi when it arrives at pickup point. When a service is created always is null
 finish_date        | Date of taxi when it arrives at destination point. When a service is created always is null
-vehicle_type        | UnDocumented field
-rate_type        | UnDocumented field
-rate_data        | UnDocumented field
+vehicle_type        | Undocumented field
+rate_type        | Undocumented field
+rate_data        | Undocumented field
 
 
 
@@ -431,14 +431,14 @@ taxi_type | [Documented in 10.1.2 Service data request section][create-service-s
 service__zone__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
 type | It indicates that user has an active service
 count | [Documented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
-deferred | UnDocumented field
-deferred_pk | UnDocumented field
-cost_center | UnDocumented field
-service_reason | UnDocumented field
-extra_text_1 | UnDocumented field
-extra_text_2 | UnDocumented field
-extra_text_3 | UnDocumented field
-company_extra_fields | UnDocumented field
+deferred | Undocumented field
+deferred_pk | Undocumented field
+cost_center | Undocumented field
+service_reason | Undocumented field
+extra_text_1 | Undocumented field
+extra_text_2 | Undocumented field
+extra_text_3 | Undocumented field
+company_extra_fields | Undocumented field
 
 In service attribute:
 
@@ -452,7 +452,7 @@ taxi.license | Taxi licence
 taxi.plate | Taxi plate
 taxi.reputation_stars | Taxi reputation. A value from 0 to 5
 taxi.vehicle | Brand & model of taxi
-taxi.vehicle_type | UnDocumented field
+taxi.vehicle_type | Undocumented field
 reservation | [Documented in 10.1.2 Service data request section][create-service-service-request]
 state | [10.1.4 Service attributes response (service)][create-service-service-response]
 pickup_location | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
@@ -466,9 +466,9 @@ taxi_pickup_date | [10.1.4 Service attributes response (service)][create-service
 finish_date | [10.1.4 Service attributes response (service)][create-service-service-response]
 extra_info | A message for the passenger. E.g.: "Personalized welcome with a sign at the exit of the flight"
 arrival_taxi_date | In some zones, we do not know the coords of the taxi. So, we will estimate an arrival taxi date
-vehicle_type | UnDocumented field
-rate_type | UnDocumented field
-rate_data | UnDocumented field
+vehicle_type | Undocumented field
+rate_type | Undocumented field
+rate_data | Undocumented field
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields and configurations
@@ -595,13 +595,13 @@ finished_from_cancelled_passenger | This service was cancelled by passenger, but
 company_extra_fields | Undocumented field
 taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
 credit_card | Undocumented field
-cost_center        | UnDocumented field
-service_reason        | UnDocumented field
-deferred        | UnDocumented field
-deferred_pk        | UnDocumented field
-extra_text_1        | UnDocumented field
-extra_text_2        | UnDocumented field
-extra_text_3        | UnDocumented field
+cost_center        | Undocumented field
+service_reason        | Undocumented field
+deferred        | Undocumented field
+deferred_pk        | Undocumented field
+extra_text_1        | Undocumented field
+extra_text_2        | Undocumented field
+extra_text_3        | Undocumented field
 
 
 ### 10.4.4 Service attributes response (service)
@@ -625,9 +625,9 @@ flight_origin | [Documented in 10.1.2 Service data request section][create-servi
 train_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
 train_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
 relaunched | Service id of the new relaunch service
-vehicle_type        | UnDocumented field
-rate_type        | UnDocumented field
-rate_data        | UnDocumented field
+vehicle_type        | Undocumented field
+rate_type        | Undocumented field
+rate_data        | Undocumented field
 
 ### 10.4.5 Status code
 
@@ -722,7 +722,7 @@ comment | Add any info about your vote, specially for down vote |  False
 
 Attribute | Description
 --------- | -----------
-ask_app_vote | UnDocumented field
+ask_app_vote | Undocumented field
 
 ### 10.6.3 Status code
 
