@@ -17,7 +17,43 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
+```python
+import requests
 
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Impersonate': 'foo.bar@example.com',
+}
+
+response = requests.get(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/', headers=headers)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command returns JSON structured like this:
 
@@ -77,8 +113,43 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
+```python
+import requests
 
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Impersonate': 'foo.bar@example.com',
+}
 
+response = requests.get(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/', headers=headers)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command returns JSON structured like this:
 
@@ -121,7 +192,7 @@ Status Code | Meaning
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
   -H "Authorization: beep-beep-beep-beep-beep" \
-  -H "Impersonate: foo.bar@example.com" \ 
+  -H "Impersonate: foo.bar@example.com" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Joinup office",
@@ -131,6 +202,64 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "address": "Paseo de Santa María de la Cabeza, 10, 28045 Madrid España",
     "type": "work"
   }'
+```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'foo.bar@example.com',
+}
+
+json_data = {
+    'name': 'Joinup office',
+    'pickup': [
+        -3.6945,
+        40.40659,
+    ],
+    'address': 'Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a',
+    'type': 'work',
+}
+
+response = requests.post(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/', headers=headers, json=json_data)
+
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("POST");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n    \"name\": \"Joinup office\",\n    \"pickup\": [\n      -3.6945, 40.40659\n    ],\n    \"address\": \"Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a\",\n    \"type\": \"work\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
 ```
 
 
@@ -181,6 +310,63 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "type": "work"
   }'
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Impersonate': 'foo.bar@example.com',
+    'Content-Type': 'application/json',
+}
+
+json_data = {
+    'name': 'Joinup office (in Madrid)',
+    'pickup': [
+        -3.6945,
+        40.40659,
+    ],
+    'address': 'Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a',
+    'type': 'work',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/', headers=headers, json=json_data)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n    \"name\": \"Joinup office (in Madrid)\",\n    \"pickup\": [\n      -3.6945, 40.40659\n    ], \n    \"address\": \"Paseo de Santa Mar\xEDa de la Cabeza, 10, 28045 Madrid Espa\xF1a\",\n    \"type\": \"work\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 
 > The above command returns JSON structured like this:
@@ -224,11 +410,48 @@ Status Code | Meaning
 ## 12.6 Delete an address
 
 ```shell
-curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/"\
+curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
   -X DELETE \
-  -H "Authorization: beep-beep-beep-beep-beep"
+  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Impersonate: foo.bar@example.com"
 ```
+```python
+import requests
 
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Impersonate': 'foo.bar@example.com',
+}
+
+response = requests.delete(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/', headers=headers)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("DELETE");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command does not return anything (status code 204 No Content).
 
