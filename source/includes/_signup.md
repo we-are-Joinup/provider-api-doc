@@ -11,7 +11,69 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
       "last_name": "Foo",
       "phone": "+34123456780"
   }'
+```
+```python
+import requests
 
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+}
+
+json_data = {
+    'email': 'test@example.com',
+    'first_name': 'Test',
+    'last_name': 'Foo',
+    'phone': '+34123456780',
+}
+
+response = requests.post(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/', headers=headers, json=json_data)
+```
+
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("POST");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n      \"email\":\"test@example.com\", \n      \"first_name\":\"Test\",\n      \"last_name\": \"Foo\",\n      \"phone\": \"+34123456780\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+    {
+      "is_email_validated": false,
+      "is_phone_validated": false,
+      "token": "TOKEN"
+    }
 ```
 
 ## 6.1 HTTP Request

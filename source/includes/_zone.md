@@ -6,6 +6,47 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
   -H "Content-Type: application/json"
 
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+}
+
+params = (
+    ('position', '-3.69073,40.40693'),
+)
+
+response = requests.get(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/', headers=headers, params=params)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command returns JSON structured like this:
 

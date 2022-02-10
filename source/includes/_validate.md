@@ -14,6 +14,57 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
       "email_code": "1234"
   }'
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+json_data = {
+    'email_code': '1234',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/', headers=headers, json=json_data)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/email/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n      \"email_code\": \"1234\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command returns JSON structured like this:
 
@@ -55,6 +106,59 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
       "phone_code": "5678"
   }'
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+json_data = {
+    'phone_code': '5678',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/', headers=headers, json=json_data)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/validation/phone/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n      \"phone_code\": \"5678\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
+
+
 
 > The above command returns JSON structured like this:
 

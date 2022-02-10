@@ -35,6 +35,81 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "platform_model": ""
   }'
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+json_data = {
+    'private': False,
+    'reservation': False,
+    'pickup_address': 'Paseo del Prado, 26 Madrid Espa\xF1a',
+    'pickup': [
+        -3.693407,
+        40.4121412,
+    ],
+    'pickup_place_id': None,
+    'destination_address': 'Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a',
+    'destination': [
+        -3.7121572,
+        40.4343557,
+    ],
+    'destination_place_id': None,
+    'comment': '',
+    'rate_data': {
+      'taxi_type': 'eco'
+    },
+    'flight_number': '',
+    'flight_origin': '',
+    'train_number': '',
+    'train_origin': '',
+    'coupon': None,
+    'platform_model': '',
+}
+
+response = requests.post(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/', headers=headers, json=json_data)
+```
+```java
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("POST");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n    \"private\": false,\n    \"reservation\": false,\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > In addition to these fields there are undocumented employee/company fields
 
@@ -200,6 +275,82 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "platform_model": ""
   }'
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+json_data = {
+    'private': False,
+    'reservation': True,
+    'pickup_date': '2022-02-02T10:15:00.000Z',
+    'pickup_address': 'Paseo del Prado, 26 Madrid Espa\xF1a',
+    'pickup': [
+        -3.693407,
+        40.4121412,
+    ],
+    'pickup_place_id': None,
+    'destination_address': 'Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a',
+    'destination': [
+        -3.7121572,
+        40.4343557,
+    ],
+    'destination_place_id': None,
+    'comment': '',
+    'rate_data': {
+      'taxi_type': 'electric'
+     },
+    'flight_number': '',
+    'flight_origin': '',
+    'train_number': '',
+    'train_origin': '',
+    'coupon': None,
+    'platform_model': '',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/', headers=headers, json=json_data)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n    \"private\": false,\n    \"reservation\": true,\n    \"pickup_date\": \"2022-02-02T10:15:00.000Z\",\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
+
 
 > The above command returns JSON structured like this:
 
@@ -279,8 +430,48 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/" \
   -H "Authorization: beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
-  -H "Impersonate: EMAIL_PASSENGER" \
+  -H "Impersonate: EMAIL_PASSENGER"
 ```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+response = requests.get(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/', headers=headers)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
+
 
 > The above command returns JSON structured like these:
 
@@ -487,8 +678,47 @@ Status Code | Meaning
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/" \
    -H "Authorization: beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
-   -H "Impersonate: test@example.com" \
-```  
+   -H "Impersonate: test@example.com"
+```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'test@example.com',
+}
+
+response = requests.get(
+  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/', headers=headers)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("GET");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "test@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+```
 
 > The above command returns JSON structured like this:
 
@@ -647,6 +877,45 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
    -H "Impersonate: test@example.com" \
    -X PUT 
 ```  
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'test@example.com',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/%3CID%3E/', headers=headers)
+``` 
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "test@example.com");
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
+``` 
 
 > The above command returns JSON structured like this:
 
@@ -701,6 +970,58 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "vote": "down",
     "comment": "bla bla bla"
   }'
+```
+```python
+import requests
+
+headers = {
+    'Authorization': 'beep-beep-beep-beep-beep',
+    'Content-Type': 'application/json',
+    'Impersonate': 'EMAIL_PASSENGER',
+}
+
+json_data = {
+    'vote': 'down',
+    'comment': 'bla bla bla',
+}
+
+response = requests.put(
+  'https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/%3CID%3E/', headers=headers, json=json_data)
+```
+```java
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		URL url = new URL("https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/<ID>/");
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		httpConn.setRequestMethod("PUT");
+
+		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Content-Type", "application/json");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
+
+		httpConn.setDoOutput(true);
+		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
+		writer.write("{\n    \"vote\": \"down\",\n    \"comment\": \"bla bla bla\"\n  }");
+		writer.flush();
+		writer.close();
+		httpConn.getOutputStream().close();
+
+		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+				? httpConn.getInputStream()
+				: httpConn.getErrorStream();
+		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
+		String response = s.hasNext() ? s.next() : "";
+		System.out.println(response);
+	}
+}
 ```
 
 ```json
