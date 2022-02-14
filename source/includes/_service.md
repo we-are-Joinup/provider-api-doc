@@ -681,7 +681,7 @@ Status Code | Meaning
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/" \
    -H "Authorization: beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
-   -H "Impersonate: test@example.com"
+   -H "Impersonate: EMAIL_PASSENGER"
 ```
 ```python
 import requests
@@ -689,7 +689,7 @@ import requests
 headers = {
     'Authorization': 'beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
-    'Impersonate': 'test@example.com',
+    'Impersonate': 'EMAIL_PASSENGER',
 }
 
 response = requests.get(
@@ -712,7 +712,7 @@ class Main {
 
 		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
-		httpConn.setRequestProperty("Impersonate", "test@example.com");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
 				? httpConn.getInputStream()
@@ -878,7 +878,7 @@ Status Code | Meaning
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/" \
    -H "Authorization: beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
-   -H "Impersonate: test@example.com" \
+   -H "Impersonate: EMAIL_PASSENGER" \
    -X PUT 
 ```  
 ```python
@@ -887,7 +887,7 @@ import requests
 headers = {
     'Authorization': 'beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
-    'Impersonate': 'test@example.com',
+    'Impersonate': 'EMAIL_PASSENGER',
 }
 
 response = requests.put(
@@ -910,7 +910,7 @@ class Main {
 
 		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
-		httpConn.setRequestProperty("Impersonate", "test@example.com");
+		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
 				? httpConn.getInputStream()
