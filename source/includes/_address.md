@@ -1,6 +1,6 @@
 # 12. Address
 
-## 12.1 Address attributes response
+## 12.1 Address attributes data & response
 
 Attribute | Description
 --------- | -----------

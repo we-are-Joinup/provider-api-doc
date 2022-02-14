@@ -43,7 +43,7 @@ class Main {
 	}
 }
 ```
-> Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):
+> Or use this another code when we are accessing to another endpoint: Authorization with your private token. And Authentication with username (email) or with phone of the user:
 
 ```shell
 curl "api_endpoint_here" \
@@ -96,4 +96,12 @@ Joinup API expects for the token to be included in all API requests to the serve
 
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
+</aside>
+
+Joinup API expects for the impersonate header to be included in all API requests excepts in signup endpoint. In a header that looks like the following:
+
+`Impersonate: foo.bar@example.com`
+
+<aside class="notice">
+You must replace <code>foo.bar@example.com</code> with username (email) or phone of the user of the request.
 </aside>

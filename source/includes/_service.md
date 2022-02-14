@@ -622,7 +622,7 @@ amount_with_coupon | [Documented in 10.1.3 Service attributes response (travelle
 amount_cancellation | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_currency | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
-service__zone__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
+service\__zone\__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
 type | It indicates that user has an active service
 count | [Documented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
 deferred | Undocumented field
@@ -802,10 +802,10 @@ This endpoint returns a paginated list of services of an user. This endpoint has
 
 Parameter | Description
 --------- | -----------
-service__state | You can filter by [Service status][service-status]
-service__pickup_date__lte | You can filter by pickup date. Less or equal than a value in UTC
-service__pickup_date__gte | You can filter by pickup date. Great or equal than a value in UTC
-ordering | You can order by: service__state, service__pickup_date, -service__state, -service__pickup_date
+service\__state | You can filter by [Service status][service-status]
+service\__pickup_date\__lte | You can filter by pickup date. Less or equal than a value in UTC
+service\__pickup_date\__gte | You can filter by pickup date. Great or equal than a value in UTC
+ordering | You can order by: service\__state, service\__pickup_date, -service\__state, -service\__pickup_date
 
 ### 10.4.3 Service attributes response (traveller)
 
@@ -825,7 +825,7 @@ coupon        | [Documented in 10.1.2 Service data request section][create-servi
 amount_with_coupon        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_cancellation        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 amount_currency        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-service__zone__time_zone | [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
+service\__zone\__time_zone | [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
 relaunched | Traveller id of the new relaunched traveller
 finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so its state is finished
 taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
