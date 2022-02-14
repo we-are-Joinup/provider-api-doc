@@ -2641,13 +2641,13 @@ In addition to these fields there are undocumented employee/company fields and c
 <h2 id='10-4-services'>10.4 Services</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-   <span class="nt">-H</span> <span class="s2">"Impersonate: test@example.com"</span>
+   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
     <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'test@example.com'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'EMAIL_PASSENGER'</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
@@ -2668,7 +2668,7 @@ In addition to these fields there are undocumented employee/company fields and c
 
         <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
         <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
-        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"test@example.com"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"EMAIL_PASSENGER"</span><span class="o">);</span>
 
         <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
                 <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
@@ -2978,14 +2978,14 @@ In addition to these fields there are undocumented employee/company fields
 <h2 id='10-5-cancel'>10.5 Cancel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/&lt;ID&gt;/"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-   <span class="nt">-H</span> <span class="s2">"Impersonate: test@example.com"</span> <span class="se">\</span>
+   <span class="nt">-H</span> <span class="s2">"Impersonate: EMAIL_PASSENGER"</span> <span class="se">\</span>
    <span class="nt">-X</span> PUT 
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'beep-beep-beep-beep-beep'</span><span class="p">,</span>
     <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'test@example.com'</span><span class="p">,</span>
+    <span class="s">'Impersonate'</span><span class="p">:</span> <span class="s">'EMAIL_PASSENGER'</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">put</span><span class="p">(</span>
@@ -3006,7 +3006,7 @@ In addition to these fields there are undocumented employee/company fields
 
         <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"beep-beep-beep-beep-beep"</span><span class="o">);</span>
         <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
-        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"test@example.com"</span><span class="o">);</span>
+        <span class="n">httpConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Impersonate"</span><span class="o">,</span> <span class="s">"EMAIL_PASSENGER"</span><span class="o">);</span>
 
         <span class="nc">InputStream</span> <span class="n">responseStream</span> <span class="o">=</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">2</span>
                 <span class="o">?</span> <span class="n">httpConn</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span>
