@@ -26,7 +26,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "comment": "",
     "rate_data": {
       "taxi_type": "eco"
-    }
+    },
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
@@ -97,7 +97,7 @@ class Main {
 
 		httpConn.setDoOutput(true);
 		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
-		writer.write("{\n    \"private\": false,\n    \"reservation\": false,\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.write("{\n    \"private\": false,\n    \"reservation\": false,\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": {\n      \"taxi_type\": \"eco\"\n    },\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
 		writer.flush();
 		writer.close();
 		httpConn.getOutputStream().close();
@@ -267,7 +267,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "comment": "",
     "rate_data": {
       "taxi_type": "electric"
-    }
+    },
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
@@ -338,7 +338,7 @@ class Main {
 
 		httpConn.setDoOutput(true);
 		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
-		writer.write("{\n    \"private\": false,\n    \"reservation\": true,\n    \"pickup_date\": \"2022-02-02T10:15:00.000Z\",\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.write("{\n    \"private\": false,\n    \"reservation\": true,\n    \"pickup_date\": \"2022-02-02T10:15:00.000Z\",\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": {\n      \"taxi_type\": \"electric\"\n    },\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
 		writer.flush();
 		writer.close();
 		httpConn.getOutputStream().close();
