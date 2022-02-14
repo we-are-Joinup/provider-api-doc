@@ -441,7 +441,7 @@
             <a href="#12-address" class="toc-h1 toc-link" data-title="12. Address">12. Address</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#12-1-address-attributes-response" class="toc-h2 toc-link" data-title="12.1 Address attributes response">12.1 Address attributes response</a>
+                    <a href="#12-1-address-attributes-data-amp-response" class="toc-h2 toc-link" data-title="12.1 Address attributes data &amp; response">12.1 Address attributes data &amp; response</a>
                   </li>
                   <li>
                     <a href="#12-2-get-all-address" class="toc-h2 toc-link" data-title="12.2 Get All Address">12.2 Get All Address</a>
@@ -536,7 +536,7 @@
      This documentation will use the next host: https://api.joinupbackend, but this host will be changed for a real host when you implement the integration.
 </aside>
 
-<p>Every URL has next path prefix:  /api/corporative-PROVIDER-PREFIX/apps/passenger/PLATFORM/VERSION/</p>
+<p>Every URL has next path prefix:  /api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/</p>
 
 <table><thead>
 <tr>
@@ -545,7 +545,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>PROVIDER-PREFIX</td>
+<td>PROVIDER-SLUG</td>
 <td>Identificator of your system in our URL path. You can choose it</td>
 </tr>
 <tr>
@@ -687,7 +687,7 @@ Also we have more configurations like differents request options or bill options
 <span class="o">}</span>
 </code></pre></div>
 <blockquote>
-<p>Or use this another code when we are accessing to another endpoint (authorization with your private token, and authentication with username of the user):</p>
+<p>Or use this another code when we are accessing to another endpoint: Authorization with your private token. And Authentication with username (email) or with phone of the user:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: JWT beep-beep-beep-beep-beep"</span> <span class="se">\</span>
@@ -735,6 +735,14 @@ Also we have more configurations like differents request options or bill options
 
 <aside class="notice">
 You must replace <code>beep-beep-beep-beep-beep</code> with your token.
+</aside>
+
+<p>Joinup API expects for the impersonate header to be included in all API requests excepts in signup endpoint. In a header that looks like the following:</p>
+
+<p><code>Impersonate: foo.bar@example.com</code></p>
+
+<aside class="notice">
+You must replace <code>foo.bar@example.com</code> with username (email) or phone of the user of the request.
 </aside>
 </div><div class='content signup'><h1 id='6-signup'>6. Signup</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: beep-beep-beep-beep-beep"</span> <span class="se">\</span>
@@ -2468,7 +2476,7 @@ Same "Service data request", "Service attributes response (traveller)", and "Ser
 <td><a href="./#10-1-2-service-data-request">Documented in 10.1.2 Service data request section</a> (rate_data.taxi_type)</td>
 </tr>
 <tr>
-<td>service_<em>zone</em>_time_zone</td>
+<td>service__zone__time_zone</td>
 <td>Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc</td>
 </tr>
 <tr>
@@ -2763,16 +2771,16 @@ In addition to these fields there are undocumented employee/company fields and c
 <td>You can filter by <a href="./#10-7-service-status">Service status</a></td>
 </tr>
 <tr>
-<td>service_<em>pickup_date</em>_lte</td>
+<td>service__pickup_date__lte</td>
 <td>You can filter by pickup date. Less or equal than a value in UTC</td>
 </tr>
 <tr>
-<td>service_<em>pickup_date</em>_gte</td>
+<td>service__pickup_date__gte</td>
 <td>You can filter by pickup date. Great or equal than a value in UTC</td>
 </tr>
 <tr>
 <td>ordering</td>
-<td>You can order by: service_<em>state, service</em><em>pickup_date, -service</em><em>state, -service</em>_pickup_date</td>
+<td>You can order by: service__state, service__pickup_date, -service__state, -service__pickup_date</td>
 </tr>
 </tbody></table>
 <h3 id='10-4-3-service-attributes-response-traveller'>10.4.3 Service attributes response (traveller)</h3>
@@ -2823,7 +2831,7 @@ In addition to these fields there are undocumented employee/company fields
 <td><a href="./#10-1-3-service-attributes-response-traveller">Documented in 10.1.3 Service attributes response (traveller) section</a></td>
 </tr>
 <tr>
-<td>service_<em>zone</em>_time_zone</td>
+<td>service__zone__time_zone</td>
 <td><a href="./#10-3-4-service-attributes-response-active-service">Documented in 10.3.4 Service attributes response (active service) section</a></td>
 </tr>
 <tr>
@@ -3426,7 +3434,7 @@ curl <span class="s2">"https://api.joinupbackend/api/corporative-PROVIDER-SLUG/a
 <td>OK</td>
 </tr>
 </tbody></table>
-</div><div class='content address'><h1 id='12-address'>12. Address</h1><h2 id='12-1-address-attributes-response'>12.1 Address attributes response</h2>
+</div><div class='content address'><h1 id='12-address'>12. Address</h1><h2 id='12-1-address-attributes-data-amp-response'>12.1 Address attributes data &amp; response</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
