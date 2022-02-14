@@ -233,7 +233,7 @@ Email can not be updated.
 </aside>
 
 <aside class="notice">
-If you edit phone field, is_phone_validated field will become false (at least <a href="#4-configuration-provider">Self-validate phone</a> is set as false) 
+If you edit phone field, is_phone_validated field will become false (at least <a href="./#4-configuration-provider">Self-validate phone</a> is set as false) 
 </aside>
 
 ### 8.2.1 HTTP Request
@@ -249,5 +249,5 @@ Status Code | Meaning
 200 | OK
 
 <!-- Link section -->
-  [server2server]:    /#2-2-server-to-server
-  [create-service]:  /#10-1-create-service
+  [server2server]:    ./#2-2-server-to-server
+  [create-service]:  ./#10-1-create-service

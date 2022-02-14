@@ -120,5 +120,5 @@ Status Code | Meaning
 400 | Bad Request -- A field is empty or there is any validation error, e.g.: there is another user registered with this phone
 
 <!-- Link section -->
-  [server2server]:    /#2-2-server-to-server
-  [config]: /#4-configuration-provider
+  [server2server]:    ./#2-2-server-to-server
+  [config]: ./#4-configuration-provider

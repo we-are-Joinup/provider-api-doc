@@ -1082,11 +1082,11 @@ Status  | Name                        | Type          | Meaning
 
 
 <!-- Link section -->
-  [config]: /#4-configuration-provider
-  [create-service-service-request]:  /#10-1-2-service-data-request
-  [create-service-traveller-response]: /#10-1-3-service-attributes-response-traveller
-  [create-service-service-response]: /#10-1-4-service-attributes-response-service
-  [current-service-pending-vote-response]: /#10-3-3-service-attributes-response-pending-vote
-  [current-service-active-response]: /#10-3-4-service-attributes-response-active-service
-  [service-status]:  /#10-7-service-status
-  [places]: /#11-places
+  [config]: ./#4-configuration-provider
+  [create-service-service-request]:  ./#10-1-2-service-data-request
+  [create-service-traveller-response]: ./#10-1-3-service-attributes-response-traveller
+  [create-service-service-response]: ./#10-1-4-service-attributes-response-service
+  [current-service-pending-vote-response]: ./#10-3-3-service-attributes-response-pending-vote
+  [current-service-active-response]: ./#10-3-4-service-attributes-response-active-service
+  [service-status]:  ./#10-7-service-status
+  [places]: ./#11-places

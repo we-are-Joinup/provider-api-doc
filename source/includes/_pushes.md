@@ -77,4 +77,4 @@ Event   | Final time                  | Type          | Meaning
 
 
 <!-- Link section -->
-  [service-status]:  /#10-7-service-status
+  [service-status]:  ./#10-7-service-status

@@ -191,5 +191,5 @@ Status Code | Meaning
 400 | Bad Request -- The phone code is invalid
 
 <!-- Link section -->
-  [server2server]:    /#2-2-server-to-server
-  [config]: /#4-configuration-provider
+  [server2server]:    ./#2-2-server-to-server
+  [config]: ./#4-configuration-provider

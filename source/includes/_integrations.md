@@ -50,19 +50,19 @@ We have documented: [Services][services] e.g.: to synchronize one time per day (
 Also, we have about 20 endpoints undocumented more. So, if you need something, please [contact us][contact] because it is very possible that we have developed it.
 
 <!-- Link section -->
-  [aai]:  /#5-authentication-authorization-amp-impersonate
-  [signup]: /#6-signup
-  [validates]: /#7-validates
-  [get-profile]: /#8-1-get-profile
-  [edit-profile]: /#8-2-edit-profile
-  [zone]: /#9-zone
-  [create-service]:  /#10-1-create-service
-  [edit-service]: /#10-2-edit
-  [current-service]: /#10-3-current
-  [services]: /#10-4-services
-  [cancel-service]: /#10-5-cancel
-  [vote-service]: /#10-6-vote-optional
-  [places]: /#11-places
-  [address]: /#12-address
-  [push]: /#13-push-notifications
+  [aai]:  ./#5-authentication-authorization-amp-impersonate
+  [signup]: ./#6-signup
+  [validates]: ./#7-validates
+  [get-profile]: ./#8-1-get-profile
+  [edit-profile]: ./#8-2-edit-profile
+  [zone]: ./#9-zone
+  [create-service]:  ./#10-1-create-service
+  [edit-service]: ./#10-2-edit
+  [current-service]: ./#10-3-current
+  [services]: ./#10-4-services
+  [cancel-service]: ./#10-5-cancel
+  [vote-service]: ./#10-6-vote-optional
+  [places]: ./#11-places
+  [address]: ./#12-address
+  [push]: ./#13-push-notifications
   [contact]: mailto:integrations@joinup.es
