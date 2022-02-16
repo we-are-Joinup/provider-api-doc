@@ -81,7 +81,7 @@ class Main {
 
 `POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
 
-This endpoint creates a new passenger, a new user. If you want to use only [a generic user][server2server] you should do not use this endpoint
+This endpoint creates a new passenger, a new user, for [a generic user][server2server] skip this endpoint
 
 
 ## 6.2 Signup attributes data

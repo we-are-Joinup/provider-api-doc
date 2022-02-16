@@ -9,6 +9,6 @@ Every URL has next path prefix:  /api/corporative-PROVIDER-SLUG/apps/passenger/P
 
 Parameter | Description
 --------- | -----------
-PROVIDER-SLUG | Identificator of your system in our URL path. You can choose it
+PROVIDER-SLUG | Identifier of your system in our URL path. You can choose it
 PLATFORM | server
 VERSION | 3.15.0
