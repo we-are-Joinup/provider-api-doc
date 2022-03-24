@@ -774,6 +774,7 @@ class Main {
         ],
         "destination_address": "Calle de Fernando el Católico, 42 Madrid España",
         "taxi_pickup_date": null,
+        "test_service": false,
         "finish_date": null,
         "flight_number": "",
         "flight_origin": "",
@@ -861,6 +862,7 @@ flight_origin | [Documented in 10.1.2 Service data request section][create-servi
 train_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
 train_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
 relaunched | Service id of the new relaunched service
+test_service | Undocumented field
 vehicle_type        | Undocumented field
 rate_type        | Undocumented field
 rate_data        | Undocumented field
