@@ -783,7 +783,12 @@ class Main {
         "relaunched": null,
         "vehicle_type": "taxi",
         "rate_type": "",
-        "rate_data": null
+        "rate_data": null,
+        "distance": 4664,
+        "co2_equivalent": 0.68518824,
+        "co2_emitted": 0.67660648,
+        "n2o_emitted": 0.00858176,
+        "ch4_emitted": 0.0000200552
       },
     },
     ...
@@ -866,6 +871,11 @@ test_service | Undocumented field
 vehicle_type        | Undocumented field
 rate_type        | Undocumented field
 rate_data        | Undocumented field
+distance | distance traveled in meters
+co2_equivalent | CO2 equivalent = Kg CO2 emitted + a conversion of Kg N2O emitted in Kg CO2 + a conversion of Kg CH4 emitted in Kg CO2.
+co2_emitted | Kg CO2 emitted in the service
+n2o_emitted | Kg N2O emitted in the service
+ch4_emitted | Kg CH4 emitted in the service
 
 ### 10.4.5 Status code
 
