@@ -2750,7 +2750,12 @@ In addition to these fields there are undocumented employee/company fields and c
         </span><span class="nl">"relaunched"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"vehicle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxi"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"rate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nl">"rate_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4664</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"co2_equivalent"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.68518824</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"co2_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.67660648</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"n2o_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00858176</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ch4_emitted"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000200552</span><span class="w">
       </span><span class="p">},</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
@@ -2978,6 +2983,26 @@ In addition to these fields there are undocumented employee/company fields
 <tr>
 <td>rate_data</td>
 <td>Undocumented field</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>distance traveled in meters</td>
+</tr>
+<tr>
+<td>co2_equivalent</td>
+<td>CO2 equivalent = Kg CO2 emitted + a conversion of Kg N2O emitted in Kg CO2 + a conversion of Kg CH4 emitted in Kg CO2.</td>
+</tr>
+<tr>
+<td>co2_emitted</td>
+<td>Kg CO2 emitted in the service</td>
+</tr>
+<tr>
+<td>n2o_emitted</td>
+<td>Kg N2O emitted in the service</td>
+</tr>
+<tr>
+<td>ch4_emitted</td>
+<td>Kg CH4 emitted in the service</td>
 </tr>
 </tbody></table>
 <h3 id='10-4-5-status-code'>10.4.5 Status code</h3>
