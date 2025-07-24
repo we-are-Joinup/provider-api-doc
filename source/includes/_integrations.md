@@ -56,13 +56,13 @@ We still have about 20 endpoints undocumented. So, if you need something, please
   [get-profile]: ./#8-1-get-profile
   [edit-profile]: ./#8-2-edit-profile
   [zone]: ./#9-zone
-  [create-service]:  ./#10-1-create-service
-  [edit-service]: ./#10-2-edit
-  [current-service]: ./#10-3-current
-  [services]: ./#10-4-services
-  [cancel-service]: ./#10-5-cancel
-  [vote-service]: ./#10-6-vote-optional
-  [places]: ./#11-places
-  [address]: ./#12-address
-  [push]: ./#13-push-notifications
+  [create-service]:  ./#11-1-create-service
+  [edit-service]: ./#11-2-edit
+  [current-service]: ./#11-3-current
+  [services]: ./#11-4-services
+  [cancel-service]: ./#11-5-cancel
+  [vote-service]: ./#11-6-vote-optional
+  [places]: ./#12-places
+  [address]: ./#13-address
+  [push]: ./#14-push-notifications
   [contact]: mailto:integrations@joinup.es

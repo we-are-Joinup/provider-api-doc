@@ -2,7 +2,7 @@
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/zone/?position=-3.69073,40.40693" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json"
 
 ```
@@ -10,7 +10,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
 }
 
@@ -36,7 +36,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
@@ -65,9 +65,6 @@ class Main {
   "min_time_request_reservation_high_end": "00:15:00",
   "min_time_request_reservation_screen": "00:15:00",
   "min_time_request_reservation_adapted": "00:15:00",
-  "min_time_request_reservation_integrated_taxi": "00:15:00",
-  "min_time_request_reservation_integrated_vtc": "00:15:00",
-  "min_time_request_reservation_integrated_moto": "00:15:00",
   "allow_comments": true,
   "only_credit_service": true,
   "test_zone": false,
@@ -119,9 +116,6 @@ min_time_request_reservation_electric_car | Min. time to request a booking for e
 min_time_request_reservation_high_end | Min. time to request a booking for high-end taxis
 min_time_request_reservation_screen | Min. time to request a booking for screen taxis
 min_time_request_reservation_adapted | Min. time to request a booking for adapted taxis
-min_time_request_reservation_integrated_taxi | Undocumented field
-min_time_request_reservation_integrated_vtc | Undocumented field
-min_time_request_reservation_integrated_moto | Undocumented field
 allow_comments | the user can add comments like: "I am in front of the bank" when requests a service
 only_credit_service | This zone is only for credit services.
 test_zone | A user can request a service, but we are opening this zone and there may be an issue.
@@ -133,7 +127,7 @@ company_taxi_types | Taxi types available for create services with private equal
 personal_taxi_types | Taxi types available for create services with private equal to True
 message | It is used to communicate any problem to the passenger. E.g.: A demostration
 time_zone | Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
-enabled_rate_type | Undocumented field
+enabled_rate_type | True: In the [Rate endpoint][rate], it will be possible to select between a fixed price or taximeter.
 only_credit_service_fixed_rate | Undocumented field
 delegate_always | Undocumented field
 
@@ -144,3 +138,6 @@ Status Code | Meaning
 ---------- | -------
 200 | OK
 400 | Bad Request -- Point (position) out of zone (Users cannot request a Joinup in this point)
+
+<!-- Link section -->
+  [rate]: ./#10-rate

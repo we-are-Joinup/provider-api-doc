@@ -22,6 +22,7 @@ includes:
   - validate
   - profile
   - zone
+  - rate
   - service
   - places
   - address

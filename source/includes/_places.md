@@ -1,16 +1,16 @@
-# 11. Places
+# 12. Places
 
 ```shell
 # Airports closer to Atocha
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/?type=railstation&position=-3.681477,40.398396" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 ```python
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Impersonate': 'foo.bar@example.com',
 }
 
@@ -38,7 +38,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
@@ -97,13 +97,13 @@ class Main {
 ```
 
 
-## 11.1 HTTP Request
+## 12.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/places/`
 
 This endpoint retrieves all places (train station and / or airports). You can filter by type, and you can order by closeness to a position
 
-## 11.2 Query Parameters
+## 12.2 Query Parameters
 
 
 Parameter | Description | Required | Default
@@ -112,7 +112,7 @@ type | railstation or airport. With this parameter filter by train station or ai
 position | With this parameter we get the places ordering by closer to this position (longitude, latitude) |  False | Return places with random ordering
 
 
-## 11.3 Places attributes response
+## 12.3 Places attributes response
 
 Parameter | Description
 --------- | -----------
@@ -121,7 +121,7 @@ name | Name of the place
 location | Coordinates about this place (longitude, latitude)
 address | Postal address of the place
 
-## 11.4 Status code
+## 12.4 Status code
 
 Status Code | Meaning
 ---------- | -------

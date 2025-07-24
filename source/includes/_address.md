@@ -1,6 +1,6 @@
-# 12. Address
+# 13. Address
 
-## 12.1 Address attributes data & response
+## 13.1 Address attributes data & response
 
 Attribute | Description
 --------- | -----------
@@ -10,18 +10,18 @@ pickup | Coordinates about this address (longitude, latitude)
 address | Postal address
 type | Type of address: home, work or general.
 
-## 12.2 Get All Address
+## 13.2 Get All Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 ```python
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Impersonate': 'foo.bar@example.com',
 }
 
@@ -43,7 +43,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
@@ -95,30 +95,30 @@ class Main {
 ]
 ```
 
-### 12.2.1 HTTP Request
+### 13.2.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
 
 This endpoint retrieves all address of an user.
 
-### 12.2.2 Status code
+### 13.2.2 Status code
 
 Status Code | Meaning
 --------- | -----------
 200 | OK
 
-## 12.3 Get an Address
+## 13.3 Get an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 ```python
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Impersonate': 'foo.bar@example.com',
 }
 
@@ -140,7 +140,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
@@ -169,31 +169,31 @@ class Main {
 ```
 
 
-### 12.3.1 HTTP Request
+### 13.3.1 HTTP Request
 
 This endpoint retrieves a specific address.
 
 `GET https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### 12.2.2 URL Parameters
+### 13.2.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of the address to retrieve
 
 
-### 12.2.3 Status code
+### 13.2.3 Status code
 
 Status Code | Meaning
 --------- | -----------
 200 | OK
 404 | Not found -- Address does not found or this address belongs to another user
 
-## 12.4 Create an Address
+## 13.4 Create an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com" \
   -H "Content-Type: application/json" \
   -d '{
@@ -209,7 +209,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'foo.bar@example.com',
 }
@@ -244,7 +244,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("POST");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 
@@ -282,26 +282,26 @@ class Main {
 ```
 
 
-### 12.4.1 HTTP Request
+### 13.4.1 HTTP Request
 
 `POST https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/`
 
 
 This endpoint creates a new address.
 
-### 12.4.1 Status code
+### 13.4.1 Status code
 
 Status Code | Meaning
 --------- | -----------
 201 | Created
 400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
 
-## 12.5 Edit an Address
+## 13.5 Edit an Address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
   -X PUT \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com" \
   -H "Content-Type: application/json" \
   -d '{
@@ -317,7 +317,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Impersonate': 'foo.bar@example.com',
     'Content-Type': 'application/json',
 }
@@ -351,7 +351,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("PUT");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 
@@ -389,12 +389,12 @@ class Main {
 ```
 
 
-### 12.5.1 HTTP Request
+### 13.5.1 HTTP Request
 
 
 `PUT https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### 12.5.2 URL Parameters
+### 13.5.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -403,7 +403,7 @@ ID | The ID of the address to retrieve
 
 This endpoint edit a current address of an user.
 
-### 12.5.2 Status code
+### 13.5.2 Status code
 
 Status Code | Meaning
 --------- | -----------
@@ -411,19 +411,19 @@ Status Code | Meaning
 400 | Bad Request -- Address out of zone (Users cannot request a Joinup in this address), the user has already a address with the same name, etc
 404 | Not found -- Address does not found or this address belongs to another user
 
-## 12.6 Delete an address
+## 13.6 Delete an address
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/28542/" \
   -X DELETE \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Impersonate: foo.bar@example.com"
 ```
 ```python
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Impersonate': 'foo.bar@example.com',
 }
 
@@ -445,7 +445,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("DELETE");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Impersonate", "foo.bar@example.com");
 
 		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
@@ -461,21 +461,21 @@ class Main {
 > The above command does not return anything (status code 204 No Content).
 
 
-### 12.6.1 HTTP Request
+### 13.6.1 HTTP Request
 
 
 This endpoint deletes a specific address.
 
 `DELETE https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/address/<ID>`
 
-### 12.6.2 URL Parameters
+### 13.6.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of the address to delete
 
 
-### 12.6.3 Status code
+### 13.6.3 Status code
 
 Status Code | Meaning
 --------- | -----------

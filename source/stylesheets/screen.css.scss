@@ -656,10 +656,13 @@ h2, h3 {
   &>h2[id='9-1-http-request'],
   &>h2[id='9-2-query-parameters'],
   &>h2[id='9-3-zone-attributes-response'],
-  &>h2[id='11-1-http-request'],
-  &>h2[id='11-2-query-parameters'],
-  &>h2[id='11-3-places-attributes-response'],
-  &>h2[id='11-4-status-code'] {
+  &>h2[id='10-1-http-request'],
+  &>h2[id='10-2-rate-data-request'],
+  &>h2[id='10-3-rate-attributes-response'],
+  &>h2[id='12-1-http-request'],
+  &>h2[id='12-2-query-parameters'],
+  &>h2[id='12-3-places-attributes-response'],
+  &>h2[id='12-4-status-code'] {
     clear: unset;
   }
 }

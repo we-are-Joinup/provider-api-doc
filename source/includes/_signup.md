@@ -2,7 +2,7 @@
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -X POST \
   -d '{
@@ -16,7 +16,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
 }
 
@@ -47,7 +47,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("POST");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 
 		httpConn.setDoOutput(true);

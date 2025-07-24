@@ -1,16 +1,16 @@
-# 10. Service
+# 11. Service
 
 <aside class="notice">
 Our info is structured in two models. Travellers & Services. We have two models because we have shared services. So, a service can have several travellers. In Service is saved the commmon data, and in traveller is saved the info related to the passengers. Shared services are unDocumented.
 </aside>
 
-## 10.1 Create Service
+## 11.1 Create Service
 
 This endpoint creates a new service, immediate or booking.
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER" \
   -X POST \
@@ -24,9 +24,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "destination": [-3.7121572, 40.4343557],
     "destination_place_id": null,
     "comment": "",
-    "rate_data": {
-      "taxi_type": "eco"
-    },
+    "rate_data": TOKEN_FROM_RATE_ENDPOINT,
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
@@ -39,7 +37,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -60,9 +58,7 @@ json_data = {
     ],
     'destination_place_id': None,
     'comment': '',
-    'rate_data': {
-      'taxi_type': 'eco'
-    },
+    'rate_data': TOKEN_FROM_RATE_ENDPOINT,
     'flight_number': '',
     'flight_origin': '',
     'train_number': '',
@@ -91,13 +87,13 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("POST");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
 		httpConn.setDoOutput(true);
 		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
-		writer.write("{\n    \"private\": false,\n    \"reservation\": false,\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": {\n      \"taxi_type\": \"eco\"\n    },\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.write("{\n    \"private\": false,\n    \"reservation\": false,\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": TOKEN_FROM_RATE_ENDPOINT,\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
 		writer.flush();
 		writer.close();
 		httpConn.getOutputStream().close();
@@ -111,7 +107,6 @@ class Main {
 	}
 }
 ```
-
 > In addition to these fields there are undocumented employee/company fields
 
 > The above command returns JSON structured like this:
@@ -161,11 +156,11 @@ class Main {
 }
 ```
 
-### 10.1.1 HTTP Request
+### 11.1.1 HTTP Request
 
 `POST "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/`
 
-### 10.1.2 Service data request
+### 11.1.2 Service data request
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields
@@ -183,7 +178,7 @@ destination_address | Destination address | False (depends on destination_requir
 destination | Destination point. Format: [longitude, latitude]  | False (depends on destination_required field of zone)
 destination_place_id | If user is requesting in an airport or railstation like destination you can add its id in this field for efficiency. See [Place endpoint][places] | False
 comment | Add another info | False
-rate_data.taxi_type | `Rate data` is an object with a lot of info. But for this documentation we only use `taxi type`. This field will indicate the taxi type (See Available taxi types in [Configuration provider][config]) | False (Default is convencional)
+rate_data | `Rate data`is obtained from [Rate endpoint][rate]. This token defines the taxi type and if rate data is a token of fixed rate the service price can be known in advance. | False (Default is convencional and without rate)
 flight_number | Flight info | False (depends on need_place_info field of zone)
 flight_origin | Flight info | False (depends on need_place_info field of zone) 
 train_number | Train info | False
@@ -191,9 +186,9 @@ train_origin | Train info | False
 coupon | We have a coupon system. And the user can request a service with a discount coupon | False
 platform_model | Add any identity of your provider and version. e.g.: PROVIDER_ID@1.0.0 | False
 way_to_pay | If private is false. You can indicates: cash, credit-card or app | False
+requester_employee_pk | Undocumented field | False
 
-
-### 10.1.3 Service attributes response (traveller)
+### 11.1.3 Service attributes response (traveller)
 
 Attribute | Description
 --------- | -----------
@@ -204,9 +199,9 @@ amount_with_coupon        | Amount with the coupon applied
 amount_cancellation        | Cancellation amount. When a service is created always is null
 amount_currency        | Currency. E.g.: EUR
 passenger_extra_message        | Promotional text for some services
-comment        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-coupon        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+comment        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+way_to_pay        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+coupon        | [Documented in 11.1.2 Service data request section][create-service-service-request]
 cost_center        | Undocumented field
 service_reason        | Undocumented field
 deferred        | Undocumented field
@@ -217,40 +212,40 @@ extra_text_3        | Undocumented field
 
 
 
-### 10.1.4 Service attributes response (service)
+### 11.1.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
 pk        | Service id
 taxi | Data of taxi. When a service is created always is null 
 state        | [Service status][service-status]
-pickup_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+pickup_location        | [Documented in 11.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+pickup_address        | [Documented in 11.1.2 Service data request section][create-service-service-request]
 pickup_place_type        | It indicates if you are requesting in a railstation or an airport
 updated_position        | When you request in a railstation or in an airport without to get the coordinates from [place endpoint][places] our backend will update the pickup point to the meeting point of the railstation or the airport
-destination_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (destination)
-destination_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
+destination_location        | [Documented in 11.1.2 Service data request section][create-service-service-request] (destination)
+destination_address        | [Documented in 11.1.2 Service data request section][create-service-service-request]
 taxi_pickup_date        | Date of taxi when it arrives at pickup point. When a service is created always is null
 finish_date        | Date of taxi when it arrives at destination point. When a service is created always is null
 vehicle_type        | Undocumented field
-rate_type        | Undocumented field
+rate_type        | [Documented in 10.3 Rate attributes response section][rate-respomnse]
 rate_data        | Undocumented field
 
 
 
-### 10.1.5 Status code
+### 11.1.5 Status code
 
 Status Code | Meaning
 ---------- | -------
 201 | Created
-400 | Bad Request -- Any validation error. E.g.: Address out of zone (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field `min_time_request_reservation_*`
+400 | Bad Request -- Any validation error. E.g.: Pickup address (Users cannot request a Joinup in this address), in this zone only can requests bookings and you are requesting an immediate service, if you request a booking with less time than zone says in the field `min_time_request_reservation_*`
 
-## 10.2 Edit
+## 11.2 Edit
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/440217/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER" \
   -X PUT \
@@ -265,9 +260,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
     "destination": [-3.7121572, 40.4343557],
     "destination_place_id": null,
     "comment": "",
-    "rate_data": {
-      "taxi_type": "electric"
-    },
+    "rate_data": TOKEN_FROM_RATE_ENDPOINT,
     "flight_number": "",
     "flight_origin": "",
     "train_number": "",
@@ -280,7 +273,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -302,9 +295,7 @@ json_data = {
     ],
     'destination_place_id': None,
     'comment': '',
-    'rate_data': {
-      'taxi_type': 'electric'
-     },
+    'rate_data': TOKEN_FROM_RATE_ENDPOINT,
     'flight_number': '',
     'flight_origin': '',
     'train_number': '',
@@ -332,13 +323,13 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("PUT");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
 		httpConn.setDoOutput(true);
 		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
-		writer.write("{\n    \"private\": false,\n    \"reservation\": true,\n    \"pickup_date\": \"2022-02-02T10:15:00.000Z\",\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": {\n      \"taxi_type\": \"electric\"\n    },\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
+		writer.write("{\n    \"private\": false,\n    \"reservation\": true,\n    \"pickup_date\": \"2022-02-02T10:15:00.000Z\",\n    \"pickup_address\": \"Paseo del Prado, 26 Madrid Espa\xF1a\",\n    \"pickup\": [-3.693407, 40.4121412],\n    \"pickup_place_id\": null,\n    \"destination_address\": \"Calle de Fernando el Cat\xF3lico, 42 Madrid Espa\xF1a\",\n    \"destination\": [-3.7121572, 40.4343557],\n    \"destination_place_id\": null,\n    \"comment\": \"\",\n    \"rate_data\": TOKEN_FROM_RATE_ENDPOINT,\n    \"flight_number\": \"\",\n    \"flight_origin\": \"\",\n    \"train_number\": \"\",\n    \"train_origin\": \"\",\n    \"coupon\": null,\n    \"platform_model\": \"\"\n  }");
 		writer.flush();
 		writer.close();
 		httpConn.getOutputStream().close();
@@ -402,19 +393,19 @@ class Main {
 ```
 
 
-### 10.2.1 HTTP Request
+### 11.2.1 HTTP Request
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/request/<ID>`
 
 This endpoint updates a service. Only for bookings.
 
-### 10.2.2 URL Parameters
+### 11.2.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
-### 10.2.3 Status code
+### 11.2.3 Status code
 
 Status Code | Meaning
 ---------- | -------
@@ -426,11 +417,11 @@ Status Code | Meaning
 Same "Service data request", "Service attributes response (traveller)", and "Service attributes response (service)" that in "Create Service"
 </aside>
 
-## 10.3 Current
+## 11.3 Current
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER"
 ```
@@ -438,7 +429,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -461,7 +452,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -573,7 +564,7 @@ class Main {
 
 > In addition to these fields there are undocumented employee/company fields and configurations
 
-### 10.3.1 HTTP Request
+### 11.3.1 HTTP Request
 
 This endpoint returns a current service. If you have several current services you can specify an id. A current service can be a service pending voting or an active service. An active service is a service in state: pending, ongoing, pickup and running. Also an active service is a booking in state reservation or reservation accepted but it is very close to the pickup date.
 
@@ -583,18 +574,18 @@ or
 
 `GET "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/current/<ID>`
 
-### 10.3.2 URL Parameters
+### 11.3.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
-### 10.3.3 Service attributes response (pending vote)
+### 11.3.3 Service attributes response (pending vote)
 
 Attribute | Description
 --------- | -----------
 pk | The ID of traveller
-amount_str | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_str | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
 type | It indicates that user can vote this service
 count | Number of services: book, active or pending vote
 
@@ -604,27 +595,27 @@ Attribute | Description
 --------- | -----------
 pk | The ID of service
 taxi.cached_name | Complete name of the taxi driver
-pickup_date | [Documented in 10.1.2 Service data request section][create-service-service-request]
-destination_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
+pickup_date | [Documented in 11.1.2 Service data request section][create-service-service-request]
+destination_address | [Documented in 11.1.2 Service data request section][create-service-service-request]
 
 
-### 10.3.4 Service attributes response (active service)
+### 11.3.4 Service attributes response (active service)
 
 Attribute | Description
 --------- | -----------
 pk | The ID of traveller
-amount_str | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-is_company_travel | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-comment | [Documented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay | [Documented in 10.1.2 Service data request section][create-service-service-request]
-coupon | [Documented in 10.1.2 Service data request section][create-service-service-request]
-amount_with_coupon | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_cancellation | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_currency | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+amount_str | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+is_company_travel | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+comment | [Documented in 11.1.2 Service data request section][create-service-service-request]
+way_to_pay | [Documented in 11.1.2 Service data request section][create-service-service-request]
+coupon | [Documented in 11.1.2 Service data request section][create-service-service-request]
+amount_with_coupon | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_cancellation | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_currency | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+taxi_type | Type of taxi: conventional, six_seats, eco, electric_car, high_end, screen (deprecated to combat COVID) and adapted. 
 service\__zone\__time_zone | Time zone of current zone. E.g.: Europe / Madrid, Europe / Paris, Europe / Lisbon, Atlantic/Canary, etc
 type | It indicates that user has an active service
-count | [Documented in 10.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
+count | [Documented in 11.3.3 Service attributes response (pending vote) section][current-service-pending-vote-response]
 deferred | Undocumented field
 deferred_pk | Undocumented field
 cost_center | Undocumented field
@@ -647,39 +638,39 @@ taxi.plate | Taxi plate
 taxi.reputation_stars | Taxi reputation. A value from 0 to 5
 taxi.vehicle | Brand & model of taxi
 taxi.vehicle_type | Undocumented field
-reservation | [Documented in 10.1.2 Service data request section][create-service-service-request]
-state | [10.1.4 Service attributes response (service)][create-service-service-response]
-pickup_location | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date | [Documented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
-pickup_place_type | [10.1.4 Service attributes response (service)][create-service-service-response]
-updated_position | [10.1.4 Service attributes response (service)][create-service-service-response]
-destination_location | [Documented in 10.1.2 Service data request section][create-service-service-request] (destination)
-destination_address | [Documented in 10.1.2 Service data request section][create-service-service-request]
-taxi_pickup_date | [10.1.4 Service attributes response (service)][create-service-service-response]
-finish_date | [10.1.4 Service attributes response (service)][create-service-service-response]
+reservation | [Documented in 11.1.2 Service data request section][create-service-service-request]
+state | [11.1.4 Service attributes response (service)][create-service-service-response]
+pickup_location | [Documented in 11.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date | [Documented in 11.1.2 Service data request section][create-service-service-request]
+pickup_address | [Documented in 11.1.2 Service data request section][create-service-service-request]
+pickup_place_type | [11.1.4 Service attributes response (service)][create-service-service-response]
+updated_position | [11.1.4 Service attributes response (service)][create-service-service-response]
+destination_location | [Documented in 11.1.2 Service data request section][create-service-service-request] (destination)
+destination_address | [Documented in 11.1.2 Service data request section][create-service-service-request]
+taxi_pickup_date | [11.1.4 Service attributes response (service)][create-service-service-response]
+finish_date | [11.1.4 Service attributes response (service)][create-service-service-response]
 extra_info | A message for the passenger. E.g.: "Personalized welcome with a sign at the exit of the flight"
 arrival_taxi_date | In some zones, we do not know the coords of the taxi. So, we will estimate an arrival taxi date
 vehicle_type | Undocumented field
-rate_type | Undocumented field
+rate_type | [Documented in 10.3 Rate attributes response section][rate-respomnse]
 rate_data | Undocumented field
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields and configurations
 </aside>
 
-### 10.3.5 Status code
+### 11.3.5 Status code
 
 Status Code | Meaning
 ---------- | -------
 200 | Ok
 
 
-## 10.4 Services
+## 11.4 Services
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/" \
-   -H "Authorization: beep-beep-beep-beep-beep" \
+   -H "Authorization: JWT beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
    -H "Impersonate: EMAIL_PASSENGER"
 ```
@@ -687,7 +678,7 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -710,7 +701,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -798,13 +789,13 @@ class Main {
 
 > In addition to these fields there are undocumented employee/company fields
 
-### 10.4.1 HTTP Request
+### 11.4.1 HTTP Request
 
 `GET https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/`
 
 This endpoint returns a paginated list of services of an user. This endpoint has parameters to filter the result or order it.
 
-### 10.4.2 URL Parameters
+### 11.4.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -813,7 +804,7 @@ service\__pickup_date\__lte | You can filter by pickup date. Less or equal than 
 service\__pickup_date\__gte | You can filter by pickup date. Great or equal than a value in UTC
 ordering | You can order by: service\__state, service\__pickup_date, -service\__state, -service\__pickup_date
 
-### 10.4.3 Service attributes response (traveller)
+### 11.4.3 Service attributes response (traveller)
 
 <aside class="notice">
 In addition to these fields there are undocumented employee/company fields
@@ -823,18 +814,18 @@ In addition to these fields there are undocumented employee/company fields
 Attribute | Description
 --------- | -----------
 pk        | Traveller id
-amount_str| [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-is_company_travel        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-comment        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-way_to_pay        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-coupon        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-amount_with_coupon        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_cancellation        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-amount_currency        | [Documented in 10.1.3 Service attributes response (traveller) section][create-service-traveller-response]
-service\__zone\__time_zone | [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
+amount_str| [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+is_company_travel        | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+comment        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+way_to_pay        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+coupon        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+amount_with_coupon        | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_cancellation        | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+amount_currency        | [Documented in 11.1.3 Service attributes response (traveller) section][create-service-traveller-response]
+service\__zone\__time_zone | [Documented in 11.3.4 Service attributes response (active service) section][current-service-active-response]
 relaunched | Traveller id of the new relaunched traveller
 finished_from_cancelled_passenger | This service was cancelled by passenger, but this service has cancellation amount, so its state is finished
-taxi_type | [Documented in 10.1.2 Service data request section][create-service-service-request] (rate_data.taxi_type)
+taxi_type | [Documented in 11.3.4 Service attributes response (active service) section][current-service-active-response]
 company_extra_fields | Undocumented field
 credit_card | Undocumented field
 cost_center        | Undocumented field
@@ -846,30 +837,30 @@ extra_text_2        | Undocumented field
 extra_text_3        | Undocumented field
 
 
-### 10.4.4 Service attributes response (service)
+### 11.4.4 Service attributes response (service)
 
 Attribute | Description
 --------- | -----------
 pk        | Service id
-taxi      | Taxi data [Documented in 10.3.4 Service attributes response (active service) section][current-service-active-response]
-state        | [10.1.4 Service attributes response (service)][create-service-service-response]
-pickup_location        | [Documented in 10.1.2 Service data request section][create-service-service-request] (pickup)
-pickup_date        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-pickup_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-pickup_place_type        |  [10.1.4 Service attributes response (service)][create-service-service-response]
-updated_position        | [10.1.4 Service attributes response (service)][create-service-service-response]
-destination_location        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-destination_address        | [Documented in 10.1.2 Service data request section][create-service-service-request]
-taxi_pickup_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
-finish_date        | [10.1.4 Service attributes response (service)][create-service-service-response]
-flight_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
-flight_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
-train_number | [Documented in 10.1.2 Service data request section][create-service-service-request]
-train_origin | [Documented in 10.1.2 Service data request section][create-service-service-request]
+taxi      | Taxi data [Documented in 11.3.4 Service attributes response (active service) section][current-service-active-response]
+state        | [11.1.4 Service attributes response (service)][create-service-service-response]
+pickup_location        | [Documented in 11.1.2 Service data request section][create-service-service-request] (pickup)
+pickup_date        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+pickup_address        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+pickup_place_type        |  [11.1.4 Service attributes response (service)][create-service-service-response]
+updated_position        | [11.1.4 Service attributes response (service)][create-service-service-response]
+destination_location        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+destination_address        | [Documented in 11.1.2 Service data request section][create-service-service-request]
+taxi_pickup_date        | [11.1.4 Service attributes response (service)][create-service-service-response]
+finish_date        | [11.1.4 Service attributes response (service)][create-service-service-response]
+flight_number | [Documented in 11.1.2 Service data request section][create-service-service-request]
+flight_origin | [Documented in 11.1.2 Service data request section][create-service-service-request]
+train_number | [Documented in 11.1.2 Service data request section][create-service-service-request]
+train_origin | [Documented in 11.1.2 Service data request section][create-service-service-request]
 relaunched | Service id of the new relaunched service
 test_service | Undocumented field
 vehicle_type        | Undocumented field
-rate_type        | Undocumented field
+rate_type        | [Documented in 10.3 Rate attributes response section][rate-respomnse]
 rate_data        | Undocumented field
 distance | distance traveled in meters
 co2_equivalent | CO2 equivalent = Kg CO2 emitted + a conversion of Kg N2O emitted in Kg CO2 + a conversion of Kg CH4 emitted in Kg CO2.
@@ -877,18 +868,18 @@ co2_emitted | Kg CO2 emitted in the service
 n2o_emitted | Kg N2O emitted in the service
 ch4_emitted | Kg CH4 emitted in the service
 
-### 10.4.5 Status code
+### 11.4.5 Status code
 
 Status Code | Meaning
 ---------- | -------
 200 | Ok
 
 
-## 10.5 Cancel
+## 11.5 Cancel
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/" \
-   -H "Authorization: beep-beep-beep-beep-beep" \
+   -H "Authorization: JWT beep-beep-beep-beep-beep" \
    -H "Content-Type: application/json" \
    -H "Impersonate: EMAIL_PASSENGER" \
    -X PUT 
@@ -897,7 +888,7 @@ curl "https://api.joinupbackend/api/corporative-documentacion/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -920,7 +911,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("PUT");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -946,26 +937,26 @@ class Main {
 ```
 
 
-### 10.5.1 HTTP Request
+### 11.5.1 HTTP Request
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/cancel/<ID>/`
 
 This endpoint cancels a service.
 
-### 10.5.2 URL Parameters
+### 11.5.2 URL Parameters
 
 Parameter | Description
 --------- | -----------
 ID | The ID of traveller
 
-### 10.5.3 Attributes response
+### 11.5.3 Attributes response
 
 Attribute | Description
 --------- | -----------
 cost_cancellation | Has this cancellation cost cancellation?
 amount_cancellation | How much is the cancellation cost?
 
-### 10.5.4 Status code
+### 11.5.4 Status code
 
 Status Code | Meaning
 ---------- | -------
@@ -973,13 +964,13 @@ Status Code | Meaning
 404 | Not found
 
 
-## 10.6 Vote
+## 11.6 Vote
 
 This endpoint allows users to vote. Depends on [configuration provider][config]
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/<ID>/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER" \
   -X PUT \
@@ -992,7 +983,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -1021,7 +1012,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("PUT");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -1048,12 +1039,12 @@ class Main {
 }
 ```
 
-### 10.6.1 HTTP Request
+### 11.6.1 HTTP Request
 
 `PUT "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/services/vote/<ID>/`
 
 
-### 10.6.1 Vote data request
+### 11.6.1 Vote data request
 
 Attribute | Description  | Required
 --------- | -----------  | ---------
@@ -1061,20 +1052,20 @@ vote | Options: up, down, nothing |    True
 comment | Add any info about your vote, specially for down vote |  False
 
 
-### 10.6.2 Vote attribute response
+### 11.6.2 Vote attribute response
 
 Attribute | Description
 --------- | -----------
 ask_app_vote | Undocumented field
 
-### 10.6.3 Status code
+### 11.6.3 Status code
 
 Status Code | Meaning
 ---------- | -------
 200 | Ok
 404 | Not found
 
-## 10.7 Service Status
+## 11.7 Service Status
 
 Status  | Name                        | Type          | Meaning
 ------  | --------------------------- |---------------|-----------
@@ -1095,10 +1086,12 @@ Status  | Name                        | Type          | Meaning
 
 <!-- Link section -->
   [config]: ./#4-configuration-provider
-  [create-service-service-request]:  ./#10-1-2-service-data-request
-  [create-service-traveller-response]: ./#10-1-3-service-attributes-response-traveller
-  [create-service-service-response]: ./#10-1-4-service-attributes-response-service
-  [current-service-pending-vote-response]: ./#10-3-3-service-attributes-response-pending-vote
-  [current-service-active-response]: ./#10-3-4-service-attributes-response-active-service
-  [service-status]:  ./#10-7-service-status
-  [places]: ./#11-places
+  [create-service-service-request]:  ./#11-1-2-service-data-request
+  [create-service-traveller-response]: ./#11-1-3-service-attributes-response-traveller
+  [create-service-service-response]: ./#11-1-4-service-attributes-response-service
+  [current-service-pending-vote-response]: ./#11-3-3-service-attributes-response-pending-vote
+  [current-service-active-response]: ./#11-3-4-service-attributes-response-active-service
+  [service-status]:  ./#11-7-service-status
+  [places]: ./#12-places
+  [rate]: ./#10-rate
+  [rate-respomnse]: ./#10-3-rate-attributes-response

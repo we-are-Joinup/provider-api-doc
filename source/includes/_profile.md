@@ -4,7 +4,7 @@
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER"
 ```
@@ -12,7 +12,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -35,7 +35,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -86,7 +86,7 @@ class Main {
 
 ### 8.1.1 HTTP Request
 
-`Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/signup/`
+`Get https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/`
 
 This endpoint gets the passenger profile. If you want to use only [a generic user][server2server] you should do not use this endpoint
 
@@ -143,7 +143,7 @@ Status Code | Meaning
 
 ```shell
 curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLATFORM/VERSION/profile/" \
-  -H "Authorization: beep-beep-beep-beep-beep" \
+  -H "Authorization: JWT beep-beep-beep-beep-beep" \
   -H "Content-Type: application/json" \
   -H "Impersonate: EMAIL_PASSENGER" \
   -X PUT \
@@ -160,7 +160,7 @@ curl "https://api.joinupbackend/api/corporative-PROVIDER-SLUG/apps/passenger/PLA
 import requests
 
 headers = {
-    'Authorization': 'beep-beep-beep-beep-beep',
+    'Authorization': 'JWT beep-beep-beep-beep-beep',
     'Content-Type': 'application/json',
     'Impersonate': 'EMAIL_PASSENGER',
 }
@@ -193,7 +193,7 @@ class Main {
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("PUT");
 
-		httpConn.setRequestProperty("Authorization", "beep-beep-beep-beep-beep");
+		httpConn.setRequestProperty("Authorization", "JWT beep-beep-beep-beep-beep");
 		httpConn.setRequestProperty("Content-Type", "application/json");
 		httpConn.setRequestProperty("Impersonate", "EMAIL_PASSENGER");
 
@@ -251,4 +251,4 @@ Status Code | Meaning
 
 <!-- Link section -->
   [server2server]:    ./#2-2-server-to-server
-  [create-service]:  ./#10-1-create-service
+  [create-service]:  ./#11-1-create-service

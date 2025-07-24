@@ -1,4 +1,4 @@
-# 13. Push notifications
+# 14. Push notifications
 
 > It is the only part of the provider integration ad-hoc. But it could be an example
 
@@ -77,4 +77,4 @@ Event   | Final time                  | Type          | Meaning
 
 
 <!-- Link section -->
-  [service-status]:  ./#10-7-service-status
+  [service-status]:  ./#11-7-service-status
